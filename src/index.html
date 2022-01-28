@@ -18,18 +18,41 @@
     />
   </head>
   <body>
-    <!-- <form class="search-form" id="search-form">
-      <fieldset>
-        <input
-          class="user-input"
-          type="text"
-          name="searchQuery"
-          autocomplete="off"
-          placeholder="Search movies..."
-        />
-        <button class="search-btn" type="submit">Search</button>
-      </fieldset>
-    </form> -->
+
+    <header class="header">
+      <div class="nav_section">
+        <a href="./index.html" class="logo-header link">
+          <svg class="logo_svg" width="24" height="24">
+            <use href="./images/sprite.svg#icon-film"></use>
+          </svg>
+          <span class="logo_text">Filmoteka</span>
+        </a>
+        <nav class="navigation">
+          <ul class="menu list">
+            <li class="menu_item">
+              <a href="" class="menu_link home-link link current">Home</a>
+            </li>
+            <li class="menu_item">
+              <a href="" class="menu_link library-link link">MY LIBRARY</a>
+          </ul>
+        </nav>
+      </div>
+
+      <form id="search-form" class="search">
+        <input class="search_input" type="text" placeholder="Search a movie"/>
+        <button class="search_button" type="submit">
+          <svg class="search_button-icon" width="12" height="12">
+            <use href="./images/sprite.svg#icon-search"></use>
+          </svg>
+        </button>
+      </form>
+
+      <div class="btn-section is-hidden">
+        <button class="btn btn-watched">Watched</button>
+        <button class="btn btn-queue">Queue</button>
+      </div>
+
+    </header>
 
     <div class="container">
       <div class="gallery"></div>
