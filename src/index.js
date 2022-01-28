@@ -1,6 +1,7 @@
 import './sass/main.scss';
 import MoviesApi from './js/api-requests';
 import { moviesMarkUp } from './js/movies-grid';
+import './js/library-page'; 
 
 const movies = new MoviesApi();
 
