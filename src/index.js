@@ -1,24 +1,29 @@
 import './sass/main.scss';
+import getRefs from './js/get-refs';
+import onLoadPage from './js/onStart';
 import MoviesApi from './js/api-requests';
-import { moviesMarkUp } from './js/movies-grid';
+import './js/library-page';
+import moviesMarkUp from './js/movies-grid';
+import pageSwitcher from './js/page-switcher';
 
 const movies = new MoviesApi();
+const refs = getRefs();
 
-const form = document.querySelector('.search-form');
-const gallery = document.querySelector('.gallery');
-
-form.addEventListener('submit', onFormSubmit);
+refs.form.addEventListener('submit', onFormSubmit);
+console.log(refs.form);
 
 function onFormSubmit(e) {
   e.preventDefault();
   const {
     elements: { searchQuery },
   } = e.currentTarget;
-  gallery.innerHTML = '';
+  refs.gallery.innerHTML = '';
   movies.query = searchQuery.value;
+
   movies.resetPage();
-  movies.getPopularMovies().then(response => {
-    console.log(response.data.results);
+  movies.getSearchMovies().then(response => {
     moviesMarkUp(response.data.results);
   });
 }
+
+onLoadPage();
