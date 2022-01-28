@@ -3,6 +3,7 @@ import getRefs from './js/get-refs';
 import onLoadPage from './js/onStart';
 import MoviesApi from './js/api-requests';
 import moviesMarkUp from './js/movies-grid';
+import pageSwitcher from './js/page-switcher';
 
 const movies = new MoviesApi();
 const refs = getRefs();
