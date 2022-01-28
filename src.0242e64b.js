@@ -69,4 +69,4 @@ module.exports=require("./lib/axios");
 },{}],"Focm":[function(require,module,exports) {
 "use strict";require("./sass/main.scss");var e=s(require("./js/api-requests")),r=require("./js/movies-grid");function s(e){return e&&e.__esModule?e:{default:e}}const t=new e.default,u=document.querySelector(".search-form"),a=document.querySelector(".gallery");function n(e){e.preventDefault();const{elements:{searchQuery:s}}=e.currentTarget;a.innerHTML="",t.query=s.value,t.resetPage(),t.getPopularMovies().then(e=>{console.log(e.data.results),(0,r.moviesMarkUp)(e.data.results)})}u.addEventListener("submit",n);
 },{"./sass/main.scss":"clu1","./js/api-requests":"unYu","./js/movies-grid":"t9LP"}]},{},["Focm"], null)
-//# sourceMappingURL=/Filmoteka/src.a96042c4.js.map
+//# sourceMappingURL=/Filmoteka/src.0242e64b.js.map
