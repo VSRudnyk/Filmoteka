@@ -79,8 +79,8 @@ module.exports={genres:[{id:28,name:"Action"},{id:12,name:"Adventure"},{id:16,na
 },{"./get-refs":"EGsz","../js/api-requests":"unYu","../js/movies-grid":"t9LP","../js/modal-movie-details":"dMVB"}],"xE66":[function(require,module,exports) {
 const e=document.querySelector(".library-link");function r(e){e.preventDefault(),document.querySelector(".search-form").classList.add("is-hidden"),document.querySelector(".btn-section").classList.remove("is-hidden"),document.querySelector(".btn-section").classList.add("btn-list"),document.querySelector(".home-link").classList.remove("current"),document.querySelector(".library-link").classList.add("current"),document.querySelector(".header").classList.remove("header"),document.querySelector("header").classList.add("header-library")}e.addEventListener("click",r);
 },{}],"NFa6":[function(require,module,exports) {
-
+const e={libraryBtnEl:document.querySelector(".library-link"),galleryEl:document.querySelector(".gallery")};function l(l){e.galleryEl.innerHTML=l}e.libraryBtnEl.addEventListener("click",()=>{l("<p>There may be library</p>")});
 },{}],"Focm":[function(require,module,exports) {
 "use strict";require("./sass/main.scss");var e=a(require("./js/get-refs")),r=a(require("./js/onStart")),s=a(require("./js/api-requests"));require("./js/library-page");var t=a(require("./js/movies-grid")),u=a(require("./js/page-switcher"));function a(e){return e&&e.__esModule?e:{default:e}}const i=new s.default,n=(0,e.default)();function l(e){e.preventDefault();const{elements:{searchQuery:r}}=e.currentTarget;n.gallery.innerHTML="",i.query=r.value,i.resetPage(),i.getSearchMovies().then(e=>{(0,t.default)(e.data.results)})}n.form.addEventListener("submit",l),console.log(n.form),(0,r.default)();
 },{"./sass/main.scss":"clu1","./js/get-refs":"EGsz","./js/onStart":"zkgv","./js/api-requests":"unYu","./js/library-page":"xE66","./js/movies-grid":"t9LP","./js/page-switcher":"NFa6"}]},{},["Focm"], null)
-//# sourceMappingURL=/Filmoteka/src.61ea44e6.js.map
+//# sourceMappingURL=/Filmoteka/src.813a28ad.js.map
