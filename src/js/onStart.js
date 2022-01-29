@@ -2,6 +2,7 @@ import getRefs from './get-refs';
 import MoviesApi from '../js/api-requests';
 import moviesMarkUp from '../js/movies-grid';
 import movieDetailMarkUp from '../js/modal-movie-details';
+import * as basicLightbox from 'basiclightbox';
 
 const movies = new MoviesApi();
 const refs = getRefs();
@@ -30,3 +31,7 @@ function getIdFromCards() {
     onSearchMovieById();
   });
 }
+
+// function clearModalContainer() {
+//   refs.gallery.innerHTML = '';
+// }
