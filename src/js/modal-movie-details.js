@@ -72,9 +72,9 @@ export default function movieDetailMarkUp(data) {
   }
   if (queue.findIndex(obj => obj.id === data.id) !== -1) {
     btnQueueRender =
-      '<button type="button" class="button-add queue pressed">remove on Watched</button>';
+      '<button type="button" class="button-add queue pressed">remove on queue</button>';
   } else {
-    btnQueueRender = '<button type="button" class="button-add queue">add to Watched</button>';
+    btnQueueRender = '<button type="button" class="button-add queue">add to queue</button>';
   }
   const instance = basicLightbox.create(
     `
