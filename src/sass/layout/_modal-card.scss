@@ -152,8 +152,12 @@
 .button-add {
   width: 136px;
   height: 44px;
+  border: 1px solid #000000;
   border-radius: 5px;
   margin-top: 21px;
+  background-color: transparent;
+  text-transform: uppercase;
+  font-size: 12px;
   @media screen and (min-width: 1200px) {
     margin-right: 15px;
   }
@@ -163,7 +167,6 @@
   width: 136px;
   height: 44px;
   background: #ff6b01;
-  border-radius: 5px;
   border: none;
   color: #ffffff;
 }
@@ -194,4 +197,11 @@
 }
 .movie-poster {
   width: 100%;
+}
+
+.pressed {
+  font-size: 10px;
+  background-color: #f1a066;
+  border: none;
+  color: #ffffff;
 }

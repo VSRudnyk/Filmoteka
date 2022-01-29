@@ -11,6 +11,10 @@ import '../../node_modules/basiclightbox/src/styles/main.scss';
 // `);
 // instance.show();
 const refs = getRefs();
+let watched = [];
+const queue = [];
+let btnWatchedRender = '';
+let btnQueueRender = '';
 
 export default function movieDetailMarkUp(data) {
   const {
@@ -59,6 +63,19 @@ export default function movieDetailMarkUp(data) {
   //   return refs.gallery.insertAdjacentHTML('afterbegin', markUp);
   // }
 
+  if (watched.findIndex(obj => obj.id === data.id) !== -1) {
+    btnWatchedRender =
+      '<button type="button" class="button-add wathed active pressed">remove on Watched</button>';
+  } else {
+    btnWatchedRender =
+      '<button type="button" class="button-add wathed active">add to Watched</button>';
+  }
+  if (queue.findIndex(obj => obj.id === data.id) !== -1) {
+    btnQueueRender =
+      '<button type="button" class="button-add queue pressed">remove on Watched</button>';
+  } else {
+    btnQueueRender = '<button type="button" class="button-add queue">add to Watched</button>';
+  }
   const instance = basicLightbox.create(
     `
     <div class="modal modal-container">
@@ -86,8 +103,8 @@ export default function movieDetailMarkUp(data) {
             </ul>
             <h3 class="modal-about">ABOUT</h3>
             <p class="modal-info-about">${overview}</p>
-      <button type="button" class="button-add active">add to Watched</button>
-      <button type="button" class="button-add">add to queue</button>
+      ${btnWatchedRender}
+      ${btnQueueRender}
         </div>
       </div>
     </div>
@@ -99,5 +116,43 @@ export default function movieDetailMarkUp(data) {
     },
   );
   instance.show();
+
+  const btnAddWatched = document.querySelector('.wathed');
+  const btnAddQueue = document.querySelector('.queue');
+
+  btnAddWatched.addEventListener('click', e => {
+    if (e.target.classList.contains('pressed')) {
+      e.target.classList.remove('pressed');
+      e.target.textContent = 'add to watched';
+      watched.splice(
+        watched.findIndex(obj => obj.id === data.id),
+        1,
+      );
+      localStorage.setItem('watched', JSON.stringify(watched));
+    } else {
+      e.target.classList.add('pressed');
+      e.target.textContent = 'remove on watched';
+      watched.push(data);
+      localStorage.setItem('watched', JSON.stringify(watched));
+    }
+  });
+
+  btnAddQueue.addEventListener('click', e => {
+    if (e.target.classList.contains('pressed')) {
+      e.target.classList.remove('pressed');
+      e.target.textContent = 'add to queue';
+      queue.splice(
+        queue.findIndex(obj => obj.id === data.id),
+        1,
+      );
+      localStorage.setItem('queue', JSON.stringify(queue));
+    } else {
+      e.target.classList.add('pressed');
+      e.target.textContent = 'remove on queue';
+      queue.push(data);
+      localStorage.setItem('queue', JSON.stringify(queue));
+    }
+  });
+
   return refs.gallery.insertAdjacentHTML('afterbegin', markUp);
 }
