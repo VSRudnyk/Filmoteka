@@ -1,17 +1,18 @@
-const libraryPage = document.querySelector('.library-link');
+import getRefs from '../js/get-refs';
+const refs = getRefs();
 
-libraryPage.addEventListener('click', renderLibraryHeader);
+refs.libraryPage.addEventListener('click', renderLibraryHeader);
 
 function renderLibraryHeader(e) {
     e.preventDefault();
 
-  document.querySelector('.search-form').classList.add('is-hidden');
-  document.querySelector('.btn-section').classList.remove('is-hidden');
-  document.querySelector('.btn-section').classList.add('btn-list');
-  document.querySelector('.home-link').classList.remove('current');
-  document.querySelector('.library-link').classList.add('current');
-  document.querySelector('.header').classList.remove('header');
-  document.querySelector('header').classList.add('header-library');
+  refs.form.classList.add('is-hidden');
+  refs.btnSectionInLibrary.classList.remove('is-hidden');
+  refs.btnSectionInLibrary.classList.add('btn-list');
+  refs.homePage.classList.remove('current');
+  refs.libraryPage.classList.add('current');
+  refs.headerByClass.classList.remove('header');
+  refs.headerByTeg.classList.add('header-library');
 }
 
 
