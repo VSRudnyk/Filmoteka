@@ -10,7 +10,6 @@ const movies = new MoviesApi();
 const refs = getRefs();
 
 refs.form.addEventListener('submit', onFormSubmit);
-console.log(refs.form);
 
 function onFormSubmit(e) {
   e.preventDefault();

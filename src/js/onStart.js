@@ -19,7 +19,6 @@ export default function onStart() {
 
 function onSearchMovieById() {
   movies.getMoviesById().then(response => {
-    console.log(response.data);
     movieDetailMarkUp(response.data); // Модалка полной информации о фильме
   });
 }

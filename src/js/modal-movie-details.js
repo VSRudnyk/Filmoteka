@@ -154,5 +154,5 @@ export default function movieDetailMarkUp(data) {
     }
   });
 
-  return refs.gallery.insertAdjacentHTML('afterbegin', markUp);
+  // return refs.gallery.insertAdjacentHTML('afterbegin', markUp);
 }
