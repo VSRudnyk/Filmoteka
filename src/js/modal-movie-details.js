@@ -28,40 +28,6 @@ export default function movieDetailMarkUp(data) {
     overview,
   } = data;
   const allGenres = genres.map(genre => genre.name).join(', ');
-  //   const markUp = `
-  //       <div class="modal-container">
-  //         <button type="button" class="btn-close"> X
-  //           <!-- <svg class="modal__button-icon" width="14" height="14">
-  //           <use href="./images/close.svg"></use>
-  //           </svg> -->
-  //         </button>
-  //         <div class="modal-card">
-  //           <div class="modal-image">
-  //             <img src="https://image.tmdb.org/t/p/w300${poster_path}" alt="movie-poster" class="movie-poster" />
-  //           </div>
-  //           <div class="modal-info">
-  //             <h2 class="modal-info-title">${title}</h2>
-  //               <ul class="modal-info-list">
-  //                <li class="modal-info-item">Vote / Votes
-  //                <span class="modal-info-data">${vote_average} / ${vote_count}</span>
-  //                </li>
-  //                <li class="modal-info-item">Popularity
-  //                <span class="modal-info-data">${popularity}</span></li>
-  //                <li class="modal-info-item">Original Title
-  //                <span class="modal-info-data">${original_title}</span></li>
-  //                <li class="modal-info-item">Genre
-  //                <span class="modal-info-data">${allGenres}</span></li>
-  //               </ul>
-  //               <h3 class="modal-about">ABOUT</h3>
-  //               <p class="modal-info-about">${overview}</p>
-  //         <button type="button" class="button-add active">add to Watched</button>
-  //         <button type="button" class="button-add">add to queue</button>
-  //           </div>
-  //         </div>
-  //       </div>
-  //     `;
-  //   return refs.gallery.insertAdjacentHTML('afterbegin', markUp);
-  // }
 
   if (watched.findIndex(obj => obj.id === data.id) !== -1) {
     btnWatchedRender =
@@ -79,28 +45,36 @@ export default function movieDetailMarkUp(data) {
   const instance = basicLightbox.create(
     `
     <div class="modal modal-container">
-      <button type="button" class="btn-close"> X
-        <!-- <svg class="modal__button-icon" width="14" height="14">
-        <use href="./images/close.svg"></use>
-        </svg> -->
-      </button>
-      <div class="modal-card">
+           <button type="button" class="btn-close">
+            <!-- <svg class="modal__button-icon" width="14" height="14"> -->
+                <!-- <use href="./images/sprite.svg#icon-close"></use> -->
+             <!-- </svg> -->
+              X
+           </button>
+           <div class="modal-card">
         <div class="modal-image">
           <img src="https://image.tmdb.org/t/p/w300${poster_path}" alt="movie-poster" class="movie-poster" />
         </div>
         <div class="modal-info">
           <h2 class="modal-info-title">${title}</h2>
-            <ul class="modal-info-list">
-             <li class="modal-info-item">Vote / Votes
-             <span class="modal-info-data">${vote_average} / ${vote_count}</span>
-             </li>
-             <li class="modal-info-item">Popularity
-             <span class="modal-info-data">${popularity}</span></li>
-             <li class="modal-info-item">Original Title
-             <span class="modal-info-data">${original_title}</span></li>
-             <li class="modal-info-item">Genre
-             <span class="modal-info-data">${allGenres}</span></li>
-            </ul>
+           <table>
+        <tr>
+          <th class="info-table-td">Vote / Votes</td>
+          <td> <span class="info-table-vote_average">${vote_average}</span>    /   <span class="info-table-vote_average"> ${vote_count} </span></td>
+        </tr>
+        <tr>
+          <th class="info-table-td">Popularity</td>
+          <td>${popularity}</td>
+        </tr>
+        <tr>
+          <th class="info-table-td">Original Title</td>
+          <td class="info-table-original_title" valign="bottom">${original_title}</td>
+        </tr>
+        <tr>
+          <th class="info-table-td">Genre</td>
+          <td>${allGenres}</td>
+        </tr>
+      </table>
             <h3 class="modal-about">ABOUT</h3>
             <p class="modal-info-about">${overview}</p>
       ${btnWatchedRender}
