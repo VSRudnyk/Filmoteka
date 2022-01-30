@@ -21,6 +21,7 @@ function onFormSubmit(e) {
 
   movies.resetPage();
   movies.getSearchMovies().then(response => {
+    console.log(response.data.results);
     moviesMarkUp(response.data.results);
   });
 }

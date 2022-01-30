@@ -5,7 +5,7 @@ const refs = getRefs();
 
 export default function moviesMarkUp(data) {
   const markUp = data
-    .map(({ poster_path, title, genre_ids, release_date, id }) => {
+    .map(({ poster_path, title, genre_ids, release_date, id, vote_average: rating }) => {
       const genresToCards = createGenresText(genre_ids);
       return `
       <div class="movie-card">
@@ -21,6 +21,7 @@ export default function moviesMarkUp(data) {
               <span class="movie-genres">${genresToCards}</span>
               <div class="movie-year-wrapper">
                 <span class="movie-years">${setReleaseDate(release_date)}</span>
+                <span class="movie-rating">${rating}</span>
               </div>
             </div>
         </div>
@@ -34,7 +35,7 @@ export default function moviesMarkUp(data) {
 
 function setPoster(poster) {
   if (poster === null) {
-    return 'http://localhost:1234/no-poster-available.3d1fe546.jpeg';
+    return 'https://wipfilms.net/wp-content/data/posters/tt0338683.jpg';
   }
 
   return `https://image.tmdb.org/t/p/w500${poster}`;
