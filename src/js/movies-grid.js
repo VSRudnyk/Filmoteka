@@ -34,7 +34,7 @@ export default function moviesMarkUp(data) {
 
 function setPoster(poster) {
   if (poster === null) {
-    return 'https://wipfilms.net/wp-content/data/posters/tt0338683.jpg';
+    return 'http://localhost:1234/no-poster-available.3d1fe546.jpeg';
   }
 
   return `https://image.tmdb.org/t/p/w500${poster}`;
