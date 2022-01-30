@@ -13,9 +13,13 @@ export default function moviesMarkUp(data) {
         <a class="movie-link">
         <img src="https://image.tmdb.org/t/p/w500${poster_path}" alt="" class="movie-poster" data-id="${id}"/>
         <div class="movie-info">
-            <p class="movie-title">${title}</p>
-        <span class="movie-genres">${genresToCards}</span>
-        <span class="movie-years">${year}</span>
+            <p class="movie-title">${title.toUpperCase()}</p>
+            <div class="movie-genres-year-wrapper">
+              <span class="movie-genres">${genresToCards}</span>
+              <div class="movie-year-wrapper">
+                <span class="movie-years">${year}</span>
+              </div>
+            </div>
         </div>
         </a>
       </div>`;
