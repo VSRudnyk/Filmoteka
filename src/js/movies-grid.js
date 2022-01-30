@@ -10,7 +10,11 @@ export default function moviesMarkUp(data) {
       return `
       <div class="movie-card">
         <a class="movie-link">
-        <img src="${setPoster(poster_path)}" alt="" class="movie-poster" data-id="${id}"/>
+        <div class="movie-poster-wrapper">
+          <img src="${setPoster(
+            poster_path,
+          )}" alt="" class="movie-card-img movie-poster" data-id="${id}"/>
+        </div>
         <div class="movie-info">
             <p class="movie-title">${title.toUpperCase()}</p>
             <div class="movie-genres-year-wrapper">
