@@ -5,7 +5,7 @@ const refs = getRefs();
 
 export default function moviesMarkUp(data) {
   const markUp = data
-    .map(({ poster_path, title, genre_ids, release_date, id }) => {
+    .map(({ poster_path, title, genre_ids, release_date, id, vote_average: rating }) => {
       const genresToCards = createGenresText(genre_ids);
       return `
       <div class="movie-card">
@@ -21,6 +21,7 @@ export default function moviesMarkUp(data) {
               <span class="movie-genres">${genresToCards}</span>
               <div class="movie-year-wrapper">
                 <span class="movie-years">${setReleaseDate(release_date)}</span>
+                <span class="movie-rating">${rating}</span>
               </div>
             </div>
         </div>
