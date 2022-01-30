@@ -11,6 +11,9 @@ export default function createGenresText(genre_ids) {
   for (let genre of genresArray) {
     genresToCards.push(genre.name);
   }
+  if (genresToCards.length === 0) {
+    return 'No genres info';
+  }
   if (genresToCards.length < 2) {
     return genresToCards.join(', ');
   } else {

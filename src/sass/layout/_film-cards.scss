@@ -11,22 +11,38 @@
 .movie-card {
   text-decoration: none;
   $primary-text-color: #212121;
-
+  max-width: 280px;
+  max-height: 443px;
   margin: 15px;
   flex-basis: calc((100% - 2 * 15px) / 1);
 
   @media screen and (min-width: 768px) {
+    max-width: 293px;
+    max-height: 439px;
     flex-basis: calc((100% - 4 * 15px) / 2);
   }
 
   @media screen and (min-width: 1024px) {
+    max-width: 274px;
+    max-height: 440px;
     flex-basis: calc((100% - 6 * 15px) / 3);
+  }
+}
+.movie-poster-wrapper {
+  border-radius: 5px;
+  overflow: hidden;
+}
+.movie-card-img {
+  width: 100%;
+  max-height: 402px;
+  @media screen and(min-width: 768px) {
+    max-height: 398px;
   }
 }
 .movie-info {
   display: flex;
   flex-direction: column;
-  padding: 10px;
+  margin-top: 10px;
   @include font($lh: 14px);
 }
 .movie-title {
@@ -60,4 +76,5 @@
 
 .movie-link {
   cursor: pointer;
+  // background-image: url('../images/');
 }
