@@ -1,11 +1,12 @@
 .modal-container {
   @media screen and (min-width: 320px) {
+    position: relative;
     width: 100%;
     max-height: 100vh;
     // min-height: 581px;
+    margin: 20px;
     margin-left: auto;
     margin-right: auto;
-
     border: 1px solid #000000;
     overflow: auto;
   }
@@ -13,51 +14,39 @@
     width: 100%;
   }
   @media screen and (min-width: 1200px) {
-    position: relative;
-    // display: flex;
-
     width: 882px;
-    // height: 568px;
   }
 }
 .btn-close {
   @media screen and (min-width: 320px) {
     position: absolute;
-    top: 36px;
-    right: 20px;
-    width: 44px;
-    height: 44px;
-    border: 1px solid #ffffff;
-    background-color: transparent;
-    color: #ffffff;
-    cursor: pointer;
-  }
-  @media screen and (min-width: 768px) {
-    top: 37px;
-    right: 75px;
-  }
-
-  @media screen and (min-width: 1200px) {
     top: 10px;
     right: 10px;
     width: 30px;
     height: 30px;
-    border: none;
+    background-color: transparent;
     color: #000000;
+    border: none;
+    cursor: pointer;
     z-index: 9;
+    display: flex;
+    align-content: center;
+    justify-content: center;
+    align-items: center;
+    &:hover {
+      border: 5px solid #ff6b01;
+      border-radius: 50%;
+      background-color: #ff6b01;
+      color: #ffffff;
+    }
   }
-
-  //   background-color: #ffffff;
-  //   color: #ff6b01;
-  //   fill: #000000;
 }
 // .svg-image {
 //   fill: #000000;
 // }
-// .modal__button-icon {
-//   fill: #000000;
-// }
-
+.modal__button-icon {
+  fill: #000000;
+}
 .modal-info {
   @media screen and (min-width: 320px) {
     width: 100%;
@@ -86,42 +75,7 @@
     font-weight: 500;
     font-size: 30px;
     line-height: 35px;
-
     color: #000000;
-  }
-}
-.modal-info-item {
-  @media screen and (min-width: 320px) {
-    display: flex;
-    justify-content: space-between;
-
-    // width: 50%;
-    list-style-type: none;
-    font-family: Roboto;
-    font-style: normal;
-    font-weight: 500;
-    font-size: 12px;
-    line-height: 16px;
-    /* identical to box height, or 133% */
-    margin-bottom: 20px;
-    color: #8c8c8c;
-  }
-}
-.modal-info-data {
-  @media screen and (min-width: 320px) {
-    font-family: Roboto;
-    font-style: normal;
-    font-weight: 500;
-    font-size: 12px;
-    line-height: 16px;
-    /* identical to box height, or 133% */
-    display: flex;
-    align-items: center;
-    color: #000000;
-    // margin-left: 70px;
-  }
-  @media screen and (min-width: 1200px) {
-    margin-left: 85px;
   }
 }
 .modal-about {
@@ -171,8 +125,10 @@
   color: #ffffff;
 }
 .modal-card {
+  // position: relative;
   background-color: #fff;
-  padding: 20px;
+  padding: 48px 20px;
+
   @media screen and (min-width: 768px) {
     padding: 75px;
     display: flex;
@@ -181,6 +137,50 @@
     padding: 30px;
     position: relative;
   }
+}
+table {
+  table-layout: fixed;
+  width: 100%;
+}
+th {
+  font-family: Roboto;
+  font-style: normal;
+  font-weight: 500;
+  font-size: 12px;
+  line-height: 16px;
+  text-align: start;
+  /* identical to box height, or 133% */
+  color: #8c8c8c;
+}
+td {
+  font-family: Roboto;
+  font-style: normal;
+  font-weight: 500;
+  font-size: 12px;
+  line-height: 16px;
+  /* identical to box height, or 133% */
+  display: flex;
+  align-content: flex-end;
+  align-items: flex-end;
+  color: #000000;
+  padding-bottom: 10px;
+}
+.info-table-vote_average {
+  background-color: #f7f7f7;
+  color: #000000;
+  padding: 1px 10px;
+  width: auto;
+  height: 16px;
+  border-radius: 5px;
+  &:hover,
+  &:focus {
+    background-color: #ff6b01;
+    color: #ffffff;
+  }
+}
+
+.info-table-original_title {
+  text-transform: uppercase;
 }
 .modal-image {
   @media screen and (min-width: 320px) {
@@ -200,10 +200,44 @@
   height: auto;
   border-radius: 5px;
 }
-
 .pressed {
   font-size: 10px;
   background-color: #f1a066;
   border: none;
   color: #ffffff;
 }
+//===== стили для дива инфо через флекс (надо два дива)===========
+// .modal-info-item {
+//   @media screen and (min-width: 320px) {
+//     display: flex;
+//     justify-content: space-between;
+
+//     // width: 50%;
+//     list-style-type: none;
+//     font-family: Roboto;
+//     font-style: normal;
+//     font-weight: 500;
+//     font-size: 12px;
+//     line-height: 16px;
+//     /* identical to box height, or 133% */
+//     margin-bottom: 20px;
+//     color: #8c8c8c;
+//   }
+// }
+// .modal-info-data {
+//   @media screen and (min-width: 320px) {
+//     font-family: Roboto;
+//     font-style: normal;
+//     font-weight: 500;
+//     font-size: 12px;
+//     line-height: 16px;
+//     /* identical to box height, or 133% */
+//     display: flex;
+//     align-items: center;
+//     color: #000000;
+//     // margin-left: 70px;
+//   }
+//   @media screen and (min-width: 1200px) {
+//     margin-left: 85px;
+//   }
+// }
