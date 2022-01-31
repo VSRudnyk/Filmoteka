@@ -76,6 +76,9 @@
 }
 
 .menu_link {
+  padding: 10px 0;
+  cursor: pointer;
+
   font-weight: 500;
   font-size: 12px;
   font-style: normal;
@@ -87,26 +90,20 @@
 .current::after {
   content: '';
   position: absolute;
-  left: 0;
-  bottom: -7%;
+  left: 0px;
+  bottom: -1px;
 
   width: 34px;
   height: 3px;
-  border-radius: 2px;
 
   background-color: $secondary-text-color;
 }
 
 .library-link {
-  background: none;
-  border: none;
-  outline: none;
-
-  padding: 0;
   margin: 0 0 0 40px;
 }
 
-.search-form {
+.search-wrap {
   display: flex;
   justify-content: center;
 
@@ -245,7 +242,7 @@
 
   & .current::after {
     width: 69px;
-    left: 38px;
+    left: 40px;
   }
 }
 
@@ -318,5 +315,30 @@
     background-position: top;
     background-repeat: no-repeat;
     background-size: cover;
+  }
+}
+
+.search-list {
+  position: absolute;
+  top: 30px;
+  width: 100%;
+  background: #b1a67d;
+  box-shadow: 0 4px 6px #b1a67d;
+  border-radius: 0 0 10px 10px;
+  padding-left: 7px;
+  padding-bottom: 10px;
+  overflow: hidden;
+  text-align: left;
+  background-image: linear-gradient(45deg, $primary-text-color, transparent);
+}
+
+.search-item {
+  padding: 5px;
+  cursor: pointer;
+
+  &:hover,
+  :focus,
+  :active {
+    color: $secondary-text-color;
   }
 }
