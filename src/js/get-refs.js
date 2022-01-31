@@ -9,5 +9,8 @@ export default function getRefs() {
     homePage: document.querySelector('.home-link'),
     headerByClass: document.querySelector('.header'),
     headerByTeg: document.querySelector('header'),
+    search: document.querySelector('.search-list'),
+    searchItem: document.querySelector('.search-item'),
+    searchInput: document.querySelector('.search_input'),
   };
 }
