@@ -68,4 +68,10 @@ export default class MoviesApi {
   set id(newId) {
     this.movieId = newId;
   }
+  set page(newPage) {
+    this._page = newPage;
+  }
+  get page() {
+    return this._page;
+  }
 }

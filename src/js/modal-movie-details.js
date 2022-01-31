@@ -11,8 +11,10 @@ import '../../node_modules/basiclightbox/src/styles/main.scss';
 // `);
 // instance.show();
 const refs = getRefs();
-let watched = [];
-const queue = [];
+let watched = localStorage.getItem('watched')
+  ? [...JSON.parse(localStorage.getItem('watched'))]
+  : [];
+let queue = localStorage.getItem('queue') ? [...JSON.parse(localStorage.getItem('queue'))] : [];
 let btnWatchedRender = '';
 let btnQueueRender = '';
 
@@ -28,40 +30,6 @@ export default function movieDetailMarkUp(data) {
     overview,
   } = data;
   const allGenres = genres.map(genre => genre.name).join(', ');
-  //   const markUp = `
-  //       <div class="modal-container">
-  //         <button type="button" class="btn-close"> X
-  //           <!-- <svg class="modal__button-icon" width="14" height="14">
-  //           <use href="./images/close.svg"></use>
-  //           </svg> -->
-  //         </button>
-  //         <div class="modal-card">
-  //           <div class="modal-image">
-  //             <img src="https://image.tmdb.org/t/p/w300${poster_path}" alt="movie-poster" class="movie-poster" />
-  //           </div>
-  //           <div class="modal-info">
-  //             <h2 class="modal-info-title">${title}</h2>
-  //               <ul class="modal-info-list">
-  //                <li class="modal-info-item">Vote / Votes
-  //                <span class="modal-info-data">${vote_average} / ${vote_count}</span>
-  //                </li>
-  //                <li class="modal-info-item">Popularity
-  //                <span class="modal-info-data">${popularity}</span></li>
-  //                <li class="modal-info-item">Original Title
-  //                <span class="modal-info-data">${original_title}</span></li>
-  //                <li class="modal-info-item">Genre
-  //                <span class="modal-info-data">${allGenres}</span></li>
-  //               </ul>
-  //               <h3 class="modal-about">ABOUT</h3>
-  //               <p class="modal-info-about">${overview}</p>
-  //         <button type="button" class="button-add active">add to Watched</button>
-  //         <button type="button" class="button-add">add to queue</button>
-  //           </div>
-  //         </div>
-  //       </div>
-  //     `;
-  //   return refs.gallery.insertAdjacentHTML('afterbegin', markUp);
-  // }
 
   if (watched.findIndex(obj => obj.id === data.id) !== -1) {
     btnWatchedRender =
@@ -77,30 +45,34 @@ export default function movieDetailMarkUp(data) {
     btnQueueRender = '<button type="button" class="button-add queue">add to queue</button>';
   }
   const instance = basicLightbox.create(
-    `
-    <div class="modal modal-container">
-      <button type="button" class="btn-close"> X
-        <!-- <svg class="modal__button-icon" width="14" height="14">
-        <use href="./images/close.svg"></use>
-        </svg> -->
-      </button>
-      <div class="modal-card">
+    `<div class="modal modal-container"> 
+           <button type="button" class="btn-close">
+           <svg width="30" height="30" fill="none" xmlns="http://www.w3.org/2000/svg" style="position: absolute"><path d="m8 8 14 14M8 22 22 8" stroke="#000" stroke-width="2"/></svg>
+           </button>
+           <div class="modal-card">
         <div class="modal-image">
           <img src="https://image.tmdb.org/t/p/w300${poster_path}" alt="movie-poster" class="movie-poster" />
         </div>
         <div class="modal-info">
           <h2 class="modal-info-title">${title}</h2>
-            <ul class="modal-info-list">
-             <li class="modal-info-item">Vote / Votes
-             <span class="modal-info-data">${vote_average} / ${vote_count}</span>
-             </li>
-             <li class="modal-info-item">Popularity
-             <span class="modal-info-data">${popularity}</span></li>
-             <li class="modal-info-item">Original Title
-             <span class="modal-info-data">${original_title}</span></li>
-             <li class="modal-info-item">Genre
-             <span class="modal-info-data">${allGenres}</span></li>
-            </ul>
+           <table>
+        <tr>
+          <th class="info-table-td">Vote / Votes</td>
+          <td> <span class="info-table-vote_average">${vote_average}</span>    /   <span class="info-table-vote_average"> ${vote_count} </span></td>
+        </tr>
+        <tr>
+          <th class="info-table-td">Popularity</td>
+          <td>${popularity}</td>
+        </tr>
+        <tr>
+          <th class="info-table-td">Original Title</td>
+          <td class="info-table-original_title" valign="bottom">${original_title}</td>
+        </tr>
+        <tr>
+          <th class="info-table-td">Genre</td>
+          <td>${allGenres}</td>
+        </tr>
+      </table>
             <h3 class="modal-about">ABOUT</h3>
             <p class="modal-info-about">${overview}</p>
       ${btnWatchedRender}
@@ -154,5 +126,10 @@ export default function movieDetailMarkUp(data) {
     }
   });
 
+  // <svg class="modal__button-icon" width="14px" height="14px">
+  // <use href="../images/sprite.svg#icon-close"></use>
+  // </svg>
+  // <img src="../images/cross.svg" width="18" height="18" alt=""></img>
+  // {/* <svg path="../images/sprite.svg#icon-close" width="14px" height="14px"></svg>; */}
   // return refs.gallery.insertAdjacentHTML('afterbegin', markUp);
 }
