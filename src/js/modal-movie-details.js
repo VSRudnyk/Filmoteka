@@ -1,4 +1,9 @@
 import getRefs from '../js/get-refs';
+import {
+  onModalBtnWatchedLocalStorage,
+  onModalBtnQueueLocalStorage,
+} from './modal-btns-loca-storage';
+
 import * as basicLightbox from 'basiclightbox';
 import '../../node_modules/basiclightbox/src/styles/main.scss';
 // const instance = basicLightbox.create(`
@@ -31,19 +36,16 @@ export default function movieDetailMarkUp(data) {
   } = data;
   const allGenres = genres.map(genre => genre.name).join(', ');
 
-  if (watched.findIndex(obj => obj.id === data.id) !== -1) {
-    btnWatchedRender =
-      '<button type="button" class="button-add wathed active pressed">remove on Watched</button>';
-  } else {
-    btnWatchedRender =
-      '<button type="button" class="button-add wathed active">add to Watched</button>';
-  }
-  if (queue.findIndex(obj => obj.id === data.id) !== -1) {
-    btnQueueRender =
-      '<button type="button" class="button-add queue pressed">remove on queue</button>';
-  } else {
-    btnQueueRender = '<button type="button" class="button-add queue">add to queue</button>';
-  }
+  btnWatchedRender =
+    watched.findIndex(obj => obj.id === data.id) !== -1
+      ? '<button type="button" class="button-add wathed active pressed">remove on Watched</button>'
+      : '<button type="button" class="button-add wathed active">add to Watched</button>';
+
+  btnQueueRender =
+    queue.findIndex(obj => obj.id === data.id) !== -1
+      ? '<button type="button" class="button-add queue pressed">remove on queue</button>'
+      : '<button type="button" class="button-add queue">add to queue</button>';
+
   const instance = basicLightbox.create(
     `<div class="modal modal-container"> 
            <button type="button" class="btn-close">
@@ -92,39 +94,8 @@ export default function movieDetailMarkUp(data) {
   const btnAddWatched = document.querySelector('.wathed');
   const btnAddQueue = document.querySelector('.queue');
 
-  btnAddWatched.addEventListener('click', e => {
-    if (e.target.classList.contains('pressed')) {
-      e.target.classList.remove('pressed');
-      e.target.textContent = 'add to watched';
-      watched.splice(
-        watched.findIndex(obj => obj.id === data.id),
-        1,
-      );
-      localStorage.setItem('watched', JSON.stringify(watched));
-    } else {
-      e.target.classList.add('pressed');
-      e.target.textContent = 'remove on watched';
-      watched.push(data);
-      localStorage.setItem('watched', JSON.stringify(watched));
-    }
-  });
-
-  btnAddQueue.addEventListener('click', e => {
-    if (e.target.classList.contains('pressed')) {
-      e.target.classList.remove('pressed');
-      e.target.textContent = 'add to queue';
-      queue.splice(
-        queue.findIndex(obj => obj.id === data.id),
-        1,
-      );
-      localStorage.setItem('queue', JSON.stringify(queue));
-    } else {
-      e.target.classList.add('pressed');
-      e.target.textContent = 'remove on queue';
-      queue.push(data);
-      localStorage.setItem('queue', JSON.stringify(queue));
-    }
-  });
+  onModalBtnWatchedLocalStorage(btnAddWatched, data, watched);
+  onModalBtnQueueLocalStorage(btnAddQueue, data, queue);
 
   // <svg class="modal__button-icon" width="14px" height="14px">
   // <use href="../images/sprite.svg#icon-close"></use>
