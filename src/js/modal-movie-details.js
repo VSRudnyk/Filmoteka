@@ -11,8 +11,10 @@ import '../../node_modules/basiclightbox/src/styles/main.scss';
 // `);
 // instance.show();
 const refs = getRefs();
-let watched = [];
-const queue = [];
+let watched = localStorage.getItem('watched')
+  ? [...JSON.parse(localStorage.getItem('watched'))]
+  : [];
+let queue = localStorage.getItem('queue') ? [...JSON.parse(localStorage.getItem('queue'))] : [];
 let btnWatchedRender = '';
 let btnQueueRender = '';
 
