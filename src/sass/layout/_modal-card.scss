@@ -22,7 +22,7 @@
     right: 10px;
     width: 30px;
     height: 30px;
-    background-color: transparent;
+    background-color: $white-text-color;
     color: #000000;
     border: none;
     cursor: pointer;
@@ -32,10 +32,10 @@
     justify-content: center;
     align-items: center;
     &:hover {
-      border: 5px solid #ff6b01;
+      border: 5px solid $secondary-text-color;
       border-radius: 50%;
-      background-color: #ff6b01;
-      color: #ffffff;
+      background-color: $secondary-text-color;
+      color: $white-text-color;
     }
   }
 }
@@ -132,9 +132,9 @@
   @media screen and (min-width: 320px) {
     width: 113px;
     height: 44px;
-    background: #ff6b01;
+    background: $secondary-text-color;
     border: none;
-    color: #ffffff;
+    color: $white-text-color;
   }
   @media screen and (min-width: 1200px) {
     width: 136px;
@@ -142,7 +142,7 @@
 }
 .modal-card {
   position: relative;
-  background-color: #fff;
+  background-color: $white-text-color;
   padding: 48px 20px;
 
   @media screen and (min-width: 768px) {
@@ -186,7 +186,7 @@ td {
   padding-bottom: 10px;
 }
 .info-table-vote_average {
-  background-color: #f7f7f7;
+  background-color: $white-text-color;
   color: #000000;
   padding: 1px 10px;
   width: auto;
@@ -194,8 +194,8 @@ td {
   border-radius: 5px;
   &:hover,
   &:focus {
-    background-color: #ff6b01;
-    color: #ffffff;
+    background-color: $secondary-text-color;
+    color: $white-text-color;
   }
 }
 
@@ -224,7 +224,7 @@ td {
   font-size: 10px;
   background-color: #f1a066;
   border: none;
-  color: #ffffff;
+  color: $white-text-color;
 }
 //===== стили для дива инфо через флекс (надо два дива)===========
 // .modal-info-item {
