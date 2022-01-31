@@ -44,12 +44,8 @@ export default function movieDetailMarkUp(data) {
   }
   const instance = basicLightbox.create(
     `
-    <div class="modal modal-container">
-           <button type="button" class="btn-close">
-            <!-- <svg class="modal__button-icon" width="14" height="14"> -->
-                <!-- <use href="./images/sprite.svg#icon-close"></use> -->
-             <!-- </svg> -->
-              X
+    <div class="modal modal-container"> 
+           <button type="button" class="btn-close"> X  
            </button>
            <div class="modal-card">
         <div class="modal-image">
@@ -127,6 +123,10 @@ export default function movieDetailMarkUp(data) {
       localStorage.setItem('queue', JSON.stringify(queue));
     }
   });
+
+  // <svg class="modal__button-icon" width="14px" height="14px">
+  // <use href="../images/sprite.svg#icon-close"></use>
+  // </svg>
 
   // return refs.gallery.insertAdjacentHTML('afterbegin', markUp);
 }
