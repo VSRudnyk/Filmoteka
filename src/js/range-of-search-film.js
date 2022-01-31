@@ -1,13 +1,14 @@
-import getRefs from '../js/get-refs';
-import debounce from 'debounce';
 import MoviesApi from '../js/api-requests';
+import debounce from 'debounce';
+import getRefs from '../js/get-refs';
+import movieDetailMarkUp from '../js/modal-movie-details';
 import moviesMarkUp from '../js/movies-grid';
 import onLoadPage from '../js/onStart';
 
 const movies = new MoviesApi();
 const refs = getRefs();
 
-refs.form.addEventListener('input', debounce(onInputRenderCart, 500));
+refs.form.addEventListener('input', debounce(onInputRenderCard, 500));
 refs.form.addEventListener('input', debounce(onInput, 500));
 refs.form.addEventListener('input', removeHiddenClass);
 
@@ -21,9 +22,21 @@ function onInput(e) {
   }
 
   displayResults(searchInput, renderFilmList);
+
+  refs.search.addEventListener('click', onClickOpenModalWindow);
 }
 
-function onInputRenderCart(e) {
+function onClickOpenModalWindow(e) {
+  e.preventDefault();
+
+  movies.id = e.target.dataset.id;
+
+  movies.getMoviesById().then(response => {
+    movieDetailMarkUp(response.data);
+  });
+}
+
+function onInputRenderCard(e) {
   e.preventDefault();
 
   const searchInput = refs.searchInput.value;
