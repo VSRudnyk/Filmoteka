@@ -1,4 +1,5 @@
 import './sass/main.scss';
+import './js/authorization';
 import getRefs from './js/get-refs';
 import onLoadPage from './js/onStart';
 import MoviesApi from './js/api-requests';
