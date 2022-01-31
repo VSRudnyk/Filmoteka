@@ -13,6 +13,8 @@ function renderLibraryHeader(e) {
   refs.libraryPage.classList.add('current');
   refs.headerByClass.classList.remove('header');
   refs.headerByTeg.classList.add('header-library');
+  refs.search.classList.add('is-hidden');
+  refs.search.innerHTML = '';
 }
 
 
