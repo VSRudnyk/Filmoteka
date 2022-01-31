@@ -71,7 +71,7 @@ function handleRangeOfResults(films) {
 
   const fill = films
     .map(film => {
-      return `<li class="search-item" data-id=${film.id}>${film.title}</li>`;
+      return `<li class="search-item" data-id=${film.id}>${film.title} (${ film.release_date.slice(0, 4) })</li>`;
     })
     .join('');
 
