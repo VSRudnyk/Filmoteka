@@ -122,6 +122,10 @@
     color: #000000;
     background-color: transparent;
   }
+  @media screen and (min-width: 768px) {
+    width: 125px;
+  }
+
   @media screen and (min-width: 1200px) {
     width: 136px;
     margin-right: 15px;
@@ -135,6 +139,9 @@
     background: $secondary-text-color;
     border: none;
     color: $white-text-color;
+  }
+  @media screen and (min-width: 768px) {
+    width: 125px;
   }
   @media screen and (min-width: 1200px) {
     width: 136px;
@@ -221,10 +228,19 @@ td {
   border-radius: 5px;
 }
 .pressed {
-  font-size: 10px;
   background-color: #f1a066;
   border: none;
   color: $white-text-color;
+  @media screen and (min-width: 320px) {
+    font-size: 9px;
+  }
+  @media screen and (min-width: 768px) {
+    font-size: 10px;
+  }
+
+  @media screen and (min-width: 1200px) {
+    font-size: 11px;
+  }
 }
 //===== стили для дива инфо через флекс (надо два дива)===========
 // .modal-info-item {
