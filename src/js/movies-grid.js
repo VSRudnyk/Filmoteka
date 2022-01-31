@@ -30,7 +30,7 @@ export default function moviesMarkUp(data) {
     })
     .join('');
 
-  return refs.gallery.insertAdjacentHTML('beforeend', markUp);
+  return (refs.gallery.innerHTML = markUp);
 }
 
 function setPoster(poster) {
