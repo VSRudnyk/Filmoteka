@@ -9,32 +9,6 @@ const movies = new MoviesApi();
 const refs = getRefs();
 
 refs.form.addEventListener('input', debounce(onInputRenderCard, 500));
-refs.form.addEventListener('input', debounce(onInput, 500));
-refs.form.addEventListener('input', removeHiddenClass);
-
-function onInput(e) {
-  e.preventDefault();
-
-  const searchInput = refs.searchInput.value;
-  if (searchInput === '') {
-    refs.search.innerHTML = '';
-    return;
-  }
-
-  displayResults(searchInput, renderFilmList);
-
-  refs.search.addEventListener('click', onClickOpenModalWindow);
-}
-
-function onClickOpenModalWindow(e) {
-  e.preventDefault();
-
-  movies.id = e.target.dataset.id;
-
-  movies.getMoviesById().then(response => {
-    movieDetailMarkUp(response.data);
-  });
-}
 
 function onInputRenderCard(e) {
   e.preventDefault();
@@ -58,36 +32,63 @@ function displayResults(searchInput, callback) {
     callback(response.data.results);
   });
 }
+// refs.form.addEventListener('input', debounce(onInput, 500));
+// refs.form.addEventListener('input', removeHiddenClass);
 
-function renderFilmList(films) {
-  if (films.length > 0) {
-    handleRangeOfResults(films.slice(0, 5));
-    return;
-  }
-}
+// function onInput(e) {
+//   e.preventDefault();
 
-function handleRangeOfResults(films) {
-  refs.search.innerHTML = '';
+//   const searchInput = refs.searchInput.value;
+//   if (searchInput === '') {
+//     refs.search.innerHTML = '';
+//     return;
+//   }
 
-  const fill = films
-    .map(film => {
-      return `<li class="search-item" data-id=${film.id}>${film.title} (${ film.release_date.slice(0, 4) })</li>`;
-    })
-    .join('');
+//   displayResults(searchInput, renderFilmList);
 
-  return refs.search.insertAdjacentHTML('beforeend', fill);
-}
+//   refs.search.addEventListener('click', onClickOpenModalWindow);
+// }
 
-function removeHiddenClass(e) {
-  e.preventDefault();
-  const {
-    elements: { searchQuery },
-  } = e.currentTarget;
+// function onClickOpenModalWindow(e) {
+//   e.preventDefault();
 
-  refs.search.classList.remove('is-hidden');
+//   movies.id = e.target.dataset.id;
 
-  if (searchQuery.value === '') {
-    refs.search.classList.add('is-hidden');
-    return;
-  }
-}
+//   movies.getMoviesById().then(response => {
+//     movieDetailMarkUp(response.data);
+//   });
+// }
+
+
+// function renderFilmList(films) {
+//   if (films.length > 0) {
+//     handleRangeOfResults(films.slice(0, 5));
+//     return;
+//   }
+// }
+
+// function handleRangeOfResults(films) {
+//   refs.search.innerHTML = '';
+
+//   const fill = films
+//     .map(film => {
+//       return `<li class="search-item" data-id=${film.id}>${film.title} (${ film.release_date.slice(0, 4) })</li>`;
+//     })
+//     .join('');
+
+//   return refs.search.insertAdjacentHTML('beforeend', fill);
+// }
+
+// function removeHiddenClass(e) {
+//   e.preventDefault();
+//   const {
+//     elements: { searchQuery },
+//   } = e.currentTarget;
+
+//   refs.search.classList.remove('is-hidden');
+
+//   if (searchQuery.value === '') {
+//     refs.search.classList.add('is-hidden');
+//     return;
+//   }
+// }
