@@ -42,7 +42,7 @@ function setPoster(poster) {
 }
 
 function setReleaseDate(year) {
-  if (year.length === 0) {
+  if (!year) {
     return 'No release date available';
   }
   return year.slice(0, 4);
