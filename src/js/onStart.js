@@ -2,6 +2,7 @@ import getRefs from './get-refs';
 import MoviesApi from '../js/api-requests';
 import moviesMarkUp from '../js/movies-grid';
 import movieDetailMarkUp from '../js/modal-movie-details';
+import buildSlider from '../js/slider';
 import * as basicLightbox from 'basiclightbox';
 import pagination from './pagination';
 
@@ -13,6 +14,7 @@ export default function onStart() {
 
   movies.resetPage();
   movies.getPopularMovies().then(response => {
+    buildSlider(response.data.results);
     moviesMarkUp(response.data.results);
     getIdFromCards();
   });
