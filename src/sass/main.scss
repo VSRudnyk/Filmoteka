@@ -2,8 +2,11 @@
 @import './utils/mixin';
 @import './base/reset';
 @import './base/container';
+@import './layout/authorization';
 @import './layout/footer';
 @import './layout/header';
 @import './layout/film-cards';
 @import './layout/modal-card';
 @import './layout/team-card.scss';
+@import './layout/pagination';
+@import './layout/library';

@@ -62,10 +62,17 @@ export default class MoviesApi {
   }
 
   get id() {
+    //TODO: Maybe here should be this.movieId?
     return this.searchQuery;
   }
 
   set id(newId) {
     this.movieId = newId;
+  }
+  set page(newPage) {
+    this._page = newPage;
+  }
+  get page() {
+    return this._page;
   }
 }

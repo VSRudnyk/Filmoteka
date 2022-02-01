@@ -34,18 +34,31 @@
             <li class="menu_item">
               <a href="" class="menu_link library-link link">MY LIBRARY</a>
             </li>
+            <!-- Authorization -->
+            <!-- <li class="menu_item">
+              <div class="auth-container">
+                <a type="button" class="menu_link library-link link" id="openSignInModalBtn">Sign in</a>
+                <a type="button" class="menu_link library-link link" id="logoutBtn">Sign out</a>
+              
+                <div id="userDetails"></div>  
+              </div>  
+            </li> -->
+            <!-- End of authorization -->
           </ul>
         </nav>
       </div>
+      <div class="search-wrap">
+        <form id="search-form" class="search-form">
+          <input autocomplete="off" class="search_input" type="text" placeholder="Search a movie" name="searchQuery" />
+          <button class="search_button" type="submit">
+            <svg class="search_button-icon" width="12" height="12">
+              <use href="./images/sprite.svg#icon-search"></use>
+            </svg>
+          </button>
+        </form>
+        <ul class="search-list is-hidden"></ul>
+      </div>
 
-      <form id="search-form" class="search-form">
-        <input class="search_input" type="text" placeholder="Search a movie" name="searchQuery" />
-        <button class="search_button" type="submit">
-          <svg class="search_button-icon" width="12" height="12">
-            <use href="./images/sprite.svg#icon-search"></use>
-          </svg>
-        </button>
-      </form>
 
       <div class="btn-section is-hidden">
         <button class="btn btn-watched">Watched</button>
@@ -55,17 +68,20 @@
 
     <div class="container">
       <div class="gallery"></div>
+      <div id="pagination" class="tui-pagination"></div>
     </div>
 
     <footer class="footer">
       <div class="container">
         <p class="footer-decsr">
-          <span class="footer-text"> © 
+          <span class="footer-text">
+            ©
             <script>
-            var CurrentYear = new Date().getFullYear()
-            document.write(CurrentYear)
-            </script> 
-             | All Rights Reserved | </span>
+              var CurrentYear = new Date().getFullYear();
+              document.write(CurrentYear);
+            </script>
+            | All Rights Reserved |
+          </span>
           <span class="footer-heart">
             Developed with
             <svg width="14" height="13" viewBox="0 0 200 200">
