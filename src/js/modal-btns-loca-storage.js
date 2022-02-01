@@ -10,10 +10,10 @@ function onModalBtnWatchedLocalStorage(btnAddWatched, data, watched) {
         1,
       );
       localStorage.setItem('watched', JSON.stringify(watched));
-      setTimeout(() => Notify.failure('Film removed on watched'), 250);
+      setTimeout(() => Notify.failure('Film removed from watched'), 250);
     } else {
       e.target.classList.add('pressed');
-      e.target.textContent = 'remove on watched';
+      e.target.textContent = 'remove from watched';
       watched.push(data);
       localStorage.setItem('watched', JSON.stringify(watched));
       setTimeout(() => Notify.success('Film added to wathed'), 250);
@@ -31,10 +31,10 @@ function onModalBtnQueueLocalStorage(btnAddQueue, data, queue) {
         1,
       );
       localStorage.setItem('queue', JSON.stringify(queue));
-      setTimeout(() => Notify.failure('Film removed on queue'), 250);
+      setTimeout(() => Notify.failure('Film removed from queue'), 250);
     } else {
       e.target.classList.add('pressed');
-      e.target.textContent = 'remove on queue';
+      e.target.textContent = 'remove from queue';
       queue.push(data);
       localStorage.setItem('queue', JSON.stringify(queue));
       setTimeout(() => Notify.success('Film added to queue'), 250);
