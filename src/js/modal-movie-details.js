@@ -38,12 +38,12 @@ export default function movieDetailMarkUp(data) {
 
   btnWatchedRender =
     watched.findIndex(obj => obj.id === data.id) !== -1
-      ? '<button type="button" class="button-add wathed active pressed">remove on Watched</button>'
-      : '<button type="button" class="button-add wathed active">add to Watched</button>';
+      ? '<button type="button" class="button-add btn-animated wathed  pressed">remove from Watched</button>'
+      : '<button type="button" class="button-add wathed">add to Watched</button>';
 
   btnQueueRender =
     queue.findIndex(obj => obj.id === data.id) !== -1
-      ? '<button type="button" class="button-add queue pressed">remove on queue</button>'
+      ? '<button type="button" class="button-add btn-animated queue pressed">remove from queue</button>'
       : '<button type="button" class="button-add queue">add to queue</button>';
 
   const instance = basicLightbox.create(
@@ -60,7 +60,7 @@ export default function movieDetailMarkUp(data) {
            <table>
         <tr>
           <th class="info-table-td">Vote / Votes</td>
-          <td> <span class="info-table-vote_average">${vote_average}</span>    /   <span class="info-table-vote_average"> ${vote_count} </span></td>
+          <td> <span class="info-table-vote_average">${vote_average}</span>    /   <span class="info-table-vote_count"> ${vote_count} </span></td>
         </tr>
         <tr>
           <th class="info-table-td">Popularity</td>
