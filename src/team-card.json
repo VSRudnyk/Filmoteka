@@ -1,0 +1,83 @@
+[
+    {
+      "id": "1",
+      "name": "Vladimir Rudnyk",
+      "description": "Teamlead",
+      "image": "",
+      "github": "",
+      "linkdIn": "",
+      "telegram": ""
+    },
+    {
+      "id": "2",
+      "name": "Ihor Kozloff",
+      "description": "Developer",
+      "image": "",
+      "github": "",
+      "linkdIn": "",
+      "telegram": ""
+    },
+    {
+      "id": "3",
+      "name": "Maxim Samsonenko",
+      "description": "Developer",
+      "image": "",
+      "github": "",
+      "linkdIn": "",
+      "telegram": ""
+    },
+    {
+      "id": "4",
+      "name": "Olha Mashtaler",
+      "description": "Developer",
+      "image": "",
+      "github": "",
+      "linkdIn": "",
+      "telegram": ""
+    },
+    {
+      "id": "5",
+      "name": "Anastasiia Tyshkevych",
+      "description": "Developer",
+      "image": "",
+      "github": "",
+      "linkdIn": "",
+      "telegram": ""
+    },
+    {
+      "id": "6",
+      "name": "Ihor Khomenko",
+      "description": "Developer",
+      "image": "",
+      "github": "",
+      "linkdIn": "",
+      "telegram": ""
+    },
+    {
+      "id": "7",
+      "name": "Liudmyla",
+      "description": "Developer",
+      "image": "",
+      "github": "",
+      "linkdIn": "",
+      "telegram": ""
+    },
+    {
+      "id": "8",
+      "name": "Maxim Steblyna",
+      "description": "Developer",
+      "image": "",
+      "github": "",
+      "linkdIn": "",
+      "telegram": ""
+    },
+    {
+      "id": "9",
+      "name": "Yevgenii Vashchenko",
+      "description": "Developer",
+      "image": "",
+      "github": "",
+      "linkdIn": "",
+      "telegram": ""
+    }
+  ]
