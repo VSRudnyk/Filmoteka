@@ -6,6 +6,7 @@ import MoviesApi from './js/api-requests';
 import './js/library-page';
 import moviesMarkUp from './js/movies-grid';
 import pageSwitcher from './js/page-switcher';
+import teamModal from './js/team-modal';
 import './js/range-of-search-film';
 
 const movies = new MoviesApi();

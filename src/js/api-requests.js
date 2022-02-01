@@ -62,6 +62,7 @@ export default class MoviesApi {
   }
 
   get id() {
+    //TODO: Maybe here should be this.movieId?
     return this.searchQuery;
   }
 

@@ -20,6 +20,11 @@
     }
     
 }
-.footer__link {
+.footer__link,
+.footer-text,
+.footer-heart {
     color: $footer-grey-text-color;
+}
+.footer__link {
+    text-decoration: underline;
 }

@@ -1,0 +1,45 @@
+<div class='team-section'>
+  <div class='team-section__container'>
+    <h2 class='team__title'>
+        Team
+    </h2>
+    <ul class='cards-container js-team list'>
+      {{#each this}}
+        <li id='{{id}}' class='card'>
+          <a href='#{{id}}' class='link'>
+            <div class='card__content'>
+              <div class='imgBox'>
+                <img class='imgBox__img' src='{{image}}' alt='{{name}}' />
+              </div>
+              <div class='contentBox'>
+                <h3 class='contentBox__title'>{{name}}<br /><span
+                    class='contentBox__subtitle'
+                  >{{description}}</span></h3>
+              </div>
+            </div>
+            <ul class='social'>
+              <li class='social__item' style='--i: 1'>
+                <a class='social__link' href='{{github}}' rel='noreferrer noopener'><i
+                    class='fa fa-github'
+                    aria-hidden='true'
+                  ></i></a>
+              </li>
+              <li class='social__item' style='--i: 2'>
+                <a class='social__link' href='{{telegram}}' rel='noreferrer noopener'><i
+                    class='fa fa-linkedin-square'
+                    aria-hidden='true'
+                  ></i></a>
+              </li>
+              <li class='social__item' style='--i: 3'>
+                <a class='social__link' href='{{linkdIn}}' rel='noreferrer noopener'><i
+                    class='fa fa-telegram'
+                    aria-hidden='true'
+                  ></i></a>
+              </li>
+            </ul>
+          </a>
+        </li>
+      {{/each}}
+    </ul>
+  </div>
+</div>
