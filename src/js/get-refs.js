@@ -17,6 +17,7 @@ export default function getRefs() {
     logoutBtn: document.querySelector('#logoutBtn'),
     userDetails: document.querySelector('#userDetails'),
     // End of authorization
-
+    // кнопка наверх
+    goUpBtn: document.querySelector('.go-up'),
   };
 }

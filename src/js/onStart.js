@@ -8,6 +8,15 @@ import pagination from './pagination';
 const movies = new MoviesApi();
 const refs = getRefs();
 
+refs.goUpBtn.style = 'display: none';
+refs.goUpBtn.addEventListener('click', onButtonUp);
+// ==========функция, которая при клике на кнопку "иди вверх" перебрасывает на начало страницы
+function onButtonUp(e) {
+  e.preventDefault();
+  // console.log('видно кнопку');
+  window.scrollTo({ top: 0, behavior: 'smooth' });
+}
+
 export default function onStart() {
   refs.gallery.innerHTML = '';
 

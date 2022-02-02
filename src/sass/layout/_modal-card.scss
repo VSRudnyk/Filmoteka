@@ -25,6 +25,7 @@
     background-color: $white-text-color;
     color: #000000;
     border: none;
+    border-radius: 50%;
     cursor: pointer;
     z-index: 9;
     display: flex;
@@ -32,13 +33,13 @@
     justify-content: center;
     align-items: center;
     &:hover {
-      border: 5px solid $secondary-text-color;
+      border: 5px solid #ff6b01;
       border-radius: 50%;
       background-color: $secondary-text-color;
-      color: $white-text-color;
+      color: #fff;
       transform: translateY(-3px);
       box-shadow: 0 10px 20px rgba(0, 0, 0, 0.2);
-      box-shadow: 0 10px 20px #ff6b01;
+      // box-shadow: 0 10px 20px #ff6b01;
     }
   }
 }
@@ -104,6 +105,33 @@
     color: #000000;
   }
 }
+// =========================button-GO_UP!!!==========================
+.go-up {
+  position: fixed;
+  bottom: 22px;
+  right: 22px;
+  border-radius: 50%;
+  width: 40px;
+  height: 40px;
+  background-color: white;
+  color: #ff6b01;
+  border: 2px solid #ff6b01;
+}
+.go-up:hover {
+  color: white;
+  border: 2px solid white;
+  // background-color: #ff6b01;
+  transform: translateY(-3px);
+  box-shadow: 0 10px 20px rgba(0, 0, 0, 0.2);
+  box-shadow: 0 10px 20px #ff6b01;
+}
+.go-up:active {
+  transform: translateY(-1px);
+  box-shadow: 0 5px 10px rgba(0, 0, 0, 0.2);
+  box-shadow: 0 5px 10px #ff6b01;
+}
+// 'position: fixed; bottom: 22px;right: 22px; border-radius: 50%; width: 40px; height: 40px; background-color: white; color: #ff6b01; border: 2px solid #ff6b01';
+//
 // .button-add {
 //   @media screen and (min-width: 320px) {
 //     width: 112px;
@@ -153,7 +181,7 @@
 .button-add {
   @media screen and (min-width: 320px) {
     width: 112px;
-    height: 44px;
+    min-height: 44px;
     // display: flex;
     // flex-direction: column;
     border: 2px solid #ff6b01;
@@ -185,8 +213,8 @@
     transform: translateY(-3px);
     box-shadow: 0 10px 20px rgba(0, 0, 0, 0.2);
     box-shadow: 0 10px 20px #ff6b01;
-    width: 115px;
-    height: 44px;
+    width: 112px;
+    min-height: 44px;
     background: #fff;
     border: 1px solid #ff6b01;
     // border: none;
