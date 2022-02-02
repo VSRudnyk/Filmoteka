@@ -7,7 +7,7 @@ const teamLink = document.querySelector('.js-team-link');
 
 teamLink.addEventListener('click', onTeamModalShow);
 
-function onTeamModalShow(e) {
+function onTeamModalShow() {
   const teamCardsMarkup = teamCardTpl(data);
   document.addEventListener('click', onClick);
   document.addEventListener('keydown', onCloseEsc);

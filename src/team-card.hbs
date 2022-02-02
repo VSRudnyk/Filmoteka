@@ -1,7 +1,7 @@
 <div class='team-section'>
   <div class='team-section__container'>
     <h2 class='team__title'>
-        Team
+        <span class='team-title-accent'>Our </span>Team
     </h2>
     <ul class='cards-container js-team list'>
       {{#each this}}
@@ -17,26 +17,6 @@
                   >{{description}}</span></h3>
               </div>
             </div>
-            <ul class='social'>
-              <li class='social__item' style='--i: 1'>
-                <a class='social__link' href='{{github}}' rel='noreferrer noopener'><i
-                    class='fa fa-github'
-                    aria-hidden='true'
-                  ></i></a>
-              </li>
-              <li class='social__item' style='--i: 2'>
-                <a class='social__link' href='{{telegram}}' rel='noreferrer noopener'><i
-                    class='fa fa-linkedin-square'
-                    aria-hidden='true'
-                  ></i></a>
-              </li>
-              <li class='social__item' style='--i: 3'>
-                <a class='social__link' href='{{linkdIn}}' rel='noreferrer noopener'><i
-                    class='fa fa-telegram'
-                    aria-hidden='true'
-                  ></i></a>
-              </li>
-            </ul>
           </a>
         </li>
       {{/each}}
