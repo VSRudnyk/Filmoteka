@@ -37,7 +37,9 @@ const instance = basicLightbox.create(
   <div class="modal">
       <div class="login-container">
         <h3 class="login-container-title">Войдите</h3>
-        <button id="close-modal-btn">X</button>
+        <button id="close-modal-btn">
+          <svg width="30" height="30" fill="none" xmlns="http://www.w3.org/2000/svg" style="position: absolute"><path d="m8 8 14 14M8 22 22 8" stroke="#000" stroke-width="2"/></svg>
+        </button>
         <p>С помощью логина и пароля</p>
         <input type="email" placeholder="E-mail" id="login-email">
         <input type="password" placeholder="Пароль" id="login-password">

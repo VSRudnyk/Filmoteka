@@ -7,21 +7,28 @@
 }
 
 #close-modal-btn {
-  border-radius: 50%;
+  border: nome;
+  cursor: pointer;
   position: absolute;
   right: 5px;
   top: 5px;
+}
+
+#close-modal-btn:hover {
+  border: 5px solid $secondary-text-color;
+  border-radius: 50%;
+  background-color: $secondary-text-color;
+  color: $white-text-color;
+  transform: translateY(-3px);
+  box-shadow: 0 10px 20px rgba(0, 0, 0, 0.2);
+  box-shadow: 0 10px 20px #ff6b01;
 }
 
 .login-container-title {
   margin-bottom: 15px;
 }
 
-#login-email {
-  margin-bottom: 15px;
-  padding: 10px;
-}
-
+#login-email,
 #login-password {
   margin-bottom: 15px;
   padding: 10px;
@@ -30,6 +37,7 @@
 #loginBtn {
   margin-bottom: 15px;
   height: 35px;
+  background-color: #ff6b01;
 }
 
 #login-google {
