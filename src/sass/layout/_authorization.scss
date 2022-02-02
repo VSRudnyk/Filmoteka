@@ -3,7 +3,6 @@
   background-color: #fff;
   position: relative;
   display: grid;
-  width: 20vw;
   padding: 15px;
 }
 
@@ -12,6 +11,10 @@
   position: absolute;
   right: 5px;
   top: 5px;
+}
+
+.login-container-title {
+  margin-bottom: 15px;
 }
 
 #login-email {
@@ -24,10 +27,32 @@
   padding: 10px;
 }
 
-// .btn {
-//   margin-bottom: 15px;
-//   padding: 10px;
-// }
+#loginBtn {
+  margin-bottom: 15px;
+  height: 35px;
+}
+
+#login-google {
+  margin-bottom: 15px;
+}
+
+#login-google::before {
+  display: block;
+  content: '';
+  background-image: url('https://img.icons8.com/color/32/000000/google-logo.png');
+  height: 30px;
+  width: 30px;
+  margin: 0 auto;
+}
+
+#openSignUpModalBtn {
+  height: 35px;
+}
+
+#signUp {
+  height: 35px;
+  margin-bottom: 15px;
+}
 
 #sign-email {
   margin-bottom: 15px;
@@ -47,17 +72,33 @@
 .auth-container {
   display: flex;
   align-items: center;
+  margin-left: 40px;
+}
+
+.signin-btn,
+.sigout-btn {
+  @include font($lh: 16px);
+  text-transform: uppercase;
+  width: max-content;
+  cursor: pointer;
 }
 
 #userDetails {
   display: flex;
-}
-#logoutBtn {
-  height: max-content;
-  margin-right: 15px;
-  cursor: pointer;
+  align-items: center;
+  justify-content: flex-end;
+  margin-top: 15px;
 }
 
-#openSignInModalBtn {
-  cursor: pointer;
+.user-name {
+  @include font($lh: 16px);
+  text-transform: uppercase;
+}
+
+.user-email {
+  @include font($lh: 16px);
+}
+
+#alreadyHaveAccount {
+  height: 35px;
 }

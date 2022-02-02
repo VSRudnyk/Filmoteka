@@ -2,7 +2,7 @@
   display: block;
   margin: 0 auto;
   width: 100%;
-  padding: 45px 20px;
+  padding: 45px 0 45px 0;
   height: 230px;
 
   color: $white-text-color;
@@ -28,7 +28,7 @@
 .nav_section {
   display: flex;
   align-items: center;
-  justify-content: center;
+  justify-content: space-between;
   margin-bottom: 37px;
 
   @media screen and (max-width: 768px) {
@@ -40,16 +40,16 @@
   display: flex;
 
   @media screen and (max-width: 768px) {
-    margin-right: 112px;
+    // margin-right: 112px;
   }
 
   @media screen and (min-width: 768px) and (max-width: 1024px) {
-    margin-right: 303px;
+    // margin-right: 303px;
     display: block;
   }
 
   @media screen and (min-width: 1024px) {
-    margin-right: 564px;
+    // margin-right: 564px;
     display: block;
   }
 }
