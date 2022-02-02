@@ -1,7 +1,7 @@
 import getRefs from '../js/get-refs';
 import moviesMarkUp from './movies-grid';
-import modalMovieDetails from './modal-movie-details';
-import { Notify } from 'notiflix/build/notiflix-notify-aio';
+
+
 
 
 const refs = getRefs();
@@ -11,7 +11,6 @@ const pageSwitcherRefs = {
   queueBtnEl: document.querySelector('.btn-queue'),
 };
 
-console.log(pageSwitcherRefs)
 function loadFromLocaleStorage (key) {
   try {
     const serializedState = localStorage.getItem(key);
@@ -37,54 +36,42 @@ function processingData (category) {
 
 
 
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-function onLibraryBtnActive(string) {
-
+function resetAndRender (string) {
   refs.gallery.innerHTML = '';
+  moviesMarkUp(processingData(string));
+};
 
 
-  pageSwitcherRefs.watchedBtnEl.classList.remove('library-btn-active');
-  pageSwitcherRefs.queueBtnEl.classList.remove('library-btn-active');
 
-  const libraryData = [...processingData('watched'),...processingData('queue')];
-  if (libraryData.length === 0) {
-    setTimeout(() => Notify.info('Your library is still empty.'), 250);
-    return;
-  };   
-  moviesMarkUp(libraryData);
+
+
+
+
+
+
+
+
+
+
+
+
+
+function onLibraryBtnActive() {
+  onQueueBtnClick();
 }
 
 function onWatchedBtnClick () {
-  refs.gallery.innerHTML = '';
-
+  resetAndRender('watched');
 
   pageSwitcherRefs.watchedBtnEl.classList.add('library-btn-active');
   pageSwitcherRefs.queueBtnEl.classList.remove('library-btn-active');
-
-
-
-  moviesMarkUp(processingData('watched'));
 };
 
 function onQueueBtnClick () {
-  refs.gallery.innerHTML = '';
+  resetAndRender('queue');
+ 
   pageSwitcherRefs.queueBtnEl.classList.add('library-btn-active');
   pageSwitcherRefs.watchedBtnEl.classList.remove('library-btn-active');
-  moviesMarkUp(processingData('queue'));
 };
 
 
@@ -105,39 +92,17 @@ pageSwitcherRefs.queueBtnEl.addEventListener('click', () => {
 
 
 
-function onModalBtnWatchedFromPageSwitcher () {
+
+function onModalBtnsRenderingPageFromPageSwitcher () {
   const active = {
-    library: refs.libraryPage.classList.contains('current'),
     watched: pageSwitcherRefs.watchedBtnEl.classList.contains('library-btn-active'),
     queue: pageSwitcherRefs.queueBtnEl.classList.contains('library-btn-active'),
   };
-
-
-
-    if(active.library && active.watched) {
-      onWatchedBtnClick();
-    } else if (active.library && !active.watched && !active.queue) {
-      onLibraryBtnActive();
-    } else if (active.library && active.queue) {
-      onQueueBtnClick();
-    }
+  
+  if(active.queue) {
+    resetAndRender('queue');
+  } else if (active.watched) {
+    resetAndRender('watched');
   };
-
-function onModalBtnQueueFromPageSwitcher () {
-  const active = {
-    library: refs.libraryPage.classList.contains('current'),
-    watched: pageSwitcherRefs.watchedBtnEl.classList.contains('library-btn-active'),
-    queue: pageSwitcherRefs.queueBtnEl.classList.contains('library-btn-active'),
-  };
-
-
-    if(active.library && active.queue) {
-      onQueueBtnClick();
-    } else if (active.library && !active.watched && !active.queue) {
-      onLibraryBtnActive();
-    } else if (active.library && active.watched) {
-      onWatchedBtnClick();
-    };
-  } 
-
-  export { onModalBtnWatchedFromPageSwitcher, onModalBtnQueueFromPageSwitcher };
+} 
+export { onModalBtnsRenderingPageFromPageSwitcher };
