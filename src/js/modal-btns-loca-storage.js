@@ -13,7 +13,7 @@ function onModalBtnWatchedLocalStorage(btnAddWatched, data, watched) {
       localStorage.setItem('watched', JSON.stringify(watched));
       setTimeout(() => Notify.failure('Film removed from watched'), 250);
       onModalBtnsRenderingPageFromPageSwitcher();
-      setTimeout(() => Notify.failure('Film removed on watched'), 250);
+      // setTimeout(() => Notify.failure('Film removed on watched'), 250);
     } else {
       e.target.classList.add('pressed');
       e.target.textContent = 'remove from watched';
@@ -38,7 +38,7 @@ function onModalBtnQueueLocalStorage(btnAddQueue, data, queue) {
 
       setTimeout(() => Notify.failure('Film removed from queue'), 250);
       onModalBtnsRenderingPageFromPageSwitcher();
-      setTimeout(() => Notify.failure('Film removed on queue'), 250);
+      // setTimeout(() => Notify.failure('Film removed on queue'), 250);
     } else {
       e.target.classList.add('pressed');
       e.target.textContent = 'remove from queue';

@@ -217,7 +217,7 @@
   display: block;
   margin: 0 auto;
   width: 100%;
-  padding: 45px 20px;
+  padding: 45px 0 45px 0;
   height: 230px;
 
   color: $white-text-color;
@@ -229,7 +229,7 @@
   background-size: cover;
 
   @media screen and (min-width: 768px) and (max-width: 1024px) {
-    padding: 45px 75px 97px 71px;
+    padding: 45px 0 97px 0;
     background-image: linear-gradient(rgba(0, 0, 0, 0.56), rgba(0, 0, 0, 0.56)),
       url(../images/background/library-tab.jpg);
   }
