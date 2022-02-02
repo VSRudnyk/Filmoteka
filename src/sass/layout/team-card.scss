@@ -5,10 +5,36 @@
     align-items: center;
     flex-wrap: wrap;
     background: #161616;
-  
+    // background-image: linear-gradient(
+    // to top,
+    // #16161610 85%,
+    // $secondary-text-color );
+//   background-image: radial-gradient(
+//     circle at bottom left,
+//     $secondary-text-color 10%,
+//     #fff 30%,
+   
+
+// );
     &__container {
-      height: 100vh;
+        height: 100vh;
+      }
+      &::before {
+        content: '';
+        position: absolute;
+        top: 0;
+        left: 0;
+        width: 100%;
+        height: 100%;
     }
+    &::after {
+        content: '';
+        position: absolute;
+        top: 0;
+        left: 0;
+        width: 100%;
+        height: 100%;
+      }
   }
   .cards-container {
     position: relative;
@@ -27,17 +53,28 @@
     z-index: 2;
     position: relative;
     width: 270px;
-    height: 400px;
+    height: 350px;
+    background: rgba(255, 255, 255, 0.05);
+    margin: 20px;
+    box-shadow: 0 15px 35px rgba(0, 0, 0, 0.2);
+    border-radius: 99px;
     display: flex;
     justify-content: center;
     align-items: center;
+    // backdrop-filter: blur(5px);
   }
   .team__title {
+    z-index: 5;
     margin-top: 25px;
     position: relative;
     color: white;
     text-transform: uppercase;
     text-align: center;
+    text-shadow: 1px 1px 1px #000;
+  }
+  .team-title-accent {
+      color: $secondary-text-color;
+      text-shadow: 1px 1px 1px #000;
   }
   
   .card__content {
@@ -45,16 +82,40 @@
     justify-content: center;
     align-items: center;
     flex-direction: column;
+    opacity: 0.8;
+    transition: 0.4s;
+    .cards-container .card:hover & {
+        opacity: 1;
+        transform: translateY(-20px);
+      }  
   }  
   .imgBox {
     position: relative;
     width: 180px;
     height: 180px;
+    border-radius: 50%;
+    overflow: hidden;
+    border: 5px solid rgba(255, 255, 255, 0.05);
+
+  &__img {
+    position: absolute;
+    top: 0;
+    left: 0;
+    width: 100%;
+    height: 100%;
+    object-fit: cover;
+  }
+  .card:hover &,
+  .card:active & {
+    border: 5px solid $secondary-text-color;
+  }
   }
   
   .contentBox {
     &__title {
-      color: #fff;
+      color: $secondary-text-color;
+      text-shadow: 0.5px 0.5px 0.5px #000;
+
       text-transform: uppercase;
       text-align: center;
       margin: 20px 0 10px;
@@ -66,29 +127,23 @@
       text-transform: initial;
     }
   }
-  .social {
-    position: absolute;
-    bottom: 50px;
-    display: flex;
-  
-    &__item {
-      list-style: none;
-      margin: 0 10px;
-      opacity: 0.8;
-    }
-    &__link {
-      color: #fff;
-      font-size: 24px;
-    }
-  }
   
   @media screen and (min-width: 480px) {
     .team-section {
-      max-width: 640px;
+      max-width: 650px;
     }
+    .card__content {
+        opacity: 0.5;
+        transition: 0.5s;
+    
+        .cards-container .card:hover & {
+          opacity: 1;
+          transform: translateY(-20px);
+        }
+      }
   }
   @media screen and (min-width: 1032px) {
     .team-section {
-      max-width: 960px;
+      max-width: 1100px;
     }
   }
