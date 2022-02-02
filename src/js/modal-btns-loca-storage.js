@@ -1,5 +1,5 @@
 import { Notify } from 'notiflix/build/notiflix-notify-aio';
-import { onModalBtnWatchedFromPageSwitcher, onModalBtnQueueFromPageSwitcher } from './page-switcher';
+import { onModalBtnsRenderingPageFromPageSwitcher } from './page-switcher';
 
 function onModalBtnWatchedLocalStorage(btnAddWatched, data, watched) {
   btnAddWatched.addEventListener('click', e => {
@@ -12,14 +12,14 @@ function onModalBtnWatchedLocalStorage(btnAddWatched, data, watched) {
       );
       localStorage.setItem('watched', JSON.stringify(watched));
       setTimeout(() => Notify.failure('Film removed from watched'), 250);
-      onModalBtnWatchedFromPageSwitcher();
+      onModalBtnsRenderingPageFromPageSwitcher();
       setTimeout(() => Notify.failure('Film removed on watched'), 250);
     } else {
       e.target.classList.add('pressed');
       e.target.textContent = 'remove from watched';
       watched.push(data);
       localStorage.setItem('watched', JSON.stringify(watched));
-      onModalBtnWatchedFromPageSwitcher();
+      onModalBtnsRenderingPageFromPageSwitcher();
       setTimeout(() => Notify.success('Film added to wathed'), 250);
     }
   });
@@ -37,14 +37,14 @@ function onModalBtnQueueLocalStorage(btnAddQueue, data, queue) {
       localStorage.setItem('queue', JSON.stringify(queue));
 
       setTimeout(() => Notify.failure('Film removed from queue'), 250);
-      onModalBtnQueueFromPageSwitcher();
+      onModalBtnsRenderingPageFromPageSwitcher();
       setTimeout(() => Notify.failure('Film removed on queue'), 250);
     } else {
       e.target.classList.add('pressed');
       e.target.textContent = 'remove from queue';
       queue.push(data);
       localStorage.setItem('queue', JSON.stringify(queue));
-      onModalBtnQueueFromPageSwitcher();
+      onModalBtnsRenderingPageFromPageSwitcher();
       setTimeout(() => Notify.success('Film added to queue'), 250);
     }
   });
