@@ -18,5 +18,7 @@ export default function getRefs() {
     userDetails: document.querySelector('#userDetails'),
     // End of authorization
     slider: document.querySelector('.slider'),
+    // кнопка наверх
+    goUpBtn: document.querySelector('.go-up'),
   };
 }
