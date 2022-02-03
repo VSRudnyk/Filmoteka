@@ -44,19 +44,22 @@
                 <div class="auth-container">
                   <a type="button" class="signin-btn" id="openSignInModalBtn">Log in</a>
                   <a type="button" class="sigout-btn" id="logoutBtn">Log out</a>
-    
-    
                 </div>
                 <!-- End of authorization -->
               </li>
             </ul>
-    
           </nav>
         </div>
-    
+
         <div class="search-wrap">
           <form id="search-form" class="search-form">
-            <input autocomplete="off" class="search_input" type="text" placeholder="Search a movie" name="searchQuery" />
+            <input
+              autocomplete="off"
+              class="search_input"
+              type="text"
+              placeholder="Search a movie"
+              name="searchQuery"
+            />
             <button class="search_button" type="submit">
               <svg class="search_button-icon" width="12" height="12">
                 <use href="./images/sprite.svg#icon-search"></use>
@@ -65,20 +68,22 @@
           </form>
           <ul class="search-list is-hidden"></ul>
         </div>
-    
+
         <div class="btn-section is-hidden">
           <button class="btn btn-watched">Watched</button>
           <button class="btn btn-queue">Queue</button>
         </div>
         <div id="userDetails"></div>
       </div>
-    
     </header>
 
     <div class="container">
       <div class="slider"></div>
       <div class="gallery"></div>
       <div id="pagination" class="tui-pagination"></div>
+      <button type="button" class="go-up">
+        <img src="./images/up-arrow.png" alt="up" class="image-arrow" />
+      </button>
     </div>
 
     <footer class="footer">
