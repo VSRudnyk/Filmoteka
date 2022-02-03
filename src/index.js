@@ -21,10 +21,7 @@ function onFormSubmit(e) {
   } = e.currentTarget;
   refs.gallery.innerHTML = '';
   movies.query = searchQuery.value;
-
-  movies.resetPage();
   movies.getSearchMovies().then(response => {
-    console.log(response.data.results);
     moviesMarkUp(response.data.results);
   });
 }
