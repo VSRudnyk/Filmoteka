@@ -68,6 +68,9 @@
     outline: none;
     box-shadow: 0px 5px 10px 2px rgba(34, 60, 80, 0.2);
   }
+  &:active {
+    transform: translate(0em, 0.25em);
+  }
 }
 
 .auth-google-text {
