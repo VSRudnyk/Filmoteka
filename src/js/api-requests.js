@@ -15,7 +15,6 @@ export default class MoviesApi {
       const response = await axios.get(
         `${BASE_URL}movie/popular?api_key=${API_KEY}&language=en-US&page=${this.page}`,
       );
-      this.incrementPage();
       return response;
     } catch (error) {
       console.error(error);
@@ -27,7 +26,6 @@ export default class MoviesApi {
       const response = await axios.get(
         `${BASE_URL}search/movie?api_key=${API_KEY}&language=en-US&page=${this.page}&query=${this.searchQuery}`,
       );
-      this.incrementPage();
       return response;
     } catch (error) {
       console.error(error);
