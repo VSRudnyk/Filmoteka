@@ -34,7 +34,8 @@ export default function moviesMarkUp(data) {
     })
     .join('');
 
-  return refs.gallery.insertAdjacentHTML('beforeend', markUp);
+  refs.gallery.insertAdjacentHTML('beforeend', markUp);
+  refs.goUpBtn.style = 'display: block';
 }
 
 function setPoster(poster) {

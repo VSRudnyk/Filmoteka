@@ -1,66 +1,167 @@
-.login-container {
-  outline: 1px solid #ccc;
-  background-color: rgb(153, 153, 153);
+.modal-auth-container {
+  background-color: #ffffff;
   position: relative;
   display: grid;
-  padding: 15px;
+  padding: 20px;
+  margin-right: 15px;
+  margin-left: 15px;
+  @media screen and (min-width: 768px) {
+    width: 400px;
+    padding: 40px;
+  }
+}
+
+.auth-container-title {
+  @include font($fs: 25px);
+  border-bottom: 1px solid $modal-grey-text-color;
+  padding-bottom: 20px;
 }
 
 #close-modal-btn {
-  border: nome;
-  cursor: pointer;
   position: absolute;
-  right: 5px;
-  top: 5px;
+  top: 15px;
+  right: 10px;
+  background-color: transparent;
+  fill: $modal-grey-text-color;
+  border: none;
+  cursor: pointer;
+  display: flex;
+  align-content: center;
+  justify-content: center;
+  align-items: center;
+  &:hover {
+    fill: $secondary-text-color;
+    transition: fill 250ms cubic-bezier(0.4, 0, 0.2, 1);
+  }
 }
 
-#close-modal-btn:hover {
-  border: 5px solid $secondary-text-color;
-  border-radius: 50%;
-  background-color: $secondary-text-color;
-  color: $white-text-color;
-  transform: translateY(-3px);
-  box-shadow: 0 10px 20px rgba(0, 0, 0, 0.2);
-  box-shadow: 0 10px 20px #ff6b01;
+.auth-container-text {
+  margin-top: 20px;
+  margin-bottom: 20px;
 }
 
-.login-container-title {
-  margin-bottom: 15px;
-}
-
-#login-email,
-#login-password {
+.email-input,
+.passw-input {
   margin-bottom: 15px;
   padding: 10px;
+  border: 1px solid $modal-grey-text-color;
+  border-radius: 4px;
+  transition: border-color 250ms cubic-bezier(0.4, 0, 0.2, 1);
+
+  &:focus,
+  &:hover {
+    outline: none;
+    border-color: $secondary-text-color;
+    box-shadow: 0px 5px 10px 2px rgba(34, 60, 80, 0.2);
+  }
 }
 
-#loginBtn {
+.login-btn {
+  height: 45px;
+  color: $white-text-color;
+  background-color: $secondary-text-color;
+  border: none;
+  border-radius: 4px;
+  transition: border-color 250ms cubic-bezier(0.4, 0, 0.2, 1);
+
+  &:hover {
+    outline: none;
+    box-shadow: 0px 5px 10px 2px rgba(34, 60, 80, 0.2);
+  }
+  &:active {
+    transform: translate(0em, 0.25em);
+  }
+}
+
+.auth-google-text {
+  color: $modal-grey-text-color;
+  text-align: center;
   margin-bottom: 15px;
-  height: 35px;
-  background-color: #ff6b01;
+  margin-top: 35px;
 }
 
-#login-google {
-  margin-bottom: 15px;
+.social-login-btn {
+  background-color: transparent;
+  border-radius: 4px;
+  border: 1px solid $modal-grey-text-color;
+  padding: 7px 19px;
+  cursor: pointer;
+  display: flex;
+  align-content: center;
+  justify-content: center;
+  align-items: center;
+  transition: border-color 250ms cubic-bezier(0.4, 0, 0.2, 1);
+
+  @media screen and (min-width: 768px) {
+    padding: 10px 30px;
+  }
+
+  &:hover {
+    transform: scale(1.1);
+  }
 }
 
-#login-google::before {
-  display: block;
-  content: '';
-  background-image: url('https://img.icons8.com/color/32/000000/google-logo.png');
-  height: 30px;
-  width: 30px;
-  margin: 0 auto;
+.social-items:not(:last-child) {
+  margin-right: 25px;
+}
+
+.fb-btn {
+  fill: white;
+  background-color: #3b5998;
+}
+
+.inst-btn {
+  fill: white;
+  background: #d6249f;
+  background: radial-gradient(
+    circle at 30% 107%,
+    #fdf497 0%,
+    #fdf497 5%,
+    #fd5949 45%,
+    #d6249f 60%,
+    #285aeb 90%
+  );
+  box-shadow: 0px 3px 10px rgba(0, 0, 0, 0.25);
+}
+
+.sign-up {
+  margin-top: 25px;
+}
+
+.sign-up-btn {
+  position: absolute;
+  top: 15px;
+  left: 100px;
+  color: $secondary-text-color;
+  background-color: transparent;
+  border: none;
+  cursor: pointer;
+  display: flex;
+  align-content: center;
+  justify-content: center;
+  align-items: center;
+
+  @media screen and (min-width: 768px) {
+    top: 34px;
+    left: 145px;
+  }
+}
+
+.social-list {
+  list-style: none;
+  display: flex;
+  justify-content: center;
+  align-items: center;
 }
 
 #openSignUpModalBtn {
   height: 35px;
 }
 
-#signUp {
-  height: 35px;
-  margin-bottom: 15px;
-}
+// #signUp {
+//   height: 35px;
+//   margin-bottom: 15px;
+// }
 
 #sign-email {
   margin-bottom: 15px;

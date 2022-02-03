@@ -7,6 +7,8 @@ import {
   signOut,
   onAuthStateChanged,
   GoogleAuthProvider,
+  FacebookAuthProvider,
+  TwitterAuthProvider,
   signInWithPopup,
 } from 'firebase/auth';
 import { getDatabase, ref, set, onValue } from 'firebase/database';
@@ -27,6 +29,8 @@ const firebaseConfig = {
 const app = initializeApp(firebaseConfig);
 const auth = getAuth();
 const provider = new GoogleAuthProvider();
+const providerFb = new FacebookAuthProvider();
+const providerTwit = new TwitterAuthProvider();
 const db = getDatabase();
 const refs = getRefs();
 refs.logoutBtn.style.display = 'none';
@@ -35,17 +39,47 @@ const filmBase = [];
 const instance = basicLightbox.create(
   `
   <div class="modal">
-      <div class="login-container">
-        <h3 class="login-container-title">Войдите</h3>
-        <button id="close-modal-btn">
-          <svg width="30" height="30" fill="none" xmlns="http://www.w3.org/2000/svg" style="position: absolute"><path d="m8 8 14 14M8 22 22 8" stroke="#000" stroke-width="2"/></svg>
+      <div class="modal-auth-container">
+        <h3 class="auth-container-title">Log in</h3>
+        <button type="button" id="close-modal-btn">
+          <svg width="25" height="25">
+            <use href="/Filmoteka/sprite.984331e2.svg#close-btn"></use>
+          </svg>
         </button>
-        <p>С помощью логина и пароля</p>
-        <input type="email" placeholder="E-mail" id="login-email">
-        <input type="password" placeholder="Пароль" id="login-password">
-        <button id="loginBtn">Войти</button>
-        <button id="login-google" class="google-btn"></button>
-        <button id="openSignUpModalBtn">Зарегистрироваться</button>
+        <p class="auth-container-text">To log in, enter your email address and password</p>
+        <input type="email" placeholder="E-mail" class="email-input" id="login-email">
+        <input type="password" placeholder="Пароль" class="passw-input" id="login-password">
+        <button class="login-btn" id="loginBtn">Log in</button>
+        <p class="auth-google-text">Authorization with social networks</p>
+        <div class="auth-social">
+          <ul class="social-list">
+            <li class="social-items">
+              <a id="login-google" class="social-login-btn">
+                <svg width="25" height="25">
+                  <use href="/Filmoteka/sprite.984331e2.svg#icon-google"></use>
+                </svg>
+              </a>
+            </li>
+            <li class="social-items">
+              <a id="login-fb" class="social-login-btn fb-btn">
+                <svg width="25" height="25">
+                  <use href="/Filmoteka/sprite.984331e2.svg#facebook"></use>
+                </svg>
+              </a>
+            </li>
+            <li class="social-items">
+              <a id="login-twitter" class="social-login-btn inst-btn">
+                <svg width="25" height="25">
+                  <use href="/Filmoteka/sprite.984331e2.svg#instagram"></use>
+                </svg>
+              </a>
+            </li>            
+          </ul>
+          
+          
+        </div>
+
+        <button id="openSignUpModalBtn" class="sign-up-btn">Sign up</button>
       </div>
   </div>
 `,
@@ -59,13 +93,17 @@ const instance = basicLightbox.create(
 const instance2 = basicLightbox.create(
   `
   <div class="modal">
-  <div class="login-container">
-    <h3 class="login-container-title">Зарегистрируйтесь</h3>
-    <button id="close-modal-btn">X</button>
-    <input type="email" placeholder="E-mail" id="sign-email">
-    <input type="password" placeholder="Пароль" id="sign-password">
-    <button id="signUp">Зарегистрироваться</button>
-    <button id="alreadyHaveAccount"">Уже есть аккант</button>
+  <div class="modal-auth-container">
+    <h3 class="auth-container-title">Sign up</h3>
+      <button type="button" id="close-modal-btn">
+        <svg width="25" height="25">
+          <use href="/Filmoteka/sprite.984331e2.svg#close-btn"></use>
+        </svg>
+      </button>
+        <input type="email" placeholder="E-mail" class="email-input sign-up" id="sign-email">
+        <input type="password" placeholder="Пароль" class="passw-input" id="sign-password">
+    <button class="login-btn" id="signUp">Sign up</button>
+    <button id="alreadyHaveAccount" class="sign-up-btn">Log in</button>
   </div>
 
 </div>
@@ -91,6 +129,12 @@ function openSigInModal() {
 
   const loginGoogle = document.querySelector('#login-google');
   loginGoogle.addEventListener('click', loginWithGoogle);
+
+  const loginFb = document.querySelector('#login-fb');
+  loginFb.addEventListener('click', loginWithFacebook);
+
+  const loginTwitter = document.querySelector('#login-twitter');
+  loginTwitter.addEventListener('click', loginWithTwitter);
 }
 
 function openSignUpModal() {
@@ -140,6 +184,32 @@ function loginWithGoogle() {
       showUserDetails(result.user);
       instance.close();
       Notify.success('User logged in with Google');
+    })
+    .catch(error => {
+      Notify.failure('Oops, something went wrong');
+      console.log(error);
+    });
+}
+
+function loginWithFacebook() {
+  signInWithPopup(auth, providerFb)
+    .then(result => {
+      showUserDetails(result.user);
+      instance.close();
+      Notify.success('User logged in with Facebook');
+    })
+    .catch(error => {
+      Notify.failure('Oops, something went wrong');
+      console.log(error);
+    });
+}
+
+function loginWithTwitter() {
+  signInWithPopup(auth, providerTwit)
+    .then(result => {
+      showUserDetails(result.user);
+      instance.close();
+      Notify.success('User logged in with Twitter');
     })
     .catch(error => {
       Notify.failure('Oops, something went wrong');
