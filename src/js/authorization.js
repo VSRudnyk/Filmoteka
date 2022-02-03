@@ -8,6 +8,7 @@ import {
   onAuthStateChanged,
   GoogleAuthProvider,
   FacebookAuthProvider,
+  TwitterAuthProvider,
   signInWithPopup,
 } from 'firebase/auth';
 import { getDatabase, ref, set, onValue } from 'firebase/database';
@@ -29,6 +30,7 @@ const app = initializeApp(firebaseConfig);
 const auth = getAuth();
 const provider = new GoogleAuthProvider();
 const providerFb = new FacebookAuthProvider();
+const providerTwit = new TwitterAuthProvider();
 const db = getDatabase();
 const refs = getRefs();
 refs.logoutBtn.style.display = 'none';
@@ -66,7 +68,7 @@ const instance = basicLightbox.create(
               </a>
             </li>
             <li class="social-items">
-              <a id="login-inst" class="social-login-btn inst-btn">
+              <a id="login-twitter" class="social-login-btn inst-btn">
                 <svg width="25" height="25">
                   <use href="/Filmoteka/sprite.984331e2.svg#instagram"></use>
                 </svg>
@@ -130,6 +132,9 @@ function openSigInModal() {
 
   const loginFb = document.querySelector('#login-fb');
   loginFb.addEventListener('click', loginWithFacebook);
+
+  const loginTwitter = document.querySelector('#login-twitter');
+  loginTwitter.addEventListener('click', loginWithTwitter);
 }
 
 function openSignUpModal() {
@@ -191,7 +196,20 @@ function loginWithFacebook() {
     .then(result => {
       showUserDetails(result.user);
       instance.close();
-      Notify.success('User logged in with Google');
+      Notify.success('User logged in with Facebook');
+    })
+    .catch(error => {
+      Notify.failure('Oops, something went wrong');
+      console.log(error);
+    });
+}
+
+function loginWithTwitter() {
+  signInWithPopup(auth, providerTwit)
+    .then(result => {
+      showUserDetails(result.user);
+      instance.close();
+      Notify.success('User logged in with Twitter');
     })
     .catch(error => {
       Notify.failure('Oops, something went wrong');
