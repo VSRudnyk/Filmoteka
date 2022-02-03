@@ -54,21 +54,21 @@ const instance = basicLightbox.create(
             <li class="social-items">
               <a id="login-google" class="social-login-btn">
                 <svg width="25" height="25">
-                  <use href="/sprite.5ec50489.svg#icon-google"></use>
+                  <use href="/Filmoteka/sprite.984331e2.svg#icon-google"></use>
                 </svg>
               </a>
             </li>
             <li class="social-items">
               <a id="login-fb" class="social-login-btn fb-btn">
                 <svg width="25" height="25">
-                  <use href="/sprite.5ec50489.svg#facebook"></use>
+                  <use href="/Filmoteka/sprite.984331e2.svg#facebook"></use>
                 </svg>
               </a>
             </li>
             <li class="social-items">
               <a id="login-inst" class="social-login-btn inst-btn">
                 <svg width="25" height="25">
-                  <use href="/sprite.5ec50489.svg#instagram"></use>
+                  <use href="/Filmoteka/sprite.984331e2.svg#instagram"></use>
                 </svg>
               </a>
             </li>            
