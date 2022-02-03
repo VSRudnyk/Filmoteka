@@ -4,14 +4,35 @@ import getRefs from '../js/get-refs';
 import movieDetailMarkUp from '../js/modal-movie-details';
 import moviesMarkUp from '../js/movies-grid';
 import onLoadPage from '../js/onStart';
+import Pagination from 'tui-pagination';
+import '../sass/layout/_pagination.scss';
 
 const movies = new MoviesApi();
 const refs = getRefs();
 
+const pagination = new Pagination('pagination', {
+  totalItems: 200,
+  visiblePages: 5,
+});
+
+function paginationPopularMovies(evt) {
+  const { page } = evt;
+  movies.page = page;
+  refs.gallery.innerHTML = '';
+  movies.getPopularMovies().then(response => {
+    moviesMarkUp(response.data.results);
+  });
+}
+
+pagination.on('beforeMove', paginationPopularMovies);
+
 refs.form.addEventListener('input', debounce(onInputRenderCard, 500));
 
 function onInputRenderCard(e) {
+  pagination.reset();
   e.preventDefault();
+  movies.resetPage();
+  pagination.off('beforeMove', paginationPopularMovies);
 
   const searchInput = refs.searchInput.value;
   if (searchInput === '') {
@@ -21,12 +42,23 @@ function onInputRenderCard(e) {
 
   refs.gallery.innerHTML = '';
 
+  function paginationSearchMovies(evt) {
+    refs.gallery.innerHTML = '';
+    const { page } = evt;
+    movies.page = page;
+    movies.query = searchInput;
+    movies.getSearchMovies().then(response => {
+      moviesMarkUp(response.data.results);
+    });
+  }
+
   displayResults(searchInput, moviesMarkUp);
+
+  pagination.on('beforeMove', paginationSearchMovies);
 }
 
 function displayResults(searchInput, callback) {
   movies.query = searchInput;
-  movies.resetPage();
 
   movies.getSearchMovies().then(response => {
     callback(response.data.results);
@@ -58,7 +90,6 @@ function displayResults(searchInput, callback) {
 //     movieDetailMarkUp(response.data);
 //   });
 // }
-
 
 // function renderFilmList(films) {
 //   if (films.length > 0) {
