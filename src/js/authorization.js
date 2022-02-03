@@ -48,7 +48,7 @@ const instance = basicLightbox.create(
         </button>
         <p class="auth-container-text">To log in, enter your email address and password</p>
         <input type="email" placeholder="E-mail" class="email-input" id="login-email">
-        <input type="password" placeholder="Пароль" class="passw-input" id="login-password">
+        <input type="password" placeholder="Password" class="passw-input" id="login-password">
         <button class="login-btn" id="loginBtn">Log in</button>
         <p class="auth-google-text">Authorization with social networks</p>
         <div class="auth-social">
@@ -101,7 +101,7 @@ const instance2 = basicLightbox.create(
         </svg>
       </button>
         <input type="email" placeholder="E-mail" class="email-input sign-up" id="sign-email">
-        <input type="password" placeholder="Пароль" class="passw-input" id="sign-password">
+        <input type="password" placeholder="Password" class="passw-input" id="sign-password">
     <button class="login-btn" id="signUp">Sign up</button>
     <button id="alreadyHaveAccount" class="sign-up-btn">Log in</button>
   </div>
