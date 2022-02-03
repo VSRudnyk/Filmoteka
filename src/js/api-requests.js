@@ -43,6 +43,17 @@ export default class MoviesApi {
     }
   }
 
+  async getUpcomingMovies() {
+    try {
+      const response = await axios.get(
+        `${BASE_URL}movie/upcoming?api_key=${API_KEY}&language=en-US&page=1`,
+      );
+      return response;
+    } catch (error) {
+      console.error(error);
+    }
+  }
+
   incrementPage() {
     this.page += 1;
   }

@@ -1,0 +1,23 @@
+.tns-outer {
+  display: none;
+  margin-top: 15px;
+
+  @media screen and (min-width: 1024px) {
+    display: block;
+  }
+}
+
+.tns-inner {
+  border: 2px solid #ff6b01;
+  border-radius: 5px;
+  padding: 2px 0;
+}
+
+.tns-item img {
+  border-radius: 10px;
+  height: 200px;
+  width: 140px;
+}
+#tns1 {
+  width: calc(536.333%);
+}

@@ -21,9 +21,11 @@ export default function onStart() {
 
   movies.resetPage();
   movies.getPopularMovies().then(response => {
-    buildSlider(response.data.results);
     moviesMarkUp(response.data.results);
     getIdFromCards();
+  });
+  movies.getUpcomingMovies().then(response => {
+    buildSlider(response.data.results);
   });
 }
 
