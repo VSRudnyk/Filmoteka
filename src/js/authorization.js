@@ -43,7 +43,7 @@ const instance = basicLightbox.create(
         <h3 class="auth-container-title">Log in</h3>
         <button type="button" id="close-modal-btn">
           <svg width="25" height="25">
-            <use href="/Filmoteka/sprite.984331e2.svg#close-btn"></use>
+            <use href="/Filmoteka/sprite.75b44ec7.svg#close-btn"></use>
           </svg>
         </button>
         <p class="auth-container-text">To log in, enter your email address and password</p>
@@ -56,21 +56,21 @@ const instance = basicLightbox.create(
             <li class="social-items">
               <a id="login-google" class="social-login-btn">
                 <svg width="25" height="25">
-                  <use href="/Filmoteka/sprite.984331e2.svg#icon-google"></use>
+                  <use href="/Filmoteka/sprite.75b44ec7.svg#icon-google"></use>
                 </svg>
               </a>
             </li>
             <li class="social-items">
               <a id="login-fb" class="social-login-btn fb-btn">
                 <svg width="25" height="25">
-                  <use href="/Filmoteka/sprite.984331e2.svg#facebook"></use>
+                  <use href="/Filmoteka/sprite.75b44ec7.svg#facebook"></use>
                 </svg>
               </a>
             </li>
             <li class="social-items">
               <a id="login-twitter" class="social-login-btn inst-btn">
                 <svg width="25" height="25">
-                  <use href="/Filmoteka/sprite.984331e2.svg#instagram"></use>
+                  <use href="/Filmoteka/sprite.75b44ec7.svg#instagram"></use>
                 </svg>
               </a>
             </li>            
