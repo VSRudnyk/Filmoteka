@@ -7,14 +7,15 @@ import * as basicLightbox from 'basiclightbox';
 
 const movies = new MoviesApi();
 const refs = getRefs();
-refs.goUpBtn.style = 'display: none';
-refs.goUpBtn.addEventListener('click', onButtonUp);
-// ==========функция, которая при клике на кнопку "иди вверх" перебрасывает на начало страницы
-function onButtonUp(e) {
-  e.preventDefault();
-  // console.log('видно кнопку');
-  window.scrollTo({ top: 0, behavior: 'smooth' });
-}
+
+// функция прокрутки страницы по клику на кнопку "стрелка вверх"
+arrowTop.onclick = function () {
+  window.scrollTo({ pageXOffset, top: 0, behavior: 'smooth' });
+  // после scrollTo возникнет событие "scroll", так что стрелка автоматически скроется
+};
+window.addEventListener('scroll', function () {
+  arrowTop.hidden = pageYOffset < document.documentElement.clientHeight;
+});
 
 export default function onStart() {
   refs.gallery.innerHTML = '';
@@ -40,7 +41,3 @@ function getIdFromCards() {
     onSearchMovieById();
   });
 }
-
-// function clearModalContainer() {
-//   refs.gallery.innerHTML = '';
-// }

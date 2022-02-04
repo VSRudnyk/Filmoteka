@@ -35,7 +35,7 @@ export default function moviesMarkUp(data) {
     .join('');
 
   refs.gallery.insertAdjacentHTML('beforeend', markUp);
-  refs.goUpBtn.style = 'display: block';
+  // refs.goUpBtn.style = 'display: block';
 }
 
 function setPoster(poster) {
