@@ -19,7 +19,6 @@ export default function buildSlider(d) {
   const slider = tns({
     container: '.slider',
     items: 9,
-    controlsContainer: '.slider',
     navContainer: false,
     navAsThumbnails: false,
     autoplay: true,
@@ -30,7 +29,7 @@ export default function buildSlider(d) {
     speed: 1000,
     nav: false,
     autoplayHoverPause: true,
-    prevButton: true,
+    controlsText:  ["^", "^"]
   });
 
   return slider.play();
