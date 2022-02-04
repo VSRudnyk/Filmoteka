@@ -3,6 +3,7 @@ import MoviesApi from '../js/api-requests';
 import moviesMarkUp from '../js/movies-grid';
 import movieDetailMarkUp from '../js/modal-movie-details';
 import buildSlider from '../js/slider';
+import forModalTrailerRender from './modal-trailer';
 import * as basicLightbox from 'basiclightbox';
 
 const movies = new MoviesApi();
@@ -41,5 +42,15 @@ function getIdFromCards() {
   moviePoster.addEventListener('click', e => {
     movies.id = e.target.dataset.id;
     onSearchMovieById();
+    onSearchTrailerById();
   });
+}
+
+function onSearchTrailerById() {
+  movies.getMoviesTrailer().then(response => {
+    forModalTrailerRender(response.data.results)
+   
+  });
+
+
 }
