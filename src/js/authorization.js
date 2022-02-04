@@ -9,6 +9,7 @@ import {
   GoogleAuthProvider,
   FacebookAuthProvider,
   TwitterAuthProvider,
+  GithubAuthProvider,
   signInWithPopup,
 } from 'firebase/auth';
 import { getDatabase, ref, set, onValue } from 'firebase/database';
@@ -31,6 +32,7 @@ const auth = getAuth();
 const provider = new GoogleAuthProvider();
 const providerFb = new FacebookAuthProvider();
 const providerTwit = new TwitterAuthProvider();
+const providerGithub = new GithubAuthProvider();
 const db = getDatabase();
 const refs = getRefs();
 refs.logoutBtn.style.display = 'none';
@@ -68,9 +70,9 @@ const instance = basicLightbox.create(
               </a>
             </li>
             <li class="social-items">
-              <a id="login-twitter" class="social-login-btn inst-btn">
+              <a id="login-github" class="social-login-btn git-btn">
                 <svg width="25" height="25">
-                  <use href="/Filmoteka/sprite.75b44ec7.svg#instagram"></use>
+                  <use href="/Filmoteka/sprite.75b44ec7.svg#github"></use>
                 </svg>
               </a>
             </li>            
@@ -133,8 +135,11 @@ function openSigInModal() {
   const loginFb = document.querySelector('#login-fb');
   loginFb.addEventListener('click', loginWithFacebook);
 
-  const loginTwitter = document.querySelector('#login-twitter');
-  loginTwitter.addEventListener('click', loginWithTwitter);
+  // const loginTwitter = document.querySelector('#login-twitter');
+  // loginTwitter.addEventListener('click', loginWithTwitter);
+
+  const loginGithub = document.querySelector('#login-github');
+  loginGithub.addEventListener('click', loginWithGithub);
 }
 
 function openSignUpModal() {
@@ -210,6 +215,19 @@ function loginWithTwitter() {
       showUserDetails(result.user);
       instance.close();
       Notify.success('User logged in with Twitter');
+    })
+    .catch(error => {
+      Notify.failure('Oops, something went wrong');
+      console.log(error);
+    });
+}
+
+function loginWithGithub() {
+  signInWithPopup(auth, providerGithub)
+    .then(result => {
+      showUserDetails(result.user);
+      instance.close();
+      Notify.success('User logged in with Github');
     })
     .catch(error => {
       Notify.failure('Oops, something went wrong');
