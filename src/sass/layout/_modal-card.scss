@@ -293,16 +293,12 @@ td {
   top: 50%;
   left: 50%;
   transform: translate(-50%, -50%);
-  // display: flex;
-  // align-items: center;
   width: 60px;
   height: 60px;
   background-image: url(../images/button-play.png);
   background-size: contain;
   background-repeat: no-repeat;
   background-color: transparent;
-  // text-decoration: none;
-  // display: inline-block;
   border-radius: 10px;
   box-shadow: 0 0 10px 0 #8c8c8c inset, 0 0 10px 4px white;
   //   font-family: 'Montserrat', sans-serif;
@@ -314,8 +310,3 @@ td {
     box-shadow: 0 0 10px 0 white inset, 0 0 10px 10px white;
   }
 }
-// .btn-open-trailer:hover {
-// box-shadow: 0 0 40px 40px #8c8c8c inset, 0 0 0 0 white;
-//   box-shadow: 0 0 10px 0 #8c8c8c inset, 0 0 10px 4px white;
-//   // color: #ff6b01;
-// }
