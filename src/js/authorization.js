@@ -72,7 +72,7 @@ const instance = basicLightbox.create(
             <li class="social-items">
               <a id="login-github" class="social-login-btn git-btn">
                 <svg width="25" height="25">
-                  <use href="/Filmoteka/sprite.75b44ec7.svg#github"></use>
+                  <use href="/Filmoteka/sprite.75b44ec7.svg#icon-github"</use>
                 </svg>
               </a>
             </li>            
