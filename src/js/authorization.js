@@ -99,7 +99,7 @@ const instance2 = basicLightbox.create(
     <h3 class="auth-container-title">Sign up</h3>
       <button type="button" id="close-modal-btn">
         <svg width="25" height="25">
-          <use href="/Filmoteka/sprite.984331e2.svg#close-btn"></use>
+          <use href="/Filmoteka/sprite.ba1893dc.svg#close-btn"></use>
         </svg>
       </button>
         <input type="email" placeholder="E-mail" class="email-input sign-up" id="sign-email">
