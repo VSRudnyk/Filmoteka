@@ -1,14 +1,14 @@
 import getRefs from '../js/get-refs';
 import { tns } from 'tiny-slider/src/tiny-slider';
+import MoviesApi from '../js/api-requests';
+import movieDetailMarkUp from '../js/modal-movie-details';
 
 const refs = getRefs();
 
 export default function buildSlider(d) {
   d.map(el => {
     const { poster_path } = el;
-    const imgSlider = `<div class="slider__item"><img src="${setPoster(
-      poster_path,
-    )}" alt="" width="120" height="150"/></div>`;
+    const imgSlider = `<a><img src="${setPoster(poster_path)}" alt=""/></a>`;
     return refs.slider.insertAdjacentHTML('beforeend', imgSlider);
   });
 
@@ -27,6 +27,11 @@ export default function buildSlider(d) {
     nav: false,
     autoplayHoverPause: true,
   });
+  refs.slider.addEventListener('click', e => {
+    if (e.target.parentNode.classList.contains('tns-slide-active')) {
+      movieDetailMarkUp(d);
+    }
+  });
 
   return slider.play();
 }
@@ -38,3 +43,9 @@ function setPoster(poster) {
 
   return `https://image.tmdb.org/t/p/w500${poster}`;
 }
+
+refs.slider.addEventListener('click', e => {
+  if (e.target.parentNode.classList.contains('tns-slide-active')) {
+    movieDetailMarkUp();
+  }
+});
