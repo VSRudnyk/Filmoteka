@@ -4,17 +4,21 @@ import MoviesApi from '../js/api-requests';
 import movieDetailMarkUp from '../js/modal-movie-details';
 
 const refs = getRefs();
+const movies = new MoviesApi();
 
 export default function buildSlider(d) {
   d.map(el => {
-    const { poster_path } = el;
-    const imgSlider = `<a><img src="${setPoster(poster_path)}" alt=""/></a>`;
+    const {
+      poster_path,
+      id,
+    } = el
+    const imgSlider = `<a><img src="${setPoster(poster_path)}" alt="" data-id="${id}"/></a>`;
     return refs.slider.insertAdjacentHTML('beforeend', imgSlider);
   });
 
   const slider = tns({
     container: '.slider',
-    items: 6,
+    items: 9,
     controlsContainer: '.slider',
     navContainer: false,
     navAsThumbnails: false,
@@ -26,11 +30,7 @@ export default function buildSlider(d) {
     speed: 1000,
     nav: false,
     autoplayHoverPause: true,
-  });
-  refs.slider.addEventListener('click', e => {
-    if (e.target.parentNode.classList.contains('tns-slide-active')) {
-      movieDetailMarkUp(d);
-    }
+    prevButton: true,
   });
 
   return slider.play();
@@ -45,7 +45,11 @@ function setPoster(poster) {
 }
 
 refs.slider.addEventListener('click', e => {
-  if (e.target.parentNode.classList.contains('tns-slide-active')) {
-    movieDetailMarkUp();
-  }
-});
+    if (e.target.parentNode.classList.contains('tns-slide-active')) {
+      movies.id = e.target.dataset.id;
+      movies.getMoviesById().then(response => {
+        movieDetailMarkUp(response.data);
+      });
+      
+    }
+  });
