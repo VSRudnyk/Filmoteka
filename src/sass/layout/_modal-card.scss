@@ -30,13 +30,13 @@
     justify-content: center;
     align-items: center;
     &:hover {
-      border: 5px solid #ff6b01;
+      border: 2px solid #ff6b01;
       border-radius: 50%;
-      background-color: $secondary-text-color;
+      background-color: #fff;
       color: $white-text-color;
-      transform: translateY(-3px);
-      box-shadow: 0 10px 20px rgba(0, 0, 0, 0.2);
-      box-shadow: 0 10px 20px #ff6b01;
+      transform: translateY(-2px);
+      // box-shadow: 0 0 10px 10px rgba(0, 0, 0, 0.2) inset;
+      box-shadow: 0 0 20px 2px #ff6b01;
     }
   }
 }
@@ -109,19 +109,19 @@
   background-color: transparent;
   color: #ff6b01;
   border: 2px solid #ff6b01;
-}
-.btn-up:hover {
-  color: white;
-  border: 2px solid white;
-  // background-color: #ff6b01;
-  transform: translateY(-3px);
-  box-shadow: 0 10px 20px rgba(0, 0, 0, 0.2);
-  box-shadow: 0 10px 20px #ff6b01;
-}
-.btn-up:active {
-  transform: translateY(-1px);
-  box-shadow: 0 5px 10px rgba(0, 0, 0, 0.2);
-  box-shadow: 0 5px 10px #ff6b01;
+  &:hover {
+    color: white;
+    border: 2px solid white;
+    // background-color: #ff6b01;
+    transform: translateY(-3px);
+    box-shadow: 0 10px 20px rgba(0, 0, 0, 0.2);
+    box-shadow: 0 10px 20px #ff6b01;
+  }
+  &:active {
+    transform: translateY(-1px);
+    box-shadow: 0 5px 10px rgba(0, 0, 0, 0.2);
+    box-shadow: 0 5px 10px #ff6b01;
+  }
 }
 .button-add {
   @media screen and (min-width: 320px) {
@@ -148,42 +148,43 @@
     width: 136px;
     margin-right: 15px;
   }
-}
-.button-add:hover {
-  @media screen and (min-width: 320px) {
-    transform: translateY(-3px);
-    box-shadow: 0 10px 20px rgba(0, 0, 0, 0.2);
-    box-shadow: 0 10px 20px #ff6b01;
-    width: 115px;
-    height: 44px;
-    background: #fff;
-    border: 1px solid #ff6b01;
-    color: #ff6b01;
+  &:hover {
+    @media screen and (min-width: 320px) {
+      transform: translateY(-3px);
+      box-shadow: 0 10px 20px rgba(0, 0, 0, 0.2);
+      box-shadow: 0 10px 20px #ff6b01;
+      width: 115px;
+      height: 44px;
+      background: #fff;
+      border: 1px solid #ff6b01;
+      color: #ff6b01;
+    }
+    @media screen and (min-width: 768px) {
+      width: 125px;
+    }
+    @media screen and (min-width: 1200px) {
+      width: 136px;
+    }
   }
-  @media screen and (min-width: 768px) {
-    width: 125px;
+  &::after {
+    content: '';
+    height: 100%;
+    width: 100%;
+    border-radius: 5px;
+    top: 0;
+    left: 0;
   }
-  @media screen and (min-width: 1200px) {
-    width: 136px;
+  &:hover::after {
+    transform: scaleX(1.4) scaleY(1.6);
+    // opacity: 0;
+  }
+  :active {
+    transform: translateY(-1px);
+    box-shadow: 0 5px 10px rgba(0, 0, 0, 0.2);
+    box-shadow: 0 5px 10px #ff6b01;
   }
 }
-.button-add::after {
-  content: '';
-  height: 100%;
-  width: 100%;
-  border-radius: 5px;
-  top: 0;
-  left: 0;
-}
-.button-add:hover::after {
-  transform: scaleX(1.4) scaleY(1.6);
-  // opacity: 0;
-}
-.button-add:active {
-  transform: translateY(-1px);
-  box-shadow: 0 5px 10px rgba(0, 0, 0, 0.2);
-  box-shadow: 0 5px 10px #ff6b01;
-}
+
 .btn-animated {
   // animation: moveInBottom 5s ease-out;
   animation-fill-mode: backwards;
@@ -269,6 +270,7 @@ td {
 }
 .modal-image {
   @media screen and (min-width: 320px) {
+    position: relative;
     display: block;
     width: 100%;
     height: auto;
@@ -281,7 +283,39 @@ td {
   }
 }
 .movie-poster {
+  position: relative;
   width: 100%;
   height: auto;
   border-radius: 5px;
 }
+.btn-open-trailer {
+  position: absolute;
+  top: 50%;
+  left: 50%;
+  transform: translate(-50%, -50%);
+  // display: flex;
+  // align-items: center;
+  width: 60px;
+  height: 60px;
+  background-image: url(../images/button-play.png);
+  background-size: contain;
+  background-repeat: no-repeat;
+  background-color: transparent;
+  // text-decoration: none;
+  // display: inline-block;
+  border-radius: 10px;
+  box-shadow: 0 0 10px 0 #8c8c8c inset, 0 0 10px 4px white;
+  //   font-family: 'Montserrat', sans-serif;
+  font-weight: bold;
+  letter-spacing: 2px;
+  color: white;
+  transition: 0.15s ease-in-out;
+  &:hover {
+    box-shadow: 0 0 10px 0 white inset, 0 0 10px 10px white;
+  }
+}
+// .btn-open-trailer:hover {
+// box-shadow: 0 0 40px 40px #8c8c8c inset, 0 0 0 0 white;
+//   box-shadow: 0 0 10px 0 #8c8c8c inset, 0 0 10px 4px white;
+//   // color: #ff6b01;
+// }
