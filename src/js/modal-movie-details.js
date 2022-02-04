@@ -54,6 +54,9 @@ export default function movieDetailMarkUp(data) {
            <div class="modal-card">
         <div class="modal-image">
           <img src="https://image.tmdb.org/t/p/w300${poster_path}" alt="movie-poster" class="movie-poster" />
+          <button type="button" class="btn-open-trailer">
+
+        </button>
         </div>
         <div class="modal-info">
           <h2 class="modal-info-title">${title}</h2>
