@@ -53,7 +53,7 @@ export default function movieDetailMarkUp(data) {
            </button>
            <div class="modal-card">
         <div class="modal-image">
-          <img src="https://image.tmdb.org/t/p/w300${poster_path}" alt="movie-poster" class="movie-poster" />
+          <img src="${setPosters(poster_path)}" alt="movie-poster" class="movie-poster" />
           <button type="button" class="btn-open-trailer">
 
         </button>
@@ -100,6 +100,12 @@ export default function movieDetailMarkUp(data) {
   onModalBtnWatchedLocalStorage(btnAddWatched, data, watched);
   onModalBtnQueueLocalStorage(btnAddQueue, data, queue);
 
+  function setPosters(poster) {
+    if (poster === null) {
+      return 'https://wipfilms.net/wp-content/data/posters/tt0338683.jpg';
+    }
+    return `https://image.tmdb.org/t/p/w300${poster_path}`;
+  }
   // <svg class="modal__button-icon" width="14px" height="14px">
   // <use href="../images/sprite.svg#icon-close"></use>
   // </svg>
