@@ -54,6 +54,22 @@ export default class MoviesApi {
     }
   }
 
+
+  async getMoviesTrailer() {
+    try {
+      const response = await axios.get(
+        `${BASE_URL}movie/${this.movieId}/videos?api_key=${API_KEY}&language=en-US`,
+      );
+      return response;
+    } catch (error) {
+      console.error(error);
+    }
+  }
+
+
+
+
+
   incrementPage() {
     this.page += 1;
   }
