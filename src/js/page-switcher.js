@@ -31,6 +31,8 @@ function processingData(category) {
 
 function resetAndRender(string) {
   refs.slider.innerHTML = '';
+  refs.sliderContainer.style.border = 'none';
+  refs.sliderContainer.style.backgroundColor = '#ffffff';
   refs.gallery.innerHTML = '';
   moviesMarkUp(processingData(string));
 }
