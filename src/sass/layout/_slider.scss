@@ -68,3 +68,12 @@ button[data-controls='prev']:hover {
   background-color: #ff6b08;
   color: #ffffff;
 }
+
+.tns-item {
+  transform: scale(0.95);
+  transition: all 250ms linear;
+}
+
+.tns-item:hover {
+  transform: scale(1);
+}
