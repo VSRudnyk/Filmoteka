@@ -49,7 +49,7 @@ function setPoster(poster) {
 
 function setReleaseDate(year) {
   if (!year) {
-    return 'Date absent';
+    return 'No data';
   }
   return year.slice(0, 4);
 }
