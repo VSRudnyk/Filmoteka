@@ -46,8 +46,9 @@ export default function movieDetailMarkUp(data) {
       ? '<button type="button" class="button-add btn-animated queue pressed">remove from queue</button>'
       : '<button type="button" class="button-add queue">add to queue</button>';
 
-  const instance = basicLightbox.create(
-    `<div class="modal modal-container"> 
+  const instance = basicLightbox
+    .create(
+      `<div class="modal modal-container"> 
            <button type="button" class="btn-close">
            <svg width="30" height="30" fill="none" xmlns="http://www.w3.org/2000/svg" style="position: absolute"><path d="m8 8 14 14M8 22 22 8" stroke="#000" stroke-width="2"/></svg>
            </button>
@@ -86,13 +87,33 @@ export default function movieDetailMarkUp(data) {
       </div>
     </div>
   `,
-    {
-      onShow: instance => {
-        instance.element().querySelector('.btn-close').onclick = instance.close;
+      {
+        onShow: instance => {
+          // console.log('открываем окно');
+          // ---колбек-функция -обработчик события ---
+          function onInstanceclick(e) {
+            // ----------закрыла окно по кнопке Эскейп-------------
+            if (e.code === 'Escape') {
+              instance.close();
+            }
+          }
+          // ---добавляю слушательсобытий клавиатуры на кнопку эскейп при открытом модальном окне-----------
+          document.addEventListener('keydown', onInstanceclick);
+          instance.element().querySelector('.btn-close').onclick = instance.close;
+        },
+        onClose: instance => {
+          function onInstanceclick(e) {
+            // ----------закрыла окно по кнопке Эскейп-------------
+            if (e.code === 'Escape') {
+              instance.close();
+            }
+          }
+          // console.log('закрываем');
+          document.removeEventListener('keydown', onInstanceclick);
+        },
       },
-    },
-  );
-  instance.show();
+    )
+    .show();
 
   const btnAddWatched = document.querySelector('.wathed');
   const btnAddQueue = document.querySelector('.queue');
@@ -104,12 +125,16 @@ export default function movieDetailMarkUp(data) {
     if (poster === null) {
       return 'https://wipfilms.net/wp-content/data/posters/tt0338683.jpg';
     }
+
     return `https://image.tmdb.org/t/p/w300${poster_path}`;
   }
-  // <svg class="modal__button-icon" width="14px" height="14px">
-  // <use href="../images/sprite.svg#icon-close"></use>
-  // </svg>
-  // <img src="../images/cross.svg" width="18" height="18" alt=""></img>
-  // {/* <svg path="../images/sprite.svg#icon-close" width="14px" height="14px"></svg>; */}
-  // return refs.gallery.insertAdjacentHTML('afterbegin', markUp);
 }
+// <svg class="modal__button-icon" width="14px" height="14px">
+// <use href="../images/sprite.svg#icon-close"></use>
+// </svg>
+// <img src="../images/cross.svg" width="18" height="18" alt=""></img>
+// {/* <svg path="../images/sprite.svg#icon-close" width="14px" height="14px"></svg>; */}
+// return refs.gallery.insertAdjacentHTML('afterbegin', markUp);
+
+// instance.element().querySelector('.btn-close').onclick = instance.close;
+//
