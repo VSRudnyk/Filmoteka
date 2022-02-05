@@ -12,7 +12,7 @@ export default function createGenresText(genre_ids) {
     genresToCards.push(genre.name);
   }
   if (genresToCards.length === 0) {
-    return 'No genres info';
+    return 'Genres absent';
   }
   if (genresToCards.length < 2) {
     return genresToCards.join(', ');
