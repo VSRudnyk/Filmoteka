@@ -31,7 +31,6 @@ const app = initializeApp(firebaseConfig);
 const auth = getAuth();
 const provider = new GoogleAuthProvider();
 const providerFb = new FacebookAuthProvider();
-const providerTwit = new TwitterAuthProvider();
 const providerGithub = new GithubAuthProvider();
 const db = getDatabase();
 const refs = getRefs();
@@ -134,9 +133,6 @@ function openSigInModal() {
 
   const loginFb = document.querySelector('#login-fb');
   loginFb.addEventListener('click', loginWithFacebook);
-
-  // const loginTwitter = document.querySelector('#login-twitter');
-  // loginTwitter.addEventListener('click', loginWithTwitter);
 
   const loginGithub = document.querySelector('#login-github');
   loginGithub.addEventListener('click', loginWithGithub);
