@@ -1,6 +1,7 @@
 import MoviesApi from '../js/api-requests';
 import debounce from 'debounce';
 import getRefs from '../js/get-refs';
+import { Notify } from 'notiflix/build/notiflix-notify-aio';
 import movieDetailMarkUp from '../js/modal-movie-details';
 import moviesMarkUp from '../js/movies-grid';
 import onLoadPage from '../js/onStart';
@@ -14,6 +15,8 @@ const pagination = new Pagination('pagination', {
   totalItems: 200,
   visiblePages: 5,
 });
+
+// setTimeout(() => Notify.success('Film added to queue'), 250);
 
 function paginationPopularMovies(evt) {
   const { page } = evt;
@@ -34,8 +37,8 @@ function onInputRenderCard(e) {
   movies.resetPage();
   pagination.off('beforeMove', paginationPopularMovies);
 
-  const searchInput = refs.searchInput.value;
-  if (searchInput === '') {
+  const searchInput1 = refs.searchInput.value;
+  if (searchInput1 === '') {
     onLoadPage();
     return;
   }
@@ -44,7 +47,7 @@ function onInputRenderCard(e) {
 
   function paginationSearchMovies(evt) {
     refs.gallery.innerHTML = '';
-    const { page } = evt;
+    const { page, searchInput } = evt;
     movies.page = page;
     movies.query = searchInput;
     movies.getSearchMovies().then(response => {
@@ -52,7 +55,7 @@ function onInputRenderCard(e) {
     });
   }
 
-  displayResults(searchInput, moviesMarkUp);
+  displayResults(searchInput1, moviesMarkUp);
 
   pagination.on('beforeMove', paginationSearchMovies);
 }
@@ -61,6 +64,11 @@ function displayResults(searchInput, callback) {
   movies.query = searchInput;
 
   movies.getSearchMovies().then(response => {
+    if (response.data.results.length === 0) {
+      Notify.failure('Ooops, nothing was found');
+      return;
+    }
+
     callback(response.data.results);
   });
 }
