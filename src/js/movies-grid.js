@@ -11,10 +11,11 @@ export default function moviesMarkUp(data) {
       <div class="movie-card">
        <div class="movie-card__hover">
          <a class="movie-link">
-        <span class="movie-rating-wrapper">            
-                <div class="movie-rating">${rating}</div>
-                </span>
+        
         <div class="movie-poster-wrapper">
+          <span class="movie-rating-wrapper">            
+            <div class="movie-rating">${rating}</div>
+          </span>
           <img src="${setPoster(
             poster_path,
           )}" alt="" class="movie-card-img movie-poster" data-id="${id}" loading="lazy"/>
