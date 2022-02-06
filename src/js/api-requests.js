@@ -13,7 +13,7 @@ export default class MoviesApi {
   async getPopularMovies() {
     try {
       const response = await axios.get(
-        `${BASE_URL}movie/popular?api_key=${API_KEY}&language=en-US&page=${this.page}`,
+        `${BASE_URL}trending/movie/day?api_key=${API_KEY}&language=en-US&page=${this.page}`,
       );
       return response;
     } catch (error) {
@@ -54,7 +54,6 @@ export default class MoviesApi {
     }
   }
 
-
   async getMoviesTrailer() {
     try {
       const response = await axios.get(
@@ -65,10 +64,6 @@ export default class MoviesApi {
       console.error(error);
     }
   }
-
-
-
-
 
   incrementPage() {
     this.page += 1;
