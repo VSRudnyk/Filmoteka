@@ -136,6 +136,10 @@ function openSigInModal() {
 
   const loginGithub = document.querySelector('#login-github');
   loginGithub.addEventListener('click', loginWithGithub);
+
+  document.addEventListener('keydown', e =>
+    e.code === 'Escape' ? instance.close() : instance.show(),
+  );
 }
 
 function openSignUpModal() {
@@ -146,6 +150,10 @@ function openSignUpModal() {
 
   const signUpBtn = document.querySelector('#signUp');
   signUpBtn.addEventListener('click', signUpUser);
+
+  document.addEventListener('keydown', e =>
+    e.code === 'Escape' ? instance2.close() : instance2.show(),
+  );
 }
 
 function signUpUser() {
