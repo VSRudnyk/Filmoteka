@@ -8,14 +8,18 @@ const refs = getRefs();
 const movies = new MoviesApi();
 
 export default function buildSlider(d) {
-  d.map(el => {
-    const { poster_path, id } = el;
-    const imgSlider = `<a><img src="${setPoster(poster_path)}" alt="" data-id="${id}"/></a>`;
-    return refs.slider.insertAdjacentHTML('beforeend', imgSlider);
-  });
+  if (window.screen.width >= 1024) {
+    d.map(el => {
+      const { poster_path, id } = el;
+      const imgSlider = `<a><img src="${setPoster(poster_path)}" alt="" data-id="${id}"/></a>`;
+      console.log(window.screen.width);
+      return refs.slider.insertAdjacentHTML('beforeend', imgSlider);
+    });
+    slider();
+    return slider().play();
+  }
 
-  slider();
-  return slider().play();
+  slider().destroy();
 }
 
 function setPoster(poster) {
@@ -62,7 +66,6 @@ export { slider };
 
 function onSearchTrailerById() {
   movies.getMoviesTrailer().then(response => {
-    forModalTrailerRender(response.data.results)
-   
+    forModalTrailerRender(response.data.results);
   });
 }

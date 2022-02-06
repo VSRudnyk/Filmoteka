@@ -30,9 +30,8 @@ function processingData(category) {
 }
 
 function resetAndRender(string) {
-  // slider().destroy();
-  refs.slider.innerHTML = '';
-  refs.sliderContainer.innerHTML = '';
+  // refs.slider.innerHTML = '';
+  // refs.sliderContainer.innerHTML = '';
   refs.gallery.innerHTML = '';
   moviesMarkUp(processingData(string));
 }
