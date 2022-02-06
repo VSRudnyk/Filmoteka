@@ -42,15 +42,16 @@ function getIdFromCards() {
   moviePoster.addEventListener('click', e => {
     movies.id = e.target.dataset.id;
     onSearchMovieById();
-    onSearchTrailerById();
+    setTimeout(() => {
+      onSearchTrailerById();
+    }, 500);
+  
+    
   });
 }
 
 function onSearchTrailerById() {
   movies.getMoviesTrailer().then(response => {
     forModalTrailerRender(response.data.results)
-   
   });
-
-
 }

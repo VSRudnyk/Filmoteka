@@ -2,6 +2,7 @@ import getRefs from '../js/get-refs';
 import { tns } from 'tiny-slider/src/tiny-slider';
 import MoviesApi from '../js/api-requests';
 import movieDetailMarkUp from '../js/modal-movie-details';
+import forModalTrailerRender from './modal-trailer';
 
 const refs = getRefs();
 const movies = new MoviesApi();
@@ -30,6 +31,9 @@ refs.slider.addEventListener('click', e => {
     movies.id = e.target.dataset.id;
     movies.getMoviesById().then(response => {
       movieDetailMarkUp(response.data);
+      setTimeout(() => {
+        onSearchTrailerById();
+      }, 500);
     });
   }
 });
@@ -55,3 +59,10 @@ function slider() {
 }
 
 export { slider };
+
+function onSearchTrailerById() {
+  movies.getMoviesTrailer().then(response => {
+    forModalTrailerRender(response.data.results)
+   
+  });
+}

@@ -1,0 +1,13 @@
+.modal-trailer-close-btn {
+    width: 30px;
+    height: 30px;
+    position: absolute;
+    right: -50px;
+    top: -50px;
+    cursor: pointer;
+    & svg {
+        position: absolute;
+        top: -2px;
+        left: -2px;
+    }
+}
