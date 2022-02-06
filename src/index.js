@@ -44,11 +44,11 @@ addDarkClassToHTML();
 function addDarkClassToHTML(){
    try {
   if (localStorage.getItem('theme') === 'dark'){
-document.querySelector('html').classList.add('dark');
+document.querySelector('.bg').classList.add('dark');
 document.querySelector('.themetoggle span').textContent = 'nightlight_round';
 } 
 else {
-  document.querySelector('html').classList.remove('dark');
+  document.querySelector('.bg').classList.remove('dark');
   document.querySelector('.themetoggle span').textContent = 'wb_sunny';
 }
    }

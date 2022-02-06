@@ -286,8 +286,8 @@ td {
   position: relative;
   width: 100%;
   height: auto;
-  border-radius: 5px;
 }
+
 .btn-open-trailer {
   position: absolute;
   top: 50%;
@@ -306,6 +306,7 @@ td {
   letter-spacing: 2px;
   color: white;
   transition: 0.15s ease-in-out;
+  
   &:hover {
     box-shadow: 0 0 10px 0 white inset, 0 0 10px 10px white;
   }
