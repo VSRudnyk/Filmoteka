@@ -1,4 +1,5 @@
 import MoviesApi from '../js/api-requests';
+import { Notify } from 'notiflix/build/notiflix-notify-aio';
 import debounce from 'debounce';
 import getRefs from '../js/get-refs';
 import movieDetailMarkUp from '../js/modal-movie-details';
@@ -22,7 +23,7 @@ function handleMobileChange(e) {
 }
 handleMobileChange(mediaQuery);
 
-let pagination = new Pagination('pagination', paginationOptions);
+let paginationOnPopular = new Pagination('pagination', paginationOptions);
 
 function paginationPopularMovies(evt) {
   const { page } = evt;
@@ -33,15 +34,15 @@ function paginationPopularMovies(evt) {
   });
 }
 
-pagination.on('beforeMove', paginationPopularMovies);
+paginationOnPopular.on('beforeMove', paginationPopularMovies);
 
 refs.form.addEventListener('input', debounce(onInputRenderCard, 500));
 
 function onInputRenderCard(e) {
-  pagination.reset();
+  paginationOnPopular.reset();
   e.preventDefault();
   movies.resetPage();
-  pagination.off('beforeMove', paginationPopularMovies);
+  paginationOnPopular.off('beforeMove', paginationPopularMovies);
 
   const searchInput = refs.searchInput.value;
   if (searchInput === '') {
@@ -57,19 +58,29 @@ function onInputRenderCard(e) {
     movies.page = page;
     movies.query = searchInput;
     movies.getSearchMovies().then(response => {
+      function handleMobileChange(e) {
+        if (e.matches) {
+          paginationOptions = { totalItems: response.data.total_pages, visiblePages: 2 };
+        } else {
+          paginationOptions = { totalItems: response.data.total_pages, visiblePages: 5 };
+        }
+      }
+      handleMobileChange(mediaQuery);
+
       moviesMarkUp(response.data.results);
     });
   }
 
   displayResults(searchInput, moviesMarkUp);
-
-  pagination.on('beforeMove', paginationSearchMovies);
+  let paginationOnSearch = new Pagination('pagination', paginationOptions);
+  paginationOnSearch.on('beforeMove', paginationSearchMovies);
 }
 
 function displayResults(searchInput, callback) {
   movies.query = searchInput;
 
   movies.getSearchMovies().then(response => {
+    Notify.success(`Yeah! We found ${response.data.total_pages} movies!`);
     callback(response.data.results);
   });
 }
