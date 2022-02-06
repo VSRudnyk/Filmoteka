@@ -10,11 +10,20 @@ import '../sass/layout/_pagination.scss';
 
 const movies = new MoviesApi();
 const refs = getRefs();
+let paginationOptions = {};
 
-const pagination = new Pagination('pagination', {
-  totalItems: 200,
-  visiblePages: 5,
-});
+const mediaQuery = window.matchMedia('(max-width: 768px)');
+mediaQuery.addEventListener('change', handleMobileChange);
+function handleMobileChange(e) {
+  if (e.matches) {
+    paginationOptions = { totalItems: 200, visiblePages: 2 };
+  } else {
+    paginationOptions = { totalItems: 200, visiblePages: 5 };
+  }
+}
+handleMobileChange(mediaQuery);
+
+let pagination = new Pagination('pagination', paginationOptions);
 
 // setTimeout(() => Notify.success('Film added to queue'), 250);
 
