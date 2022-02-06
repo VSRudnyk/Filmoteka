@@ -87,6 +87,14 @@ const instance = basicLightbox.create(
   {
     onShow: instance => {
       instance.element().querySelector('#close-modal-btn').onclick = instance.close;
+      document.addEventListener('keydown', e =>
+        e.code === 'Escape' ? instance.close() : instance.show(),
+      );
+    },
+    onClose: () => {
+      document.removeEventListener('keydown', e =>
+        e.code === 'Escape' ? instance.close() : instance.show(),
+      );
     },
   },
 );
@@ -112,6 +120,14 @@ const instance2 = basicLightbox.create(
   {
     onShow: instance => {
       instance.element().querySelector('#close-modal-btn').onclick = instance.close;
+      document.addEventListener('keydown', e =>
+        e.code === 'Escape' ? instance2.close() : instance2.show(),
+      );
+    },
+    onClose: () => {
+      document.removeEventListener('keydown', e =>
+        e.code === 'Escape' ? instance.close() : instance.show(),
+      );
     },
   },
 );
@@ -136,10 +152,6 @@ function openSigInModal() {
 
   const loginGithub = document.querySelector('#login-github');
   loginGithub.addEventListener('click', loginWithGithub);
-
-  document.addEventListener('keydown', e =>
-    e.code === 'Escape' ? instance.close() : instance.show(),
-  );
 }
 
 function openSignUpModal() {
@@ -150,10 +162,6 @@ function openSignUpModal() {
 
   const signUpBtn = document.querySelector('#signUp');
   signUpBtn.addEventListener('click', signUpUser);
-
-  document.addEventListener('keydown', e =>
-    e.code === 'Escape' ? instance2.close() : instance2.show(),
-  );
 }
 
 function signUpUser() {
@@ -206,19 +214,6 @@ function loginWithFacebook() {
       showUserDetails(result.user);
       instance.close();
       Notify.success('User logged in with Facebook');
-    })
-    .catch(error => {
-      Notify.failure('Oops, something went wrong');
-      console.log(error);
-    });
-}
-
-function loginWithTwitter() {
-  signInWithPopup(auth, providerTwit)
-    .then(result => {
-      showUserDetails(result.user);
-      instance.close();
-      Notify.success('User logged in with Twitter');
     })
     .catch(error => {
       Notify.failure('Oops, something went wrong');
@@ -281,7 +276,7 @@ function writeUserData(displayName, email, uid, photoURL) {
     email: email,
     userId: uid,
     photoUrl: photoURL,
-    films: ['Matrix', 'Spider-Man'],
+    films: [],
   });
 }
 
