@@ -17,6 +17,7 @@
   min-height: 443px;
   margin: 15px;
   border-radius: 5px;
+  background-color: #fff;
   flex-basis: calc((100% - 2 * 15px) / 1);
 
   @media screen and (min-width: 768px) {
@@ -46,7 +47,7 @@
 }
 .movie-poster-wrapper {
   position: relative;
-  border-radius: 5px;
+  // border-radius: 5px;
   overflow: hidden;
 }
 .movie-card-img {
@@ -60,6 +61,7 @@
   display: flex;
   flex-direction: column;
   margin-top: 10px;
+  padding: 5px;
   @include font($lh: 16px);
 }
 .movie-title {
