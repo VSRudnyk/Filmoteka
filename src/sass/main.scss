@@ -1,4 +1,5 @@
 @import './utils/variables';
+@import './components/loader';
 @import './utils/mixin';
 @import './base/reset';
 @import './base/container';
@@ -10,7 +11,5 @@
 @import './layout/team-card.scss';
 @import './layout/pagination';
 @import './layout/library';
-@import './components/index.scss';
 @import './layout/slider';
 @import './layout/modal-trailer';
-
