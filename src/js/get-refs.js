@@ -20,5 +20,7 @@ export default function getRefs() {
     slider: document.querySelector('.slider'),
     // кнопка наверх
     goUpBtn: document.querySelector('.go-up'),
+    //loader
+    maskLoader: document.querySelector('.mask'),
   };
 }
