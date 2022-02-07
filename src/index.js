@@ -28,31 +28,26 @@ function onFormSubmit(e) {
 
 onLoadPage();
 
-
-
-
-document.querySelector('.themetoggle').addEventListener('click', (event)=>{
+document.querySelector('.themetoggle').addEventListener('click', event => {
   event.preventDefault();
-  if (localStorage.getItem('theme') === 'dark'){
-localStorage.removeItem('theme');
-} else {
-  localStorage.setItem('theme','dark')
-}
-addDarkClassToHTML();
+  if (localStorage.getItem('theme') === 'dark') {
+    localStorage.removeItem('theme');
+  } else {
+    localStorage.setItem('theme', 'dark');
+  }
+  addDarkClassToHTML();
 });
 
-function addDarkClassToHTML(){
-   try {
-  if (localStorage.getItem('theme') === 'dark'){
-document.querySelector('.bg').classList.add('dark');
-document.querySelector('.themetoggle span').textContent = 'nightlight_round';
-} 
-else {
-  document.querySelector('.bg').classList.remove('dark');
-  document.querySelector('.themetoggle span').textContent = 'wb_sunny';
+function addDarkClassToHTML() {
+  try {
+    if (localStorage.getItem('theme') === 'dark') {
+      document.querySelector('.bg').classList.add('dark');
+      document.querySelector('.themetoggle span').textContent = 'nightlight_round';
+    } else {
+      document.querySelector('.bg').classList.remove('dark');
+      document.querySelector('.themetoggle span').textContent = 'wb_sunny';
+    }
+  } catch (err) {}
 }
-   }
-  catch (err) {}
-};
 
 addDarkClassToHTML();

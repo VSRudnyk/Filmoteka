@@ -45,13 +45,11 @@ function getIdFromCards() {
     setTimeout(() => {
       onSearchTrailerById();
     }, 500);
-  
-    
   });
 }
 
 function onSearchTrailerById() {
   movies.getMoviesTrailer().then(response => {
-    forModalTrailerRender(response.data.results)
+    forModalTrailerRender(response.data.results);
   });
 }

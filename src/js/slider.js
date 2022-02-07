@@ -12,7 +12,7 @@ export default function buildSlider(d) {
     d.map(el => {
       const { poster_path, id } = el;
       const imgSlider = `<a><img src="${setPoster(poster_path)}" alt="" data-id="${id}"/></a>`;
-      console.log(window.screen.width);
+      // console.log(window.screen.width);
       return refs.slider.insertAdjacentHTML('beforeend', imgSlider);
     });
     slider();
