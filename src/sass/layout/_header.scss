@@ -92,8 +92,8 @@
   position: absolute;
   left: 0px;
   bottom: -1px;
-
-  width: 34px;
+  display: block;
+  width: 100%;
   height: 3px;
 
   background-color: $secondary-text-color;
@@ -165,8 +165,6 @@
 
   padding-top: 14px;
   padding-bottom: 12px;
-  padding-left: 36px;
-  padding-right: 36px;
 
   font-size: 12px;
   text-align: center;
@@ -178,8 +176,6 @@
 
   @media screen and (min-width: 768px) {
     width: 136px;
-    padding-left: 38px;
-    padding-right: 38px;
   }
 
   &:hover,
@@ -334,7 +330,7 @@
   font-family: 'Material Icons';
   font-weight: normal;
   font-style: normal;
-  font-size: 24px;  /* Preferred icon size */
+  font-size: 24px; /* Preferred icon size */
   display: inline-block;
   line-height: 1;
   text-transform: none;
@@ -359,6 +355,7 @@
   /* Support for IE. */
   font-feature-settings: 'liga';
 }
+
 .swicher {
   position: absolute;
   // left: 50px;
@@ -372,7 +369,8 @@
   padding: 1px;
 
   &.dark {
-    background: linear-gradient(rgb(0 0 0 / 26%), rgb(0 0 0 / 65%)), url(../images/background/bg3.png);
+    background: linear-gradient(rgb(0 0 0 / 26%), rgb(0 0 0 / 65%)),
+      url(../images/background/bg3.png);
     background-position: top;
     background-size: 350px;
     padding: 1px;
@@ -394,3 +392,4 @@
 //     background-size: 350px;
 //     padding: 1px;
 // }  
+

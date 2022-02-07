@@ -3,6 +3,9 @@ import {
   onModalBtnWatchedLocalStorage,
   onModalBtnQueueLocalStorage,
 } from './modal-btns-loca-storage';
+// import i18next from './localization';
+
+// console.log(i18next.json());
 
 import * as basicLightbox from 'basiclightbox';
 import '../../node_modules/basiclightbox/src/styles/main.scss';
@@ -63,23 +66,23 @@ export default function movieDetailMarkUp(data) {
           <h2 class="modal-info-title">${title}</h2>
            <table>
         <tr>
-          <th class="info-table-td">Vote / Votes</td>
+          <th class="info-table-td" data-key="vote">Vote / Votes</td>
           <td> <span class="info-table-vote_average">${vote_average}</span>    /   <span class="info-table-vote_count"> ${vote_count} </span></td>
         </tr>
         <tr>
-          <th class="info-table-td">Popularity</td>
+          <th class="info-table-td" data-key="popularity">Popularity</td>
           <td>${popularity}</td>
         </tr>
         <tr>
-          <th class="info-table-td">Original Title</td>
+          <th class="info-table-td" data-key="original-title">Original Title</td>
           <td class="info-table-original_title" valign="bottom">${original_title}</td>
         </tr>
         <tr>
-          <th class="info-table-td">Genre</td>
+          <th class="info-table-td" data-key="genre">Genre</td>
           <td>${allGenres}</td>
         </tr>
       </table>
-            <h3 class="modal-about">ABOUT</h3>
+            <h3 class="modal-about" data-key="about">ABOUT</h3>
             <p class="modal-info-about">${overview}</p>
       ${btnWatchedRender}
       ${btnQueueRender}

@@ -7,12 +7,15 @@ export default class MoviesApi {
     this.searchQuery = '';
     this.movieId = '';
     this.page = 1;
+    this.language = 'en-US';
   }
 
   async getPopularMovies() {
     try {
       const response = await axios.get(
-        `${BASE_URL}trending/movie/day?api_key=${API_KEY}&language=en-US&page=${this.page}`,
+        `${BASE_URL}trending/movie/day?api_key=${API_KEY}&language=${this.setLanguage()}&page=${
+          this.page
+        }`,
       );
       return response;
     } catch (error) {
@@ -23,7 +26,9 @@ export default class MoviesApi {
   async getSearchMovies() {
     try {
       const response = await axios.get(
-        `${BASE_URL}search/movie?api_key=${API_KEY}&language=en-US&page=${this.page}&query=${this.searchQuery}`,
+        `${BASE_URL}search/movie?api_key=${API_KEY}&language=${this.setLanguage()}&page=${
+          this.page
+        }&query=${this.searchQuery}`,
       );
       return response;
     } catch (error) {
@@ -34,7 +39,7 @@ export default class MoviesApi {
   async getMoviesById() {
     try {
       const response = await axios.get(
-        `${BASE_URL}movie/${this.movieId}?api_key=${API_KEY}&language=en-US`,
+        `${BASE_URL}movie/${this.movieId}?api_key=${API_KEY}&language=${this.setLanguage()}`,
       );
       return response;
     } catch (error) {
@@ -45,7 +50,7 @@ export default class MoviesApi {
   async getUpcomingMovies() {
     try {
       const response = await axios.get(
-        `${BASE_URL}movie/upcoming?api_key=${API_KEY}&language=en-US&page=1`,
+        `${BASE_URL}movie/upcoming?api_key=${API_KEY}&language=${this.setLanguage()}&page=1`,
       );
       return response;
     } catch (error) {
@@ -56,12 +61,19 @@ export default class MoviesApi {
   async getMoviesTrailer() {
     try {
       const response = await axios.get(
-        `${BASE_URL}movie/${this.movieId}/videos?api_key=${API_KEY}&language=en-US`,
+        `${BASE_URL}movie/${this.movieId}/videos?api_key=${API_KEY}&language=${this.setLanguage()}`,
       );
       return response;
     } catch (error) {
       console.error(error);
     }
+  }
+
+  setLanguage() {
+    if (!localStorage.getItem('lang')) {
+      return (this.language = 'en-US');
+    }
+    return (this.language = localStorage.getItem('lang'));
   }
 
   incrementPage() {
