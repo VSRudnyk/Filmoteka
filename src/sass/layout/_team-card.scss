@@ -1,3 +1,4 @@
+
 .team-section {
   position: relative;
   display: flex;
@@ -17,9 +18,9 @@
  
 
 // );
-  // &__container {
-  //     // height: 100vh;
-  //   }
+  &__container {
+      height: 100vh;
+    }
     &::before {
       content: '';
       position: absolute;
@@ -44,13 +45,17 @@
   justify-content: center;
   align-items: center;
   flex-wrap: wrap;
-  // margin: 20px 0;
-  // height: 92vh;
-  // overflow-y: auto;
-  // margin-top: 30px;
-  // margin-bottom: 30px;
+  margin: 20px 0;
+  height: 92vh;
+  margin-top: 30px;
+  margin-bottom: 30px;
+  overflow-y: auto;
 
+  &::-webkit-scrollbar {
+    width: 0;
+  }
 }
+
 .cards-container .card {
   z-index: 2;
   position: relative;
