@@ -5,6 +5,7 @@
   align-items: center;
   flex-wrap: wrap;
   background: #161616;
+  
   // background-image: linear-gradient(
   // to top,
   // #16161610 85%,
@@ -134,7 +135,7 @@
     max-width: 650px;
   }
   .card__content {
-      opacity: 0.5;
+      opacity: 0.75;
       transition: 0.5s;
   
       .cards-container .card:hover & {
