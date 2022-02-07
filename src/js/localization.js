@@ -5,13 +5,29 @@ import getRefs from './get-refs';
 
 const movies = new MoviesApi();
 const refs = getRefs();
-
+const signInBtn = document.querySelector('.signin-btn');
+signInBtn.addEventListener('click', onSignInBtnClick);
 refs.gallery.addEventListener('click', onMovieCardClick);
+
 function onMovieCardClick(e) {
   setTimeout(() => {
     const modalItems = document.querySelectorAll('.modal-card [data-key]');
     modalItems.forEach(translateElement);
-  }, 250);
+  }, 150);
+}
+function onSignInBtnClick() {
+  const signUpBtn = document.querySelector('.sign-up-btn');
+  signUpBtn.addEventListener('click', () => {
+    setTimeout(() => {
+      const signInWindowItems = document.querySelectorAll('.modal-auth-container [data-key]');
+      signInWindowItems.forEach(translateElement);
+    }, 150);
+  });
+  console.log(signUpBtn);
+  setTimeout(() => {
+    const signInWindowItems = document.querySelectorAll('.modal-auth-container [data-key]');
+    signInWindowItems.forEach(translateElement);
+  }, 150);
 }
 
 i18next.init(
@@ -36,6 +52,12 @@ i18next.init(
           genre: 'Genre',
           popularity: 'Popularity',
           'original-title': 'Original title',
+          'form-name': 'Log In',
+          description: 'To log in, enter your email address and password',
+          'modal-login': 'Log In',
+          authorization: 'Authorization with social networks',
+          'sign-up': 'Sign up',
+          'sign-up-btn': 'Sign up',
         },
       },
       'uk-UA': {
@@ -55,6 +77,12 @@ i18next.init(
           genre: 'Жанр',
           popularity: 'Популярність',
           'original-title': 'Оригінальна назва',
+          'form-name': 'Вхід',
+          description: 'Для входу, введіть адресу електронної пошти та пароль',
+          'modal-login': 'Вхід',
+          authorization: 'Авторизуйтесь з допомогою',
+          'sign-up': 'Реєстрація',
+          'sign-up-btn': 'Приєднатися',
         },
       },
       'ru-RU': {
@@ -74,6 +102,12 @@ i18next.init(
           genre: 'Жанр',
           popularity: 'Популярность',
           'original-title': 'Оригинальное название',
+          'form-name': 'Вход',
+          description: 'Для входа введите адрес электронной почты и пароль',
+          'modal-login': 'Вход',
+          authorization: 'Авторизируйтесь с помощью',
+          'sign-up': 'Регистрация',
+          'sign-up-btn': 'Зарегистрироваться',
         },
       },
     },
