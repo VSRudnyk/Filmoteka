@@ -8,7 +8,9 @@ export default function createGenresText(genre_ids) {
   const genresToCards = [];
 
   const genresArray = genresArreyTrend(genre_ids, allGenres);
+
   for (let genre of genresArray) {
+    const lang = localStorage.getItem('lang');
     genresToCards.push(genre.name[lang]);
   }
   if (genresToCards.length === 0) {
