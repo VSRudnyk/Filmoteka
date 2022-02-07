@@ -21,14 +21,19 @@
 }
 
 .tui-pagination {
-  height: 40px;
   @media screen and (max-width: 768px) {
     margin: 30px -63px 60px;
   }
+  
+  height: 50px;
   margin: 30px 60px;
   line-height: normal;
   text-align: center;
   font-size: 0;
+  background-color: white;
+  border-radius: 5px;
+  box-shadow: 2px 2px 2px 1px rgb(0 0 0 / 20%);
+  padding: 5px;
 }
 
 .tui-pagination .tui-page-btn {
