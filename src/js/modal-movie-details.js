@@ -41,8 +41,8 @@ export default function movieDetailMarkUp(data) {
 
   btnWatchedRender =
     watched.findIndex(obj => obj.id === data.id) !== -1
-      ? '<button type="button" class="button-add btn-animated wathed  pressed">remove from Watched</button>'
-      : '<button type="button" class="button-add wathed">add to Watched</button>';
+      ? '<button type="button" class="button-add btn-animated wathed pressed" data-key="remove-watched">remove from Watched</button>'
+      : '<button type="button" class="button-add wathed" data-key="add-watched">add to Watched</button>';
 
   btnQueueRender =
     queue.findIndex(obj => obj.id === data.id) !== -1
@@ -84,8 +84,10 @@ export default function movieDetailMarkUp(data) {
       </table>
             <h3 class="modal-about" data-key="about">ABOUT</h3>
             <p class="modal-info-about">${overview}</p>
-      ${btnWatchedRender}
-      ${btnQueueRender}
+        <div class="modal-btn-container">
+          ${btnWatchedRender}
+          ${btnQueueRender}
+        </div>
         </div>
       </div>
     </div>

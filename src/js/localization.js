@@ -12,7 +12,9 @@ refs.gallery.addEventListener('click', onMovieCardClick);
 function onMovieCardClick(e) {
   setTimeout(() => {
     const modalItems = document.querySelectorAll('.modal-card [data-key]');
+    const modalBtnCont = document.querySelector('.modal-btn-container');
     modalItems.forEach(translateElement);
+    modalBtnCont.addEventListener('click', onModalBtnClick);
   }, 150);
 }
 function onSignInBtnClick() {
@@ -29,6 +31,10 @@ function onSignInBtnClick() {
     signInWindowItems.forEach(translateElement);
   }, 150);
 }
+// function onModalBtnClick(e) {
+//   translateElement(e.target);
+//   console.log(e.target);
+// }
 
 i18next.init(
   {
@@ -58,6 +64,8 @@ i18next.init(
           authorization: 'Authorization with social networks',
           'sign-up': 'Sign up',
           'sign-up-btn': 'Sign up',
+          'remove-watched': 'remove from watched',
+          'add-watched': 'add to watched',
         },
       },
       'uk-UA': {
@@ -70,7 +78,7 @@ i18next.init(
           queue: 'Обране',
           'soon-in-theaters': 'скоро в кінотеатрах',
           rights: '| Всі права захищені |',
-          developed: 'Розроблено',
+          developed: 'Розроблено з',
           students: 'Студентами GoIT',
           vote: 'Оцінка / Проголосувало',
           about: 'Опис',
@@ -83,6 +91,8 @@ i18next.init(
           authorization: 'Авторизуйтесь з допомогою',
           'sign-up': 'Реєстрація',
           'sign-up-btn': 'Приєднатися',
+          'remove-watched': 'видалити з переглянутих',
+          'add-watched': 'додати до переглянутих',
         },
       },
       'ru-RU': {
@@ -95,7 +105,7 @@ i18next.init(
           queue: 'Избранное',
           'soon-in-theaters': 'скоро в кинотеатрах',
           rights: '| Все права защищены |',
-          developed: 'Разработано',
+          developed: 'Разработано с',
           students: 'Студентами GoIT',
           vote: 'Оценка / Проголосовало',
           about: 'Описание',
@@ -108,6 +118,8 @@ i18next.init(
           authorization: 'Авторизируйтесь с помощью',
           'sign-up': 'Регистрация',
           'sign-up-btn': 'Зарегистрироваться',
+          'remove-watched': 'удалить из просмотренных',
+          'add-watched': 'добавить в просмотренные',
         },
       },
     },
@@ -132,12 +144,15 @@ function bindLocaleSwitcher() {
   const switcher = document.querySelector('[data-switcher]');
   switcher.value = i18next.language;
   switcher.onchange = e => {
+    const library = document.querySelector('.library-link');
     changeLng(e.target.value);
-    refs.gallery.innerHTML = '';
-    movies.resetPage();
-    movies.getPopularMovies().then(response => {
-      moviesMarkUp(response.data.results);
-    });
+    if (!library.classList.contains('current')) {
+      refs.gallery.innerHTML = '';
+      movies.resetPage();
+      movies.getPopularMovies().then(response => {
+        moviesMarkUp(response.data.results);
+      });
+    }
   };
 }
 function changeLng(lng) {
