@@ -112,7 +112,7 @@ const instance2 = basicLightbox.create(
         <input type="email" placeholder="E-mail" class="email-input sign-up" id="sign-email">
         <input type="password" placeholder="Password" class="passw-input" id="sign-password">
     <button class="login-btn" id="signUp" data-key="sign-up-btn">Sign up</button>
-    <button id="alreadyHaveAccount" class="sign-up-btn" data-key="form-name">Log in</button>
+    <button id="alreadyHaveAccount" class="login-up-btn" data-key="form-name">Log in</button>
   </div>
 
 </div>

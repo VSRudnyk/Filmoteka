@@ -75,29 +75,24 @@
           </form>
           <ul class="search-list is-hidden"></ul>
         </div>
-        <div class="theme-lang-switcher">
-          <div class="swicher switcher-item">
-            <a href="#" class="themetoggle">
-              <span class="material-icons-outlined"> nightlight_round </span>
-            </a>
+        <div class="switcher-lang-userDetails-container">
+          <div class="theme-lang-switcher">
+            <div class="swicher switcher-item">
+              <a href="#" class="themetoggle">
+                <span class="material-icons-outlined"> nightlight_round </span>
+              </a>
+            </div>
+            <select name="" id="" data-switcher class="switcher-item lang">
+              <option value="en-US" class="option-value">EN</option>
+              <option value="uk-UA" class="option-value">UA</option>
+              <option value="ru-RU" class="option-value">RU</option>
+            </select>
           </div>
-          <select name="" id="" data-switcher class="switcher-item lang">
-            <option value="en-US" class="option-value">EN</option>
-            <option value="uk-UA" class="option-value">UA</option>
-            <option value="ru-RU" class="option-value">RU</option>
-          </select>
+          <div id="userDetails"></div>
         </div>
         <div class="btn-section is-hidden">
           <button class="btn btn-watched" data-key="watched">Watched</button>
           <button class="btn btn-queue" data-key="queue">Queue</button>
-        </div>
-        <div class="switcher-loginUserDetails">
-          <div class="swicher">
-            <a href="#" class="themetoggle">
-              <span class="material-icons-outlined"> nightlight_round </span>
-            </a>
-          </div>
-          <div id="userDetails"></div>
         </div>
       </div>
     </header>
@@ -105,7 +100,7 @@
     <div class="bg">
       <div class="container">
         <div class="slider-container">
-          <h2 class="slider-title" data-key="soon-in-theaters">soon in theaters</h2>
+          <h2 class="slider-title" data-key="soon-in-theaters">Soon in theaters</h2>
           <div class="slider"></div>
         </div>
         <div id="output"></div>

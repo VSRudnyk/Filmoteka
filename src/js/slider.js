@@ -45,18 +45,21 @@ refs.slider.addEventListener('click', e => {
 function slider() {
   const slider = tns({
     container: '.slider',
-    items: 8,
+    items: 9,
+    controlsContainer: '.slider',
     navContainer: false,
     navAsThumbnails: false,
     autoplay: true,
     autoplayTimeout: 3000,
     autoplayButton: false,
     autoplayButtonOutput: false,
-    swipeAngle: false,
+    // swipeAngle: false,
     speed: 1000,
     nav: false,
-    autoplayHoverPause: true,
-    controlsText: ['^', '^'],
+    // autoplayHoverPause: true,
+    // controlsText: ['^', '^'],
+    rewind: false,
+    mouseDrag: true,
   });
 
   return slider;

@@ -125,7 +125,7 @@
 .sign-up-btn {
   position: absolute;
   top: 14px;
-  right: 25px;
+  left: 100px;
   color: $secondary-text-color;
   background-color: transparent;
   border: none;
@@ -137,7 +137,26 @@
 
   @media screen and (min-width: 768px) {
     top: 34px;
-    right: 40px;
+    left: 135px;
+  }
+}
+
+.login-up-btn {
+  position: absolute;
+  top: 14px;
+  left: 185px;
+  color: $secondary-text-color;
+  background-color: transparent;
+  border: none;
+  cursor: pointer;
+  display: flex;
+  align-content: center;
+  justify-content: center;
+  align-items: center;
+
+  @media screen and (min-width: 768px) {
+    top: 34px;
+    left: 210px;
   }
 }
 
@@ -175,7 +194,7 @@
 .auth-container {
   display: flex;
   align-items: center;
-  margin-left: 40px;
+  margin-left: 30px;
 }
 
 .signin-btn,
@@ -190,7 +209,6 @@
   display: flex;
   align-items: center;
   justify-content: flex-end;
-  margin-top: 15px;
 }
 
 .user-name {
@@ -204,4 +222,11 @@
 
 #alreadyHaveAccount {
   height: 35px;
+}
+
+.switcher-lang-userDetails-container {
+  display: flex;
+  justify-content: space-between;
+  position: absolute;
+  top: 195px;
 }
