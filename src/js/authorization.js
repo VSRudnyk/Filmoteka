@@ -41,17 +41,17 @@ const instance = basicLightbox.create(
   `
   <div class="modal">
       <div class="modal-auth-container">
-        <h3 class="auth-container-title">Log in</h3>
+        <h3 class="auth-container-title" data-key="form-name">Log in</h3>
         <button type="button" id="close-modal-btn">
           <svg width="25" height="25">
             <use href="/Filmoteka/sprite.ba1893dc.svg#close-btn"></use>
           </svg>
         </button>
-        <p class="auth-container-text">To log in, enter your email address and password</p>
+        <p class="auth-container-text" data-key="description">To log in, enter your email address and password</p>
         <input type="email" placeholder="E-mail" class="email-input" id="login-email">
         <input type="password" placeholder="Password" class="passw-input" id="login-password">
-        <button class="login-btn" id="loginBtn">Log in</button>
-        <p class="auth-google-text">Authorization with social networks</p>
+        <button class="login-btn" id="loginBtn" data-key="modal-login">Log in</button>
+        <p class="auth-google-text" data-key="authorization">Authorization with social networks</p>
         <div class="auth-social">
           <ul class="social-list">
             <li class="social-items">
@@ -80,7 +80,7 @@ const instance = basicLightbox.create(
           
         </div>
 
-        <button id="openSignUpModalBtn" class="sign-up-btn">Sign up</button>
+        <button id="openSignUpModalBtn" class="sign-up-btn" data-key="sign-up">Sign up</button>
       </div>
   </div>
 `,
@@ -103,7 +103,7 @@ const instance2 = basicLightbox.create(
   `
   <div class="modal">
   <div class="modal-auth-container">
-    <h3 class="auth-container-title">Sign up</h3>
+    <h3 class="auth-container-title" data-key="sign-up">Sign up</h3>
       <button type="button" id="close-modal-btn">
         <svg width="25" height="25">
           <use href="/Filmoteka/sprite.ba1893dc.svg#close-btn"></use>
@@ -111,8 +111,8 @@ const instance2 = basicLightbox.create(
       </button>
         <input type="email" placeholder="E-mail" class="email-input sign-up" id="sign-email">
         <input type="password" placeholder="Password" class="passw-input" id="sign-password">
-    <button class="login-btn" id="signUp">Sign up</button>
-    <button id="alreadyHaveAccount" class="sign-up-btn">Log in</button>
+    <button class="login-btn" id="signUp" data-key="sign-up-btn">Sign up</button>
+    <button id="alreadyHaveAccount" class="sign-up-btn" data-key="form-name">Log in</button>
   </div>
 
 </div>
