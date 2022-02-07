@@ -12,9 +12,9 @@ refs.gallery.addEventListener('click', onMovieCardClick);
 function onMovieCardClick(e) {
   setTimeout(() => {
     const modalItems = document.querySelectorAll('.modal-card [data-key]');
-    const modalBtnCont = document.querySelector('.modal-btn-container');
+    // const modalBtnCont = document.querySelector('.modal-btn-container');
     modalItems.forEach(translateElement);
-    modalBtnCont.addEventListener('click', onModalBtnClick);
+    // modalBtnCont.addEventListener('click', onModalBtnClick);
   }, 150);
 }
 function onSignInBtnClick() {
@@ -33,7 +33,7 @@ function onSignInBtnClick() {
 }
 // function onModalBtnClick(e) {
 //   translateElement(e.target);
-//   console.log(e.target);
+//   console.log(e.target.getAttribute('data-key'));
 // }
 
 i18next.init(
