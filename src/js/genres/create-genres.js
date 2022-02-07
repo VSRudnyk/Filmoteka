@@ -9,7 +9,7 @@ export default function createGenresText(genre_ids) {
 
   const genresArray = genresArreyTrend(genre_ids, allGenres);
   for (let genre of genresArray) {
-    genresToCards.push(genre.name);
+    genresToCards.push(genre.name[lang]);
   }
   if (genresToCards.length === 0) {
     return 'No data';
@@ -17,6 +17,19 @@ export default function createGenresText(genre_ids) {
   if (genresToCards.length < 2) {
     return genresToCards.join(', ');
   } else {
-    return genresToCards.slice(0, 2).join(', ') + ', ' + 'Other';
+    return genresToCards.slice(0, 2).join(', ') + ', ' + otherGenres();
+  }
+}
+
+function otherGenres() {
+  const lang = localStorage.getItem('lang');
+  if (!lang || lang === 'en-US') {
+    return 'Other';
+  }
+  if (lang === 'uk-UA') {
+    return 'Інші';
+  }
+  if (lang === 'ru-RU') {
+    return 'Другие';
   }
 }
