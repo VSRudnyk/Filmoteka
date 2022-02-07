@@ -13,7 +13,7 @@ function onTeamModalShow() {
   document.addEventListener('keydown', onCloseEsc);
 
   function onClick(e) {
-    e.target.classList.value === 'cards-container js-team list' ||
+    // e.target.classList.value === 'cards-container js-team list' ||
     e.target.classList.value === 'team__title' ||
     e.target.classList.value === 'team__title_accent' ||
     e.target.classList.value === 'basicLightbox'
@@ -24,6 +24,7 @@ function onTeamModalShow() {
   function onCloseEsc(e) {
     e.code === 'Escape' ? teamModal.close() : teamModal.show();
   }
+
   const teamModal = basicLightbox.create(teamCardsMarkup, {
     onShow: () => {
       document.body.style.overflow = 'hidden';
