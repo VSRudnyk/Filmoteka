@@ -21,6 +21,8 @@ export default function getRefs() {
     sliderContainer: document.querySelector('.slider-container'),
     // кнопка наверх
     goUpBtn: document.querySelector('.go-up'),
+    //loader
+    maskLoader: document.querySelector('.mask'),
     prevSliderBtn: document.querySelector('.tns-controls button[data-controls="prev"]'),
     nextSliderBtn: document.querySelector('button[data-controls="next"]'),
   };
