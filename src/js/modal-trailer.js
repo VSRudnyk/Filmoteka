@@ -7,7 +7,7 @@ export default function TrailerRender(data) {
          
         
         const modalTrailerWindow = basicLightbox.create(`
-                <div class="modal" style="position: relative">
+                <div class="modal">
                         <iframe width="640" height="480" frameborder="0" allowfullscreen allow='autoplay'
                                 src="https://www.youtube.com/embed/${data[0].key}?autoplay=1" >
                         </iframe>
