@@ -149,21 +149,10 @@
   }
 }
 
-.search_button {
-  position: absolute;
-  right: 0;
-  bottom: 4px;
-
-  width: 20px;
-  height: 20px;
-  border: none;
-  background-color: transparent;
-}
-
 .search_button-icon {
   position: absolute;
   right: 0;
-  bottom: 2px;
+  bottom: 9px;
 }
 
 .is-hidden {
@@ -340,3 +329,68 @@
     color: $secondary-text-color;
   }
 }
+
+.material-icons-outlined {
+  font-family: 'Material Icons';
+  font-weight: normal;
+  font-style: normal;
+  font-size: 24px;  /* Preferred icon size */
+  display: inline-block;
+  line-height: 1;
+  text-transform: none;
+  letter-spacing: normal;
+  word-wrap: normal;
+  white-space: nowrap;
+  direction: ltr;
+  color: $secondary-text-color;
+  &:hover,
+  :focus {
+    color: #ffffff;
+  }
+
+  /* Support for all WebKit browsers. */
+  -webkit-font-smoothing: antialiased;
+  /* Support for Safari and Chrome. */
+  text-rendering: optimizeLegibility;
+
+  /* Support for Firefox. */
+  -moz-osx-font-smoothing: grayscale;
+
+  /* Support for IE. */
+  font-feature-settings: 'liga';
+}
+.swicher {
+  position: absolute;
+  // left: 50px;
+  // top: 50px;
+}
+
+.bg {
+  background: url(../images/background/bg3.png);
+  background-position: top;
+  background-size: 350px;
+  padding: 1px;
+
+  &.dark {
+    background: linear-gradient(rgb(0 0 0 / 26%), rgb(0 0 0 / 65%)), url(../images/background/bg3.png);
+    background-position: top;
+    background-size: 350px;
+    padding: 1px;
+  }
+}
+
+// .dark {
+  
+//     &.bg {
+//       background: linear-gradient(rgb(0 0 0 / 26%), rgb(0 0 0 / 65%)), url(../images/background/bg3.png);
+//       background-position: top;
+//       background-size: 350px;
+//       padding: 1px;
+//     }
+//   }
+//   .bg  {    
+//     background: url(../images/background/bg3.png);
+//     background-position: top;
+//     background-size: 350px;
+//     padding: 1px;
+// }  

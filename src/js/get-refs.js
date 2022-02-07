@@ -18,9 +18,12 @@ export default function getRefs() {
     userDetails: document.querySelector('#userDetails'),
     // End of authorization
     slider: document.querySelector('.slider'),
+    sliderContainer: document.querySelector('.slider-container'),
     // кнопка наверх
     goUpBtn: document.querySelector('.go-up'),
     //loader
     maskLoader: document.querySelector('.mask'),
+    prevSliderBtn: document.querySelector('.tns-controls button[data-controls="prev"]'),
+    nextSliderBtn: document.querySelector('button[data-controls="next"]'),
   };
 }

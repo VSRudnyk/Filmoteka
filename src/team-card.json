@@ -1,90 +1,83 @@
 [
-    {
-      "id": "1",
-      "name": "Vladimir Rudnyk",
-      "description": "Teamlead",
-      "image": "",
-      "github": "",
-      "linkdIn": "",
-      "telegram": ""
-    },
-    {
-      "id": "2",
-      "name": "Ihor Kozlov",
-      "description": "Developer",
-      "image": "https://i.ibb.co/bRKCsqt/ihor-kozlov.jpg",
-      "github": "",
-      "linkdIn": "",
-      "telegram": "https://t.me/IgorKozloff"
-    },
-    {
-      "id": "3",
-      "name": "Maxim Samsonenko",
-      "description": "Developer",
-      "image": "",
-      "github": "",
-      "linkdIn": "",
-      "telegram": ""
-    },
-    {
-      "id": "4",
-      "name": "Olha Mashtaler",
-      "description": "Developer",
-      "image": "https://i.ibb.co/rfjKwnR/olha.jpg",
-      "github": "",
-      "linkdIn": "",
-      "telegram": ""
-    },
-    {
-      "id": "5",
-      "name": "Anastasiia Tyshkevych",
-      "description": "Developer",
-      "image": "https://i.ibb.co/pRXgQtX/anastasiia.jpg",
-      "github": "",
-      "linkdIn": "",
-      "telegram": "https://t.me/anastasiia_tyshkevych"
-    },
-    {
-      "id": "6",
-      "name": "Ihor Khomenko",
-      "description": "Developer",
-      "image": "https://i.ibb.co/4txhz2s/ihor-khomenko.jpg",
-      "github": "",
-      "linkdIn": "",
-      "telegram": "https://t.me/igor_homenko"
-    },
-    {
-      "id": "7",
-      "name": "Liudmyla",
-      "description": "Developer",
-      "image": "",
-      "github": "",
-      "linkdIn": "",
-      "telegram": "https://t.me/NeLyudmyla"
-    },
-    {
-      "id": "8",
-      "name": "Maxim Steblyna",
-      "description": "Developer",
-      "image": "",
-      "github": "",
-      "linkdIn": "",
-      "telegram": "https://t.me/albiorix_ua"
-    },
-    {
-      "id": "9",
-      "name": "Yevgenii Vashchenko",
-      "description": "Developer",
-      "image": "",
-      "github": "",
-      "linkdIn": "",
-      "telegram": ""
-    }
-  ]
-
-  
-
-
-
-
-
+  {
+    "id": "1",
+    "name": "Vladimir Rudnyk",
+    "description": "Teamlead",
+    "image": "https://i.ibb.co/TrZJdnp/Vladimir.jpg",
+    "github": "",
+    "linkdIn": "",
+    "telegram": ""
+  },
+  {
+    "id": "2",
+    "name": "Maxim Steblyna",
+    "description": "Developer",
+    "image": "https://i.ibb.co/yqWZSmP/Maksim.jpg",
+    "github": "",
+    "linkdIn": "",
+    "telegram": "https://t.me/albiorix_ua"
+  },
+  {
+    "id": "3",
+    "name": "Maxim Samsonenko",
+    "description": "Developer",
+    "image": "https://i.ibb.co/rtJK4WH/Maksim-Samsonenko.jpg",
+    "github": "",
+    "linkdIn": "",
+    "telegram": ""
+  },
+  {
+    "id": "4",
+    "name": "Olha Mashtaler",
+    "description": "Developer",
+    "image": "https://i.ibb.co/rfjKwnR/olha.jpg",
+    "github": "",
+    "linkdIn": "",
+    "telegram": ""
+  },
+  {
+    "id": "5",
+    "name": "Anastasiia Tyshkevych",
+    "description": "Developer",
+    "image": "https://i.ibb.co/pRXgQtX/anastasiia.jpg",
+    "github": "",
+    "linkdIn": "",
+    "telegram": "https://t.me/anastasiia_tyshkevych"
+  },
+  {
+    "id": "6",
+    "name": "Ihor Khomenko",
+    "description": "Developer",
+    "image": "https://i.ibb.co/4txhz2s/ihor-khomenko.jpg",
+    "github": "",
+    "linkdIn": "",
+    "telegram": "https://t.me/igor_homenko"
+  },
+  {
+    "id": "7",
+    "name": "Liudmyla",
+    "description": "Developer",
+    "image": "https://i.ibb.co/3pHf8Jq/Ludmila.jpg",
+    "github": "",
+    "linkdIn": "",
+    "telegram": "https://t.me/NeLyudmyla"
+  },
+  {
+    "id": "8",
+    "name": "Ihor Kozlov",
+    "description": "Developer",
+    "image": "https://i.ibb.co/bRKCsqt/ihor-kozlov.jpg",
+    "github": "",
+    "linkdIn": "",
+    "telegram": "https://t.me/IgorKozloff"
+  },
+  {
+    "id": "9",
+    "name": "Yevgenii Vashchenko",
+    "description": "Developer",
+    "image": "https://i.ibb.co/nmH6rmw/Zhenya.jpg",
+    "github": "",
+    "linkdIn": "",
+    "telegram": ""
+  }
+]

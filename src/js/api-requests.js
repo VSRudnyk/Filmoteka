@@ -12,9 +12,8 @@ export default class MoviesApi {
   async getPopularMovies() {
     try {
       const response = await axios.get(
-        `${BASE_URL}movie/popular?api_key=${API_KEY}&language=en-US&page=${this.page}`,
+        `${BASE_URL}trending/movie/day?api_key=${API_KEY}&language=en-US&page=${this.page}`,
       );
-      this.incrementPage();
       return response;
     } catch (error) {
       console.error(error);
@@ -26,7 +25,6 @@ export default class MoviesApi {
       const response = await axios.get(
         `${BASE_URL}search/movie?api_key=${API_KEY}&language=en-US&page=${this.page}&query=${this.searchQuery}`,
       );
-      this.incrementPage();
       return response;
     } catch (error) {
       console.error(error);
@@ -37,6 +35,28 @@ export default class MoviesApi {
     try {
       const response = await axios.get(
         `${BASE_URL}movie/${this.movieId}?api_key=${API_KEY}&language=en-US`,
+      );
+      return response;
+    } catch (error) {
+      console.error(error);
+    }
+  }
+
+  async getUpcomingMovies() {
+    try {
+      const response = await axios.get(
+        `${BASE_URL}movie/upcoming?api_key=${API_KEY}&language=en-US&page=1`,
+      );
+      return response;
+    } catch (error) {
+      console.error(error);
+    }
+  }
+
+  async getMoviesTrailer() {
+    try {
+      const response = await axios.get(
+        `${BASE_URL}movie/${this.movieId}/videos?api_key=${API_KEY}&language=en-US`,
       );
       return response;
     } catch (error) {

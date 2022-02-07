@@ -22,12 +22,38 @@ function onFormSubmit(e) {
   } = e.currentTarget;
   refs.gallery.innerHTML = '';
   movies.query = searchQuery.value;
-
-  movies.resetPage();
   movies.getSearchMovies().then(response => {
-    console.log(response.data.results);
     moviesMarkUp(response.data.results);
   });
 }
 
 onLoadPage();
+
+
+
+
+document.querySelector('.themetoggle').addEventListener('click', (event)=>{
+  event.preventDefault();
+  if (localStorage.getItem('theme') === 'dark'){
+localStorage.removeItem('theme');
+} else {
+  localStorage.setItem('theme','dark')
+}
+addDarkClassToHTML();
+});
+
+function addDarkClassToHTML(){
+   try {
+  if (localStorage.getItem('theme') === 'dark'){
+document.querySelector('.bg').classList.add('dark');
+document.querySelector('.themetoggle span').textContent = 'nightlight_round';
+} 
+else {
+  document.querySelector('.bg').classList.remove('dark');
+  document.querySelector('.themetoggle span').textContent = 'wb_sunny';
+}
+   }
+  catch (err) {}
+};
+
+addDarkClassToHTML();

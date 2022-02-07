@@ -1,10 +1,7 @@
 .modal-container {
   @media screen and (min-width: 320px) {
-    // position: relative;
     width: 280px;
     max-height: 95vh;
-    // min-height: 581px;
-    // border: 1px solid #000000;
     overflow: auto;
   }
   @media screen and (min-width: 768px) {
@@ -33,19 +30,16 @@
     justify-content: center;
     align-items: center;
     &:hover {
-      border: 5px solid #ff6b01;
+      border: 2px solid #ff6b01;
       border-radius: 50%;
-      background-color: $secondary-text-color;
+      background-color: #fff;
       color: $white-text-color;
-      transform: translateY(-3px);
-      box-shadow: 0 10px 20px rgba(0, 0, 0, 0.2);
-      box-shadow: 0 10px 20px #ff6b01;
+      transform: translateY(-2px);
+      // box-shadow: 0 0 10px 10px rgba(0, 0, 0, 0.2) inset;
+      box-shadow: 0 0 20px 2px #ff6b01;
     }
   }
 }
-// .svg-image {
-//   fill: #000000;
-// }
 .modal__button-icon {
   fill: #000000;
 }
@@ -87,7 +81,6 @@
     font-weight: 500;
     font-size: 12px;
     line-height: 16px;
-    /* identical to box height, or 133% */
     display: flex;
     align-items: center;
     text-transform: uppercase;
@@ -105,85 +98,35 @@
     color: #000000;
   }
 }
-// =========================button-GO_UP!!!==========================
-.go-up {
+// =========================button-ARROW-UP!==========================
+.btn-up {
   position: fixed;
-  bottom: 22px;
-  right: 22px;
+  bottom: 85px;
+  right: 15px;
   border-radius: 50%;
   width: 40px;
   height: 40px;
-  background-color: white;
+  background-color: transparent;
   color: #ff6b01;
   border: 2px solid #ff6b01;
+  &:hover {
+    color: white;
+    border: 2px solid white;
+    // background-color: #ff6b01;
+    transform: translateY(-3px);
+    box-shadow: 0 10px 20px rgba(0, 0, 0, 0.2);
+    box-shadow: 0 10px 20px #ff6b01;
+  }
+  &:active {
+    transform: translateY(-1px);
+    box-shadow: 0 5px 10px rgba(0, 0, 0, 0.2);
+    box-shadow: 0 5px 10px #ff6b01;
+  }
 }
-.go-up:hover {
-  color: white;
-  border: 2px solid white;
-  // background-color: #ff6b01;
-  transform: translateY(-3px);
-  box-shadow: 0 10px 20px rgba(0, 0, 0, 0.2);
-  box-shadow: 0 10px 20px #ff6b01;
-}
-.go-up:active {
-  transform: translateY(-1px);
-  box-shadow: 0 5px 10px rgba(0, 0, 0, 0.2);
-  box-shadow: 0 5px 10px #ff6b01;
-}
-// 'position: fixed; bottom: 22px;right: 22px; border-radius: 50%; width: 40px; height: 40px; background-color: white; color: #ff6b01; border: 2px solid #ff6b01';
-//
-// .button-add {
-//   @media screen and (min-width: 320px) {
-//     width: 112px;
-//     height: 44px;
-//     border: 1px solid #000000;
-//     border-radius: 5px;
-//     margin-top: 21px;
-//     font-family: Roboto;
-//     font-style: normal;
-//     font-weight: 500;
-//     font-size: 12px;
-//     line-height: 16px;
-//     /* or 133% */
-//     // display: flex;
-//     // align-items: center;
-//     // text-align: center;
-//     // justify-content: center;
-//     text-transform: uppercase;
-//     color: #000000;
-//     background-color: transparent;
-//   }
-//   @media screen and (min-width: 768px) {
-//     width: 125px;
-//   }
-
-//   @media screen and (min-width: 1200px) {
-//     width: 136px;
-//     margin-right: 15px;
-//   }
-// }
-
-// .active {
-//   @media screen and (min-width: 320px) {
-//     width: 113px;
-//     height: 44px;
-//     background: $secondary-text-color;
-//     border: none;
-//     color: $white-text-color;
-//   }
-//   @media screen and (min-width: 768px) {
-//     width: 125px;
-//   }
-//   @media screen and (min-width: 1200px) {
-//     width: 136px;
-//   }
-// }
 .button-add {
   @media screen and (min-width: 320px) {
     width: 112px;
     height: 44px;
-    // display: flex;
-    // flex-direction: column;
     border: 2px solid #ff6b01;
     border-radius: 5px;
     margin-top: 21px;
@@ -195,9 +138,7 @@
     transition: all 0.2s;
     text-transform: uppercase;
     color: #000000;
-    // color: #ff6b01;
     background-color: transparent;
-    // padding: 10px;
   }
   @media screen and (min-width: 768px) {
     font-size: 10px;
@@ -207,52 +148,47 @@
     width: 136px;
     margin-right: 15px;
   }
-}
-.button-add:hover {
-  @media screen and (min-width: 320px) {
-    transform: translateY(-3px);
-    box-shadow: 0 10px 20px rgba(0, 0, 0, 0.2);
-    box-shadow: 0 10px 20px #ff6b01;
-    width: 115px;
-    height: 44px;
-    background: #fff;
-    border: 1px solid #ff6b01;
-    // border: none;
-    color: #ff6b01;
+  &:hover {
+    @media screen and (min-width: 320px) {
+      transform: translateY(-3px);
+      box-shadow: 0 10px 20px rgba(0, 0, 0, 0.2);
+      box-shadow: 0 10px 20px #ff6b01;
+      width: 115px;
+      height: 44px;
+      background: #fff;
+      border: 1px solid #ff6b01;
+      color: #ff6b01;
+    }
+    @media screen and (min-width: 768px) {
+      width: 125px;
+    }
+    @media screen and (min-width: 1200px) {
+      width: 136px;
+    }
   }
-  @media screen and (min-width: 768px) {
-    width: 125px;
+  &::after {
+    content: '';
+    height: 100%;
+    width: 100%;
+    border-radius: 5px;
+    top: 0;
+    left: 0;
   }
-  @media screen and (min-width: 1200px) {
-    width: 136px;
+  &:hover::after {
+    transform: scaleX(1.4) scaleY(1.6);
+    // opacity: 0;
+  }
+  :active {
+    transform: translateY(-1px);
+    box-shadow: 0 5px 10px rgba(0, 0, 0, 0.2);
+    box-shadow: 0 5px 10px #ff6b01;
   }
 }
-.button-add::after {
-  content: '';
-  // display: block;
-  height: 100%;
-  width: 100%;
-  border-radius: 5px;
-  // position: absolute;
-  top: 0;
-  left: 0;
-  // z-index: -1;
-  // transition: all 0.4s;
-}
-.button-add:hover::after {
-  transform: scaleX(1.4) scaleY(1.6);
-  // opacity: 0;
-}
-.button-add:active {
-  transform: translateY(-1px);
-  box-shadow: 0 5px 10px rgba(0, 0, 0, 0.2);
-  box-shadow: 0 5px 10px #ff6b01;
-}
+
 .btn-animated {
   // animation: moveInBottom 5s ease-out;
   animation-fill-mode: backwards;
 }
-
 @keyframes moveInBottom {
   0% {
     opacity: 0;
@@ -268,15 +204,9 @@
   // background-color: #f1a066;
   border: none;
   color: $white-text-color;
-  // animation: moveInBottom 5s ease-out;
-  // animation-fill-mode: backwards;
   @media screen and (min-width: 320px) {
     font-size: 8px;
   }
-  // @media screen and (min-width: 768px) {
-  //   font-size: 10px;
-  // }
-
   @media screen and (min-width: 1200px) {
     font-size: 10px;
   }
@@ -285,20 +215,14 @@
   position: relative;
   background-color: $white-text-color;
   padding: 48px 20px;
-
   @media screen and (min-width: 768px) {
     padding: 42px 30px;
     display: flex;
   }
   @media screen and (min-width: 1200px) {
     padding: 30px;
-    // position: relative;
   }
 }
-
-// .basicLightbox {
-//   background: rgba(0, 0, 0, 0.25);
-// }
 table {
   table-layout: fixed;
   width: 100%;
@@ -310,7 +234,6 @@ th {
   font-size: 12px;
   line-height: 16px;
   text-align: start;
-  /* identical to box height, or 133% */
   color: #8c8c8c;
   padding-bottom: 10px;
 }
@@ -320,7 +243,6 @@ td {
   font-weight: 500;
   font-size: 12px;
   line-height: 16px;
-  /* identical to box height, or 133% */
   display: flex;
   align-content: flex-end;
   align-items: flex-end;
@@ -348,6 +270,7 @@ td {
 }
 .modal-image {
   @media screen and (min-width: 320px) {
+    position: relative;
     display: block;
     width: 100%;
     height: auto;
@@ -355,48 +278,36 @@ td {
   }
   @media screen and (min-width: 1200px) {
     width: 50%;
-    // background: lime;
+    background: #8c8c8c;
     //   background-image: url('../images/Rect18.png');
   }
 }
 .movie-poster {
+  position: relative;
   width: 100%;
   height: auto;
-  border-radius: 5px;
 }
 
-//===== стили для дива инфо через флекс (надо два дива)===========
-// .modal-info-item {
-//   @media screen and (min-width: 320px) {
-//     display: flex;
-//     justify-content: space-between;
-
-//     // width: 50%;
-//     list-style-type: none;
-//     font-family: Roboto;
-//     font-style: normal;
-//     font-weight: 500;
-//     font-size: 12px;
-//     line-height: 16px;
-//     /* identical to box height, or 133% */
-//     margin-bottom: 20px;
-//     color: #8c8c8c;
-//   }
-// }
-// .modal-info-data {
-//   @media screen and (min-width: 320px) {
-//     font-family: Roboto;
-//     font-style: normal;
-//     font-weight: 500;
-//     font-size: 12px;
-//     line-height: 16px;
-//     /* identical to box height, or 133% */
-//     display: flex;
-//     align-items: center;
-//     color: #000000;
-//     // margin-left: 70px;
-//   }
-//   @media screen and (min-width: 1200px) {
-//     margin-left: 85px;
-//   }
-// }
+.btn-open-trailer {
+  position: absolute;
+  top: 50%;
+  left: 50%;
+  transform: translate(-50%, -50%);
+  width: 60px;
+  height: 60px;
+  background-image: url(../images/btn-play.png);
+  background-size: contain;
+  background-repeat: no-repeat;
+  background-color: transparent;
+  border-radius: 10px;
+  box-shadow: 0 0 10px 0 #8c8c8c inset, 0 0 10px 4px white;
+  //   font-family: 'Montserrat', sans-serif;
+  font-weight: bold;
+  letter-spacing: 2px;
+  color: white;
+  transition: 0.15s ease-in-out;
+  
+  &:hover {
+    box-shadow: 0 0 10px 0 white inset, 0 0 10px 10px white;
+  }
+}

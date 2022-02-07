@@ -1,5 +1,5 @@
 <!DOCTYPE html>
-<html lang="ru">
+<html lang="ru" class>
   <head>
     <meta charset="UTF-8" />
     <meta name="viewport" content="width=device-width, initial-scale=1.0" />
@@ -20,6 +20,7 @@
       rel="stylesheet"
       href="https://cdnjs.cloudflare.com/ajax/libs/tiny-slider/2.9.4/tiny-slider.css"
     />
+    <link href="https://fonts.googleapis.com/icon?family=Material+Icons" rel="stylesheet" />
   </head>
   <body>
     <div class="mask">
@@ -57,40 +58,42 @@
             </ul>
           </nav>
         </div>
-
         <div class="search-wrap">
           <form id="search-form" class="search-form">
-            <input
-              autocomplete="off"
-              class="search_input"
-              type="text"
-              placeholder="Search a movie"
-              name="searchQuery"
-            />
-            <button class="search_button" type="submit">
-              <svg class="search_button-icon" width="12" height="12">
-                <use href="./images/sprite.svg#icon-search"></use>
-              </svg>
-            </button>
+            <input autocomplete="off" class="search_input" type="text" placeholder="Search a movie" name="searchQuery" />
+            <svg class="search_button-icon" width="12" height="12">
+              <use href="./images/sprite.svg#icon-search"></use>
+            </svg>
           </form>
           <ul class="search-list is-hidden"></ul>
         </div>
-
         <div class="btn-section is-hidden">
           <button class="btn btn-watched">Watched</button>
           <button class="btn btn-queue">Queue</button>
         </div>
-        <div id="userDetails"></div>
+        <div class="switcher-loginUserDetails">
+          <div class="swicher">
+            <a href="#" class="themetoggle">
+              <span class="material-icons-outlined"> nightlight_round </span>
+            </a>
+          </div>
+          <div id="userDetails"></div>
+        </div>
       </div>
     </header>
 
-    <div class="container">
-      <div class="slider"></div>
-      <div class="gallery"></div>
-      <div id="pagination" class="tui-pagination"></div>
-      <button type="button" class="go-up">
-        <img src="./images/up-arrow.png" alt="up" class="image-arrow" />
-      </button>
+    <div class="bg">
+      <div class="container">
+        <div class="slider-container">
+          <h2 class="slider-title">soon in theaters</h2>
+          <div class="slider"></div>
+        </div>
+        <div class="gallery"></div>
+        <div id="pagination" class="tui-pagination"></div>
+        <button type="button" class="btn-up" id="arrowTop" hidden>
+          <img src="./images/arrow.png" alt="up" class="image-arrow" />
+        </button>
+      </div>
     </div>
 
     <footer class="footer">

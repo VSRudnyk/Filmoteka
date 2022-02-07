@@ -9,6 +9,7 @@ import {
   GoogleAuthProvider,
   FacebookAuthProvider,
   TwitterAuthProvider,
+  GithubAuthProvider,
   signInWithPopup,
 } from 'firebase/auth';
 import { getDatabase, ref, set, onValue } from 'firebase/database';
@@ -30,7 +31,7 @@ const app = initializeApp(firebaseConfig);
 const auth = getAuth();
 const provider = new GoogleAuthProvider();
 const providerFb = new FacebookAuthProvider();
-const providerTwit = new TwitterAuthProvider();
+const providerGithub = new GithubAuthProvider();
 const db = getDatabase();
 const refs = getRefs();
 refs.logoutBtn.style.display = 'none';
@@ -43,12 +44,12 @@ const instance = basicLightbox.create(
         <h3 class="auth-container-title">Log in</h3>
         <button type="button" id="close-modal-btn">
           <svg width="25" height="25">
-            <use href="/Filmoteka/sprite.984331e2.svg#close-btn"></use>
+            <use href="/Filmoteka/sprite.ba1893dc.svg#close-btn"></use>
           </svg>
         </button>
         <p class="auth-container-text">To log in, enter your email address and password</p>
         <input type="email" placeholder="E-mail" class="email-input" id="login-email">
-        <input type="password" placeholder="Пароль" class="passw-input" id="login-password">
+        <input type="password" placeholder="Password" class="passw-input" id="login-password">
         <button class="login-btn" id="loginBtn">Log in</button>
         <p class="auth-google-text">Authorization with social networks</p>
         <div class="auth-social">
@@ -56,21 +57,21 @@ const instance = basicLightbox.create(
             <li class="social-items">
               <a id="login-google" class="social-login-btn">
                 <svg width="25" height="25">
-                  <use href="/Filmoteka/sprite.984331e2.svg#icon-google"></use>
+                  <use href="/Filmoteka/sprite.ba1893dc.svg#icon-google"></use>
                 </svg>
               </a>
             </li>
             <li class="social-items">
               <a id="login-fb" class="social-login-btn fb-btn">
                 <svg width="25" height="25">
-                  <use href="/Filmoteka/sprite.984331e2.svg#facebook"></use>
+                  <use href="/Filmoteka/sprite.ba1893dc.svg#facebook"></use>
                 </svg>
               </a>
             </li>
             <li class="social-items">
-              <a id="login-twitter" class="social-login-btn inst-btn">
+              <a id="login-github" class="social-login-btn git-btn">
                 <svg width="25" height="25">
-                  <use href="/Filmoteka/sprite.984331e2.svg#instagram"></use>
+                  <use href="/Filmoteka/sprite.ba1893dc.svg#icon-github"</use>
                 </svg>
               </a>
             </li>            
@@ -86,6 +87,14 @@ const instance = basicLightbox.create(
   {
     onShow: instance => {
       instance.element().querySelector('#close-modal-btn').onclick = instance.close;
+      document.addEventListener('keydown', e =>
+        e.code === 'Escape' ? instance.close() : instance.show(),
+      );
+    },
+    onClose: () => {
+      document.removeEventListener('keydown', e =>
+        e.code === 'Escape' ? instance.close() : instance.show(),
+      );
     },
   },
 );
@@ -97,11 +106,11 @@ const instance2 = basicLightbox.create(
     <h3 class="auth-container-title">Sign up</h3>
       <button type="button" id="close-modal-btn">
         <svg width="25" height="25">
-          <use href="/Filmoteka/sprite.984331e2.svg#close-btn"></use>
+          <use href="/Filmoteka/sprite.ba1893dc.svg#close-btn"></use>
         </svg>
       </button>
         <input type="email" placeholder="E-mail" class="email-input sign-up" id="sign-email">
-        <input type="password" placeholder="Пароль" class="passw-input" id="sign-password">
+        <input type="password" placeholder="Password" class="passw-input" id="sign-password">
     <button class="login-btn" id="signUp">Sign up</button>
     <button id="alreadyHaveAccount" class="sign-up-btn">Log in</button>
   </div>
@@ -111,6 +120,14 @@ const instance2 = basicLightbox.create(
   {
     onShow: instance => {
       instance.element().querySelector('#close-modal-btn').onclick = instance.close;
+      document.addEventListener('keydown', e =>
+        e.code === 'Escape' ? instance2.close() : instance2.show(),
+      );
+    },
+    onClose: () => {
+      document.removeEventListener('keydown', e =>
+        e.code === 'Escape' ? instance.close() : instance.show(),
+      );
     },
   },
 );
@@ -133,8 +150,8 @@ function openSigInModal() {
   const loginFb = document.querySelector('#login-fb');
   loginFb.addEventListener('click', loginWithFacebook);
 
-  const loginTwitter = document.querySelector('#login-twitter');
-  loginTwitter.addEventListener('click', loginWithTwitter);
+  const loginGithub = document.querySelector('#login-github');
+  loginGithub.addEventListener('click', loginWithGithub);
 }
 
 function openSignUpModal() {
@@ -204,12 +221,12 @@ function loginWithFacebook() {
     });
 }
 
-function loginWithTwitter() {
-  signInWithPopup(auth, providerTwit)
+function loginWithGithub() {
+  signInWithPopup(auth, providerGithub)
     .then(result => {
       showUserDetails(result.user);
       instance.close();
-      Notify.success('User logged in with Twitter');
+      Notify.success('User logged in with Github');
     })
     .catch(error => {
       Notify.failure('Oops, something went wrong');
@@ -259,7 +276,7 @@ function writeUserData(displayName, email, uid, photoURL) {
     email: email,
     userId: uid,
     photoUrl: photoURL,
-    films: ['Matrix', 'Spider-Man'],
+    films: [],
   });
 }
 
