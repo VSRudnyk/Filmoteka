@@ -6,6 +6,8 @@ import buildSlider from '../js/slider';
 import forModalTrailerRender from './modal-trailer';
 import * as basicLightbox from 'basiclightbox';
 
+import axios from 'axios';
+
 const movies = new MoviesApi();
 const refs = getRefs();
 

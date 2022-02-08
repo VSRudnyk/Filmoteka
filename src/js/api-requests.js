@@ -1,6 +1,7 @@
 const BASE_URL = 'https://api.themoviedb.org/3/';
 const API_KEY = 'b799de2e1359641dffd47460cedfbdc0';
-
+import { Spinner } from 'spin.js';
+import opts from './spinner';
 import axios from 'axios';
 export default class MoviesApi {
   constructor() {
@@ -11,12 +12,15 @@ export default class MoviesApi {
   }
 
   async getPopularMovies() {
+    var target = document.querySelector('body');
+    var spinner = new Spinner(opts).spin(target);
     try {
       const response = await axios.get(
         `${BASE_URL}trending/movie/day?api_key=${API_KEY}&language=${this.setLanguage()}&page=${
           this.page
         }`,
       );
+      spinner.stop();
       return response;
     } catch (error) {
       console.error(error);
@@ -24,12 +28,15 @@ export default class MoviesApi {
   }
 
   async getSearchMovies() {
+    var target = document.querySelector('body');
+    var spinner = new Spinner(opts).spin(target);
     try {
       const response = await axios.get(
         `${BASE_URL}search/movie?api_key=${API_KEY}&language=${this.setLanguage()}&page=${
           this.page
         }&query=${this.searchQuery}`,
       );
+      spinner.stop();
       return response;
     } catch (error) {
       console.error(error);
@@ -37,10 +44,13 @@ export default class MoviesApi {
   }
 
   async getMoviesById() {
+    var target = document.querySelector('body');
+    var spinner = new Spinner(opts).spin(target);
     try {
       const response = await axios.get(
         `${BASE_URL}movie/${this.movieId}?api_key=${API_KEY}&language=${this.setLanguage()}`,
       );
+      spinner.stop();
       return response;
     } catch (error) {
       console.error(error);
@@ -48,10 +58,13 @@ export default class MoviesApi {
   }
 
   async getUpcomingMovies() {
+    var target = document.querySelector('body');
+    var spinner = new Spinner(opts).spin(target);
     try {
       const response = await axios.get(
         `${BASE_URL}movie/upcoming?api_key=${API_KEY}&language=${this.setLanguage()}&page=1`,
       );
+      spinner.stop();
       return response;
     } catch (error) {
       console.error(error);
