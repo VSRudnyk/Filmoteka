@@ -8,7 +8,6 @@ import moviesMarkUp from './js/movies-grid';
 import pageSwitcher from './js/page-switcher';
 import teamModal from './js/team-modal';
 import './js/range-of-search-film';
-import './js/loader.js';
 
 const movies = new MoviesApi();
 const refs = getRefs();
