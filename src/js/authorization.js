@@ -246,9 +246,7 @@ onAuthStateChanged(auth, user => {
     showUserDetails(user);
     refs.openSignInModalBtn.style.display = 'none';
     refs.logoutBtn.style.display = 'block';
-    console.log(user);
     const { displayName, email, uid, photoURL } = user;
-
     writeUserData(displayName, email, uid, photoURL);
     // readUserData(auth);
   } else {

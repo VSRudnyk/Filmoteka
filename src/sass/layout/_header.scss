@@ -77,12 +77,15 @@
 
 .menu_item_slide {
   transform: translateX(0%);
+  opacity: 1;
   transition: transform 250ms ease-in-out;
 }
 
 .menu_item_slide.position {
   position: fixed;
   transform: translateX(375px);
+  opacity: 0;
+  transition: transform 250ms ease-in-out;
 }
 
 .menu_link {
