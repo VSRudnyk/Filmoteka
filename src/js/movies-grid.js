@@ -22,9 +22,9 @@ export default function moviesMarkUp(data) {
                 loading="lazy"/>
             </div>
             <div class="movie-info">
-              <p class="movie-title">${trimTitle(title)}</p>
+              <p class="movie-title">${trimStr(title.toUpperCase())}</p>
               <div class="movie-genres-year-wrapper">
-                <span class="movie-genres">${genresToCards}</span>
+                <span class="movie-genres">${trimStr(genresToCards)}</span>
                 <div class="movie-year-wrapper">
                   <span class="movie-years">${setReleaseDate(release_date)}</span>
                 </div>
@@ -54,9 +54,9 @@ function setReleaseDate(year) {
   }
   return year.slice(0, 4);
 }
-function trimTitle(title) {
-  if (title.length > 40) {
-    return `${title.toUpperCase().substring(0, 37)} <span class="open-title">. . .</span>`;
+function trimStr(str) {
+  if (str.length > 33) {
+    return `${str.substring(0, 30)} <span class="string">...</span>`;
   }
-  return title.toUpperCase();
+  return str;
 }

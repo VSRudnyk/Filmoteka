@@ -10,7 +10,10 @@ export default function createGenresText(genre_ids) {
   const genresArray = genresArreyTrend(genre_ids, allGenres);
 
   for (let genre of genresArray) {
-    const lang = localStorage.getItem('lang');
+    let lang = localStorage.getItem('lang');
+    if (lang === null) {
+      lang = 'en-US';
+    }
     genresToCards.push(genre.name[lang]);
   }
   if (genresToCards.length === 0) {
