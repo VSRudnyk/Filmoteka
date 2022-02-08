@@ -46,8 +46,8 @@ export default function movieDetailMarkUp(data) {
 
   btnQueueRender =
     queue.findIndex(obj => obj.id === data.id) !== -1
-      ? '<button type="button" class="button-add btn-animated queue pressed">remove from queue</button>'
-      : '<button type="button" class="button-add queue">add to queue</button>';
+      ? '<button type="button" class="button-add btn-animated queue pressed" data-key="remove-queue">remove from queue</button>'
+      : '<button type="button" class="button-add queue" data-key="add-queue">add to queue</button>';
 
   const instance = basicLightbox
     .create(
