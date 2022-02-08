@@ -12,9 +12,7 @@ refs.gallery.addEventListener('click', onMovieCardClick);
 function onMovieCardClick(e) {
   setTimeout(() => {
     const modalItems = document.querySelectorAll('.modal-card [data-key]');
-    // const modalBtnCont = document.querySelector('.modal-btn-container');
     modalItems.forEach(translateElement);
-    // modalBtnCont.addEventListener('click', onModalBtnClick);
   }, 150);
 }
 function onSignInBtnClick() {
@@ -25,16 +23,11 @@ function onSignInBtnClick() {
       signInWindowItems.forEach(translateElement);
     }, 150);
   });
-  console.log(signUpBtn);
   setTimeout(() => {
     const signInWindowItems = document.querySelectorAll('.modal-auth-container [data-key]');
     signInWindowItems.forEach(translateElement);
   }, 150);
 }
-// function onModalBtnClick(e) {
-//   translateElement(e.target);
-//   console.log(e.target.getAttribute('data-key'));
-// }
 
 i18next.init(
   {
@@ -66,6 +59,11 @@ i18next.init(
           'sign-up-btn': 'Sign up',
           'remove-watched': 'remove from watched',
           'add-watched': 'add to watched',
+          email: 'E-mail',
+          password: 'Password',
+          search: 'Search a movie',
+          'remove-queue': 'remove from queue',
+          'add-queue': 'add to queue',
         },
       },
       'uk-UA': {
@@ -93,6 +91,11 @@ i18next.init(
           'sign-up-btn': 'Приєднатися',
           'remove-watched': 'видалити з переглянутих',
           'add-watched': 'додати до переглянутих',
+          email: 'Пошта',
+          password: 'Пароль',
+          search: 'Пошук фільмів',
+          'remove-queue': 'видалити з обраного',
+          'add-queue': 'додати до обраного',
         },
       },
       'ru-RU': {
@@ -120,6 +123,11 @@ i18next.init(
           'sign-up-btn': 'Зарегистрироваться',
           'remove-watched': 'удалить из просмотренных',
           'add-watched': 'добавить в просмотренные',
+          email: 'Почта',
+          password: 'Пароль',
+          search: 'Поиск фильмов',
+          'remove-queue': 'удалить из избранных',
+          'add-queue': 'добавить в избранное',
         },
       },
     },
@@ -137,7 +145,25 @@ function updateContent() {
   document.querySelectorAll('[data-key]').forEach(translateElement);
 }
 function translateElement(element) {
+  console.log(element);
   const key = element.getAttribute('data-key');
+  if (element.tagName === 'INPUT') {
+    element.placeholder = i18next.t(key);
+  }
+  if (element.classList.contains('wathed')) {
+    element.addEventListener('click', () => {
+      element.classList.contains('pressed')
+        ? (element.innerText = i18next.t('remove-watched'))
+        : (element.innerText = i18next.t('add-watched'));
+    });
+  }
+  if (element.classList.contains('queue')) {
+    element.addEventListener('click', () => {
+      element.classList.contains('pressed')
+        ? (element.innerText = i18next.t('remove-queue'))
+        : (element.innerText = i18next.t('add-queue'));
+    });
+  }
   element.innerText = i18next.t(key);
 }
 function bindLocaleSwitcher() {
