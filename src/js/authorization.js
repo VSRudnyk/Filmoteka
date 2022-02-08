@@ -221,6 +221,7 @@ function logOutUser() {
       refs.userDetails.innerHTML = '';
       refs.openSignInModalBtn.style.display = 'block';
       refs.logoutBtn.style.display = 'none';
+      location.reload();
     })
     .catch(error => {
       Notify.failure('Oops, something went wrong');
