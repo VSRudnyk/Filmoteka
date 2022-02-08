@@ -7,6 +7,7 @@ import moviesMarkUp from '../js/movies-grid';
 import onLoadPage from '../js/onStart';
 import Pagination from 'tui-pagination';
 import '../sass/layout/_pagination.scss';
+import createPagination from './pagination-searchQuery';
 
 const movies = new MoviesApi();
 const refs = getRefs();
@@ -32,11 +33,11 @@ function displayResults(searchInput, callback) {
   movies.query = searchInput;
 
   movies.getSearchMovies().then(response => {
+    createPagination(response.data.total_results, searchInput);
     if (response.data.results.length === 0) {
       Notify.failure('Ooops, nothing was found');
       return;
     }
-
     callback(response.data.results);
   });
 }

@@ -35,15 +35,20 @@ export default function createPagination(total_results, searchQuery) {
   };
   const pagination = new Pagination(container, options);
 
-  pagination.off();
+  pagination.off('afterMove', function (eventData) {
+    refs.gallery.innerHTML = '';
+    movies.page = eventData.page;
+    movies.getPopularMovies().then(response => {
+      moviesMarkUp(response.data.results);
+    });
+  });
 
   pagination.on('afterMove', function (eventData) {
     movies.page = eventData.page;
     refs.gallery.innerHTML = '';
-    movies.query = searchQuery.value;
+    movies.query = searchQuery;
     movies.getSearchMovies().then(response => {
       moviesMarkUp(response.data.results);
-      console.log(movies.page);
     });
   });
 }
