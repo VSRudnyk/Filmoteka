@@ -54,3 +54,4 @@ function addDarkClassToHTML() {
 }
 
 addDarkClassToHTML();
+
