@@ -6,9 +6,19 @@ import getRefs from './get-refs';
 const movies = new MoviesApi();
 const refs = getRefs();
 const signInBtn = document.querySelector('.signin-btn');
+const teamLink = document.querySelector('.js-team-link');
+
+teamLink.addEventListener('click', onTeamLinkClick);
 signInBtn.addEventListener('click', onSignInBtnClick);
 refs.gallery.addEventListener('click', onMovieCardClick);
 
+function onTeamLinkClick() {
+  setTimeout(() => {
+    const team = document.querySelectorAll('.team-section__container [data-key]');
+    console.log(team);
+    // team.forEach(translateElement);
+  }, 150);
+}
 function onMovieCardClick(e) {
   setTimeout(() => {
     const modalItems = document.querySelectorAll('.modal-card [data-key]');
@@ -33,6 +43,7 @@ i18next.init(
   {
     lng: localStorage.getItem('lang'),
     debug: true,
+    returnObjects: true,
     resources: {
       'en-US': {
         translation: {
@@ -64,6 +75,20 @@ i18next.init(
           search: 'Search a movie',
           'remove-queue': 'remove from queue',
           'add-queue': 'add to queue',
+          our: 'Our',
+          team: 'Team',
+          'dev-name': [
+            'Vladimir Rudnyk',
+            'Maxim Steblyna',
+            'Maxim Samsonenko',
+            'Olha Mashtaler',
+            'Anastasiia Tyshkevych',
+            'Ihor Khomenko',
+            'Liudmyla',
+            'Ihor Kozlov',
+            'Yevgenii Vashchenko',
+          ],
+          'dev-pos': 'Developer',
         },
       },
       'uk-UA': {
@@ -96,6 +121,20 @@ i18next.init(
           search: 'Пошук фільмів',
           'remove-queue': 'видалити з обраного',
           'add-queue': 'додати до обраного',
+          our: 'Наша',
+          team: 'Команда',
+          'dev-name': [
+            'Володимир Рудник',
+            'Максим Стеблина',
+            'Максим Самсоненко',
+            'Ольга Машталер',
+            'Анастасія Тишкевич',
+            'Ігор Хоменко',
+            'Людмила',
+            'Ігор Козлов',
+            'Євгеній Ващенко',
+          ],
+          'dev-pos': 'Розробник',
         },
       },
       'ru-RU': {
@@ -128,6 +167,20 @@ i18next.init(
           search: 'Поиск фильмов',
           'remove-queue': 'удалить из избранных',
           'add-queue': 'добавить в избранное',
+          our: 'Наша',
+          team: 'Команда',
+          'dev-name': {
+            'ru-Ru': 'Владимир Рудник',
+            'ru-RU': 'Максим Стеблина',
+            'ru-RU': 'Максим Самсоненко',
+            'ru-RU': 'Ольга Машталер',
+            'ru-RU': 'Анастасия Тышкевич',
+            'ru-RU': 'Игорь Хоменко',
+            'ru-RU': 'Людмила',
+            'ru-RU': 'Игорь Козлов',
+            'ru-RU': 'Евгений Ващенко',
+          },
+          'dev-pos': 'Разработчик',
         },
       },
     },
@@ -146,8 +199,13 @@ function updateContent() {
 }
 function translateElement(element) {
   const key = element.getAttribute('data-key');
+  const teamMates = [];
+  if (element.tagName === 'H3') {
+    console.log(i18next.t(key));
+    element.innerText = i18next.t(key);
+  }
   if (element.tagName === 'INPUT') {
-    element.placeholder = i18next.t(key);
+    element.placeholder = i18next.t(key['ru-RU']);
   }
   if (element.classList.contains('wathed')) {
     element.addEventListener('click', () => {

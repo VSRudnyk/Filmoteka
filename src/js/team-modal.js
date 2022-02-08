@@ -1,4 +1,3 @@
-
 import data from '../team-card.json';
 import * as basicLightbox from 'basiclightbox';
 import '../../node_modules/basiclightbox/src/styles/main.scss';

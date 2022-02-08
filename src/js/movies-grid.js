@@ -7,7 +7,6 @@ export default function moviesMarkUp(data) {
   const markUp = data
     .map(({ poster_path, title, genre_ids, release_date, id, vote_average: rating }) => {
       const genresToCards = createGenresText(genre_ids);
-      console.log(genresToCards);
       return `
       <div class="movie-card">
        <div class="movie-card__hover">
@@ -56,8 +55,8 @@ function setReleaseDate(year) {
   return year.slice(0, 4);
 }
 function trimStr(str) {
-  if (str.length > 38) {
-    return `${str.substring(0, 35)} <span class="string">. . .</span>`;
+  if (str.length > 33) {
+    return `${str.substring(0, 30)} <span class="string">...</span>`;
   }
   return str;
 }
