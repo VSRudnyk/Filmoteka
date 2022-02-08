@@ -48,8 +48,8 @@ const instance = basicLightbox.create(
           </svg>
         </button>
         <p class="auth-container-text" data-key="description">To log in, enter your email address and password</p>
-        <input type="email" placeholder="E-mail" class="email-input" id="login-email">
-        <input type="password" placeholder="Password" class="passw-input" id="login-password">
+        <input type="email" placeholder="E-mail" class="email-input" id="login-email" data-key="email">
+        <input type="password" placeholder="Password" class="passw-input" id="login-password" data-key="password">
         <button class="login-btn" id="loginBtn" data-key="modal-login">Log in</button>
         <p class="auth-google-text" data-key="authorization">Authorization with social networks</p>
         <div class="auth-social">
@@ -109,8 +109,8 @@ const instance2 = basicLightbox.create(
           <use href="/Filmoteka/sprite.ba1893dc.svg#close-btn"></use>
         </svg>
       </button>
-        <input type="email" placeholder="E-mail" class="email-input sign-up" id="sign-email">
-        <input type="password" placeholder="Password" class="passw-input" id="sign-password">
+        <input type="email" placeholder="E-mail" class="email-input sign-up" id="sign-email" data-key="email">
+        <input type="password" placeholder="Password" class="passw-input" id="sign-password" data-key="password">
     <button class="login-btn" id="signUp" data-key="sign-up-btn">Sign up</button>
     <button id="alreadyHaveAccount" class="login-up-btn" data-key="form-name">Log in</button>
   </div>

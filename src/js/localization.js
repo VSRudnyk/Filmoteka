@@ -25,16 +25,11 @@ function onSignInBtnClick() {
       signInWindowItems.forEach(translateElement);
     }, 150);
   });
-  console.log(signUpBtn);
   setTimeout(() => {
     const signInWindowItems = document.querySelectorAll('.modal-auth-container [data-key]');
     signInWindowItems.forEach(translateElement);
   }, 150);
 }
-// function onModalBtnClick(e) {
-//   translateElement(e.target);
-//   console.log(e.target.getAttribute('data-key'));
-// }
 
 i18next.init(
   {
@@ -66,6 +61,9 @@ i18next.init(
           'sign-up-btn': 'Sign up',
           'remove-watched': 'remove from watched',
           'add-watched': 'add to watched',
+          email: 'E-mail',
+          password: 'Password',
+          search: 'Search a movie',
         },
       },
       'uk-UA': {
@@ -93,6 +91,9 @@ i18next.init(
           'sign-up-btn': 'Приєднатися',
           'remove-watched': 'видалити з переглянутих',
           'add-watched': 'додати до переглянутих',
+          email: 'Пошта',
+          password: 'Пароль',
+          search: 'Пошук фільмів',
         },
       },
       'ru-RU': {
@@ -120,6 +121,9 @@ i18next.init(
           'sign-up-btn': 'Зарегистрироваться',
           'remove-watched': 'удалить из просмотренных',
           'add-watched': 'добавить в просмотренные',
+          email: 'Почта',
+          password: 'Пароль',
+          search: 'Поиск фильмов',
         },
       },
     },
@@ -138,6 +142,9 @@ function updateContent() {
 }
 function translateElement(element) {
   const key = element.getAttribute('data-key');
+  if (element.tagName === 'INPUT') {
+    element.placeholder = i18next.t(key);
+  }
   element.innerText = i18next.t(key);
 }
 function bindLocaleSwitcher() {
