@@ -26,6 +26,8 @@ let queue = localStorage.getItem('queue') ? [...JSON.parse(localStorage.getItem(
 let btnWatchedRender = '';
 let btnQueueRender = '';
 
+export { watched, queue };
+
 export default function movieDetailMarkUp(data) {
   const {
     genres,

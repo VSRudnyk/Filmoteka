@@ -8,7 +8,6 @@ import {
   onAuthStateChanged,
   GoogleAuthProvider,
   FacebookAuthProvider,
-  TwitterAuthProvider,
   GithubAuthProvider,
   signInWithPopup,
 } from 'firebase/auth';
@@ -16,6 +15,7 @@ import { getDatabase, ref, set, onValue } from 'firebase/database';
 import * as basicLightbox from 'basiclightbox';
 import '../../node_modules/basiclightbox/src/styles/main.scss';
 import getRefs from './get-refs';
+import { watched, queue } from './modal-movie-details';
 
 const firebaseConfig = {
   apiKey: 'AIzaSyDru_yvb94CLLyga06XJjVjjbcRtcd4DxY',
@@ -35,18 +35,17 @@ const providerGithub = new GithubAuthProvider();
 const db = getDatabase();
 const refs = getRefs();
 refs.logoutBtn.style.display = 'none';
-const filmBase = [];
 
 const instance = basicLightbox.create(
   `
   <div class="modal">
-      <div class="modal-auth-container">
-        <h3 class="auth-container-title" data-key="form-name">Log in</h3>
-        <button type="button" id="close-modal-btn">
-          <svg width="25" height="25">
-            <use href="/Filmoteka/sprite.ba1893dc.svg#close-btn"></use>
-          </svg>
-        </button>
+    <div class="modal-auth-container">
+      <h3 class="auth-container-title" data-key="form-name">Log in</h3>
+      <button type="button" id="close-modal-btn">
+        <svg width="25" height="25">
+          <use href="/Filmoteka/sprite.ba1893dc.svg#close-btn"></use>
+        </svg>
+      </button>
         <p class="auth-container-text" data-key="description">To log in, enter your email address and password</p>
         <input type="email" placeholder="E-mail" class="email-input" id="login-email" data-key="email">
         <input type="password" placeholder="Password" class="passw-input" id="login-password" data-key="password">
@@ -76,25 +75,14 @@ const instance = basicLightbox.create(
               </a>
             </li>            
           </ul>
-          
-          
         </div>
-
-        <button id="openSignUpModalBtn" class="sign-up-btn" data-key="sign-up">Sign up</button>
+        <button id="openSignUpModalBtn" class="sign-up-btn" data-key="form-name">Sign up</button>
       </div>
   </div>
 `,
   {
     onShow: instance => {
       instance.element().querySelector('#close-modal-btn').onclick = instance.close;
-      document.addEventListener('keydown', e =>
-        e.code === 'Escape' ? instance.close() : instance.show(),
-      );
-    },
-    onClose: () => {
-      document.removeEventListener('keydown', e =>
-        e.code === 'Escape' ? instance.close() : instance.show(),
-      );
     },
   },
 );
@@ -120,14 +108,6 @@ const instance2 = basicLightbox.create(
   {
     onShow: instance => {
       instance.element().querySelector('#close-modal-btn').onclick = instance.close;
-      document.addEventListener('keydown', e =>
-        e.code === 'Escape' ? instance2.close() : instance2.show(),
-      );
-    },
-    onClose: () => {
-      document.removeEventListener('keydown', e =>
-        e.code === 'Escape' ? instance.close() : instance.show(),
-      );
     },
   },
 );
@@ -260,35 +240,34 @@ function showUserDetails(user) {
 
 onAuthStateChanged(auth, user => {
   if (user) {
+    const libraryBtn = document.querySelector('.menu_item_slide');
+    libraryBtn.classList.remove('position');
     showUserDetails(user);
     refs.openSignInModalBtn.style.display = 'none';
     refs.logoutBtn.style.display = 'block';
+    console.log(user);
     const { displayName, email, uid, photoURL } = user;
+
     writeUserData(displayName, email, uid, photoURL);
     // readUserData(auth);
   } else {
+    const libraryBtn = document.querySelector('.menu_item_slide');
+    libraryBtn.classList.add('position');
   }
 });
 
 function writeUserData(displayName, email, uid, photoURL) {
   set(ref(db, 'users/' + uid), {
-    name: displayName,
-    email: email,
-    userId: uid,
-    photoUrl: photoURL,
-    films: [],
+    Name: displayName,
+    Email: email,
+    Watched: watched,
+    Queue: queue,
   });
 }
 
 function readUserData(auth) {
   const userId = auth.currentUser.uid;
-  return onValue(
-    ref(db, '/users/' + userId),
-    snapshot => {
-      console.log(snapshot.val());
-    },
-    {
-      onlyOnce: true,
-    },
-  );
+  return onValue(ref(db, '/users/' + userId), snapshot => {}, {
+    onlyOnce: true,
+  });
 }

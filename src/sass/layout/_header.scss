@@ -75,6 +75,16 @@
   position: relative;
 }
 
+.menu_item_slide {
+  transform: translateX(0%);
+  transition: transform 250ms ease-in-out;
+}
+
+.menu_item_slide.position {
+  position: fixed;
+  transform: translateX(375px);
+}
+
 .menu_link {
   padding: 10px 0;
   cursor: pointer;
