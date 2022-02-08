@@ -7,7 +7,7 @@ export default class MoviesApi {
   constructor() {
     this.searchQuery = '';
     this.movieId = '';
-    this.page = 1;
+    this._page = 1;
     this.language = 'en-US';
   }
 
@@ -17,7 +17,7 @@ export default class MoviesApi {
     try {
       const response = await axios.get(
         `${BASE_URL}trending/movie/day?api_key=${API_KEY}&language=${this.setLanguage()}&page=${
-          this.page
+          this._page
         }`,
       );
       spinner.stop();
@@ -33,7 +33,7 @@ export default class MoviesApi {
     try {
       const response = await axios.get(
         `${BASE_URL}search/movie?api_key=${API_KEY}&language=${this.setLanguage()}&page=${
-          this.page
+          this._page
         }&query=${this.searchQuery}`,
       );
       spinner.stop();
@@ -90,11 +90,11 @@ export default class MoviesApi {
   }
 
   incrementPage() {
-    this.page += 1;
+    this._page += 1;
   }
 
   resetPage() {
-    this.page = 1;
+    this._page = 1;
   }
 
   get query() {

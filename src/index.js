@@ -8,6 +8,7 @@ import moviesMarkUp from './js/movies-grid';
 import pageSwitcher from './js/page-switcher';
 import teamModal from './js/team-modal';
 import './js/range-of-search-film';
+import createPagination from './js/pagination-searchQuery';
 
 const movies = new MoviesApi();
 const refs = getRefs();
@@ -22,7 +23,9 @@ function onFormSubmit(e) {
   refs.gallery.innerHTML = '';
   movies.query = searchQuery.value;
   movies.getSearchMovies().then(response => {
+    console.log(response.data);
     moviesMarkUp(response.data.results);
+    createPagination(response.data.total_results, searchQuery);
   });
 }
 

@@ -5,7 +5,7 @@ import movieDetailMarkUp from '../js/modal-movie-details';
 import buildSlider from '../js/slider';
 import forModalTrailerRender from './modal-trailer';
 import * as basicLightbox from 'basiclightbox';
-
+import createPagination from './pagination';
 import axios from 'axios';
 
 const movies = new MoviesApi();
@@ -25,6 +25,7 @@ export default function onStart() {
 
   movies.resetPage();
   movies.getPopularMovies().then(response => {
+    createPagination(response.data.total_results);
     moviesMarkUp(response.data.results);
     getIdFromCards();
   });
