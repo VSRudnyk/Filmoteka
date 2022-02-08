@@ -11,7 +11,7 @@ export default function createPagination(total_results) {
   const options = {
     totalItems: total_results,
     itemsPerPage: 20,
-    visiblePages: 5,
+    visiblePages: 3,
     page: 1,
     centerAlign: true,
     firstItemClassName: 'tui-first-child',
