@@ -145,7 +145,6 @@ function updateContent() {
   document.querySelectorAll('[data-key]').forEach(translateElement);
 }
 function translateElement(element) {
-  console.log(element);
   const key = element.getAttribute('data-key');
   if (element.tagName === 'INPUT') {
     element.placeholder = i18next.t(key);
