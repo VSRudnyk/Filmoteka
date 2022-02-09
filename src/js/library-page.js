@@ -4,7 +4,7 @@ const refs = getRefs();
 refs.libraryPage.addEventListener('click', renderLibraryHeader);
 
 function renderLibraryHeader(e) {
-    e.preventDefault();
+  e.preventDefault();
 
   refs.form.classList.add('is-hidden');
   refs.btnSectionInLibrary.classList.remove('is-hidden');
@@ -14,7 +14,6 @@ function renderLibraryHeader(e) {
   refs.headerByClass.classList.remove('header');
   refs.headerByTeg.classList.add('header-library');
   refs.search.classList.add('is-hidden');
+  refs.pagination.classList.add('pagination-off');
   refs.search.innerHTML = '';
 }
-
-

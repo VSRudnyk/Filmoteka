@@ -8,10 +8,10 @@ const refs = getRefs();
 
 export default function createPagination(total_results) {
   const container = document.getElementById('tui-pagination-container');
-  const options = {
+  let options = {
     totalItems: total_results,
     itemsPerPage: 20,
-    visiblePages: 3,
+    visiblePages: 5,
     page: 1,
     centerAlign: true,
     firstItemClassName: 'tui-first-child',
@@ -33,6 +33,16 @@ export default function createPagination(total_results) {
         '</a>',
     },
   };
+
+  const mediaQuery = window.matchMedia('(max-width: 768px)');
+  mediaQuery.addEventListener('change', handleMobileChange);
+  function handleMobileChange(e) {
+    if (e.matches) {
+      options.visiblePages = 3;
+    }
+  }
+  handleMobileChange(mediaQuery);
+
   const pagination = new Pagination(container, options);
 
   pagination.on('afterMove', function (eventData) {

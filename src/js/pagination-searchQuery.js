@@ -1,4 +1,5 @@
 import Pagination from 'tui-pagination';
+import '../sass/layout/_pagination.scss';
 import MoviesApi from '../js/api-requests';
 const movies = new MoviesApi();
 import moviesMarkUp from '../js/movies-grid';
@@ -33,6 +34,16 @@ export default function createPagination(total_results, searchQuery) {
         '</a>',
     },
   };
+
+  const mediaQuery = window.matchMedia('(max-width: 768px)');
+  mediaQuery.addEventListener('change', handleMobileChange);
+  function handleMobileChange(e) {
+    if (e.matches) {
+      options.visiblePages = 3;
+    }
+  }
+  handleMobileChange(mediaQuery);
+
   const pagination = new Pagination(container, options);
 
   pagination.off('afterMove', function (eventData) {
