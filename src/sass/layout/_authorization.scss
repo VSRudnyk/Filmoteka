@@ -16,8 +16,13 @@
 }
 .auth-container-title {
   @include font($fs: 25px);
-  border-bottom: 1px solid $modal-grey-text-color;
   padding-bottom: 20px;
+}
+
+.login-signup-container {
+  border-bottom: 1px solid $modal-grey-text-color;
+  display: flex;
+  align-items: baseline;
 }
 
 #close-modal-btn {
@@ -120,9 +125,10 @@
 }
 
 .sign-up-btn {
-  position: absolute;
-  top: 14px;
-  left: 100px;
+  // position: absolute;
+  // top: 14px;
+  // left: 100px;
+  margin-left: 25px;
   color: $secondary-text-color;
   background-color: transparent;
   border: none;
@@ -132,16 +138,16 @@
   justify-content: center;
   align-items: center;
 
-  @media screen and (min-width: 768px) {
-    top: 34px;
-    left: 135px;
-  }
+  // @media screen and (min-width: 768px) {
+  //   top: 34px;
+  //   left: 135px;
+  // }
 }
 
 .login-up-btn {
-  position: absolute;
-  top: 14px;
-  left: 185px;
+  // position: absolute;
+  // top: 14px;
+  // left: 185px;
   color: $secondary-text-color;
   background-color: transparent;
   border: none;
@@ -150,11 +156,12 @@
   align-content: center;
   justify-content: center;
   align-items: center;
+  margin-left: 25px;
 
-  @media screen and (min-width: 768px) {
-    top: 34px;
-    left: 210px;
-  }
+  // @media screen and (min-width: 768px) {
+  //   top: 34px;
+  //   left: 210px;
+  // }
 }
 
 .social-list {

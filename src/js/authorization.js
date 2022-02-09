@@ -40,7 +40,10 @@ const instance = basicLightbox.create(
   `
   <div class="modal">
     <div class="modal-auth-container">
-      <h3 class="auth-container-title" data-key="form-name">Log in</h3>
+      <div class="login-signup-container">
+        <h3 class="auth-container-title" data-key="form-name">Log in</h3>
+        <button id="openSignUpModalBtn" class="sign-up-btn" data-key="form-name">Sign up</button>
+      </div>
       <button type="button" id="close-modal-btn">
         <svg width="25" height="25">
           <use href="/Filmoteka/sprite.ba1893dc.svg#close-btn"></use>
@@ -76,7 +79,6 @@ const instance = basicLightbox.create(
             </li>            
           </ul>
         </div>
-        <button id="openSignUpModalBtn" class="sign-up-btn" data-key="form-name">Sign up</button>
       </div>
   </div>
 `,
@@ -91,7 +93,10 @@ const instance2 = basicLightbox.create(
   `
   <div class="modal">
   <div class="modal-auth-container">
-    <h3 class="auth-container-title" data-key="sign-up">Sign up</h3>
+    <div class="login-signup-container">
+      <h3 class="auth-container-title" data-key="sign-up">Sign up</h3>
+      <button id="alreadyHaveAccount" class="login-up-btn" data-key="form-name">Log in</button>
+    </div>
       <button type="button" id="close-modal-btn">
         <svg width="25" height="25">
           <use href="/Filmoteka/sprite.ba1893dc.svg#close-btn"></use>
@@ -100,7 +105,6 @@ const instance2 = basicLightbox.create(
         <input type="email" placeholder="E-mail" class="email-input sign-up" id="sign-email" data-key="email">
         <input type="password" placeholder="Password" class="passw-input" id="sign-password" data-key="password">
     <button class="login-btn" id="signUp" data-key="sign-up-btn">Sign up</button>
-    <button id="alreadyHaveAccount" class="login-up-btn" data-key="form-name">Log in</button>
   </div>
 
 </div>
