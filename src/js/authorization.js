@@ -155,11 +155,11 @@ function signUpUser() {
   createUserWithEmailAndPassword(auth, email, password)
     .then(userCredential => {
       // const user = userCredential.user;
-      Notify.success('User created');
+      Notify.success('User created', { position: 'center-top' });
       instance2.close();
     })
     .catch(error => {
-      Notify.failure('Oops, something went wrong');
+      Notify.failure('Oops, something went wrong', { position: 'center-top' });
       console.log(error);
     });
 }
@@ -170,11 +170,11 @@ function loginUser() {
 
   signInWithEmailAndPassword(auth, email, password)
     .then(userCredential => {
-      Notify.success('User logged');
+      Notify.success('User logged', { position: 'center-top' });
       instance.close();
     })
     .catch(error => {
-      Notify.failure('Wrong username or password');
+      Notify.failure('Wrong username or password', { position: 'center-top' });
       console.log(error);
     });
 }
@@ -184,10 +184,10 @@ function loginWithGoogle() {
     .then(result => {
       showUserDetails(result.user);
       instance.close();
-      Notify.success('User logged in with Google');
+      Notify.success('User logged in with Google', { position: 'center-top' });
     })
     .catch(error => {
-      Notify.failure('Oops, something went wrong');
+      Notify.failure('Oops, something went wrong', { position: 'center-top' });
       console.log(error);
     });
 }
@@ -197,10 +197,10 @@ function loginWithFacebook() {
     .then(result => {
       showUserDetails(result.user);
       instance.close();
-      Notify.success('User logged in with Facebook');
+      Notify.success('User logged in with Facebook', { position: 'center-top' });
     })
     .catch(error => {
-      Notify.failure('Oops, something went wrong');
+      Notify.failure('Oops, something went wrong', { position: 'center-top' });
       console.log(error);
     });
 }
@@ -210,10 +210,10 @@ function loginWithGithub() {
     .then(result => {
       showUserDetails(result.user);
       instance.close();
-      Notify.success('User logged in with Github');
+      Notify.success('User logged in with Github', { position: 'center-top' });
     })
     .catch(error => {
-      Notify.failure('Oops, something went wrong');
+      Notify.failure('Oops, something went wrong', { position: 'center-top' });
       console.log(error);
     });
 }
@@ -221,14 +221,14 @@ function loginWithGithub() {
 function logOutUser() {
   signOut(auth)
     .then(() => {
-      Notify.success('User logged out');
+      Notify.success('User logged out', { position: 'center-top' });
       refs.userDetails.innerHTML = '';
       refs.openSignInModalBtn.style.display = 'block';
       refs.logoutBtn.style.display = 'none';
       location.reload();
     })
     .catch(error => {
-      Notify.failure('Oops, something went wrong');
+      Notify.failure('Oops, something went wrong', { position: 'center-top' });
       console.log(error);
     });
 }
