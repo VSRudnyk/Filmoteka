@@ -1,8 +1,20 @@
 import { Notify } from 'notiflix/build/notiflix-notify-aio';
 import { onModalBtnsRenderingPageFromPageSwitcher } from './page-switcher';
 
-function onModalBtnWatchedLocalStorage(btnAddWatched, data, watched) {
+function onModalBtnWatchedLocalStorage(btnAddWatched, data, watched, queue) {
   btnAddWatched.addEventListener('click', e => {
+    if (
+      e.path[1].children[1].classList.contains('pressed') &&
+      !e.target.classList.contains('pressed')
+    ) {
+      e.path[1].children[1].classList.remove('pressed');
+      e.path[1].children[1].textContent = 'add to queue';
+      queue.splice(
+        queue.findIndex(obj => obj.id === data.id),
+        1,
+      );
+      localStorage.setItem('queue', JSON.stringify(queue));
+    } // дві кнопки не може бути активними зразу
     if (e.target.classList.contains('pressed')) {
       e.target.classList.remove('pressed');
       e.target.textContent = 'add to watched';
@@ -25,8 +37,20 @@ function onModalBtnWatchedLocalStorage(btnAddWatched, data, watched) {
   });
 }
 
-function onModalBtnQueueLocalStorage(btnAddQueue, data, queue) {
+function onModalBtnQueueLocalStorage(btnAddQueue, data, queue, watched) {
   btnAddQueue.addEventListener('click', e => {
+    if (
+      e.path[1].children[0].classList.contains('pressed') &&
+      !e.target.classList.contains('pressed')
+    ) {
+      e.path[1].children[0].classList.remove('pressed');
+      e.path[1].children[0].textContent = 'add to queue';
+      watched.splice(
+        watched.findIndex(obj => obj.id === data.id),
+        1,
+      );
+      localStorage.setItem('watched', JSON.stringify(watched));
+    } // дві кнопки не може бути активними зразу
     if (e.target.classList.contains('pressed')) {
       e.target.classList.remove('pressed');
       e.target.textContent = 'add to queue';
