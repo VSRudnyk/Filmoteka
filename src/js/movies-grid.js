@@ -10,7 +10,7 @@ export default function moviesMarkUp(data) {
       return `
       <div class="movie-card">
        <div class="movie-card__hover">
-          <a class="movie-link">
+          <a href="javascript:void(0)" class="movie-link">
             <div class="movie-poster-wrapper">
               <span class="movie-rating-wrapper">            
                 <div class="movie-rating">${rating}</div>
