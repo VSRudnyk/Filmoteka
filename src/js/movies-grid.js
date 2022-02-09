@@ -9,8 +9,7 @@ export default function moviesMarkUp(data) {
       const genresToCards = createGenresText(genre_ids);
       return `
       <div class="movie-card">
-       <div class="movie-card__hover">
-          <a class="movie-link">
+          <a href="" class="movie-link">
             <div class="movie-poster-wrapper">
               <span class="movie-rating-wrapper">            
                 <div class="movie-rating">${rating}</div>
@@ -31,7 +30,6 @@ export default function moviesMarkUp(data) {
             </div>
             </div>
         </a>
-       </div>
       </div>`;
     })
     .join('');
