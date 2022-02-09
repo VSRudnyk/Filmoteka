@@ -9,29 +9,27 @@ export default function moviesMarkUp(data) {
       const genresToCards = createGenresText(genre_ids);
       return `
       <div class="movie-card">
-       <div class="movie-card__hover">
-          <a href="javascript:void(0)" class="movie-link">
-            <div class="movie-poster-wrapper">
-              <span class="movie-rating-wrapper">            
-                <div class="movie-rating">${rating}</div>
-              </span>
-              <img src="${setPoster(poster_path)}" 
-                alt=""
-                class="movie-card-img movie-poster"
-                data-id="${id}" 
-                loading="lazy"/>
-            </div>
-            <div class="movie-info">
-              <p class="movie-title">${trimStr(title.toUpperCase())}</p>
-              <div class="movie-genres-year-wrapper">
-                <span class="movie-genres">${trimStr(genresToCards)}</span>
-                <div class="movie-year-wrapper">
-                  <span class="movie-years">${setReleaseDate(release_date)}</span>
-                </div>
-            </div>
-            </div>
+        <a href="javascript:void(0)" class="movie-link">
+          <div class="movie-poster-wrapper">
+            <span class="movie-rating-wrapper">            
+              <div class="movie-rating">${rating}</div>
+            </span>
+            <img src="${setPoster(poster_path)}" 
+              alt=""
+              class="movie-card-img movie-poster"
+              data-id="${id}" 
+              loading="lazy"/>
+          </div>
+          <div class="movie-info">
+            <p class="movie-title">${trimStr(title.toUpperCase())}</p>
+            <div class="movie-genres-year-wrapper">
+              <span class="movie-genres">${trimStr(genresToCards)}</span>
+              <div class="movie-year-wrapper">
+                <span class="movie-years">${setReleaseDate(release_date)}</span>
+              </div>
+          </div>
+          </div>
         </a>
-       </div>
       </div>`;
     })
     .join('');
