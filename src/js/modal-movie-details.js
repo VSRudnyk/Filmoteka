@@ -69,7 +69,7 @@ export default function movieDetailMarkUp(data) {
            <table>
         <tr>
           <th class="info-table-td" data-key="vote">Vote / Votes</td>
-          <td> <span class="info-table-vote_average">${vote_average}</span>    /   <span class="info-table-vote_count"> ${vote_count} </span></td>
+          <td> <span class="info-table-vote_average">${vote_average}</span>/<span class="info-table-vote_count"> ${vote_count} </span></td>
         </tr>
         <tr>
           <th class="info-table-td" data-key="popularity">Popularity</td>
