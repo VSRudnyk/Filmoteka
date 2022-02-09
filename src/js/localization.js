@@ -200,12 +200,12 @@ function updateContent() {
 function translateElement(element) {
   const key = element.getAttribute('data-key');
   const teamMates = [];
-  if (element.tagName === 'H3') {
-    console.log(i18next.t(key));
-    element.innerText = i18next.t(key);
-  }
+  // if (element.tagName === 'H3') {
+  //   console.log(i18next.t(key));
+  //   element.innerText = i18next.t(key);
+  // }
   if (element.tagName === 'INPUT') {
-    element.placeholder = i18next.t(key['ru-RU']);
+    element.placeholder = i18next.t(key);
   }
   if (element.classList.contains('wathed')) {
     element.addEventListener('click', () => {
