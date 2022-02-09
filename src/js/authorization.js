@@ -42,7 +42,7 @@ const instance = basicLightbox.create(
     <div class="modal-auth-container">
       <div class="login-signup-container">
         <h3 class="auth-container-title" data-key="form-name">Log in</h3>
-        <button id="openSignUpModalBtn" class="sign-up-btn" data-key="form-name">Sign up</button>
+        <button id="openSignUpModalBtn" class="sign-up-btn" data-key="sign-up">Sign up</button>
       </div>
       <button type="button" id="close-modal-btn">
         <svg width="25" height="25">
