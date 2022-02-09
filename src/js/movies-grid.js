@@ -9,7 +9,7 @@ export default function moviesMarkUp(data) {
       const genresToCards = createGenresText(genre_ids);
       return `
       <div class="movie-card">
-          <a href="" class="movie-link">
+          <a href="javascript:void(0)" class="movie-link">
             <div class="movie-poster-wrapper">
               <span class="movie-rating-wrapper">            
                 <div class="movie-rating">${rating}</div>
