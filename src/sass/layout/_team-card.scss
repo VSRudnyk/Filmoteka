@@ -1,4 +1,3 @@
-
 .team-section {
   position: relative;
   display: flex;
@@ -6,39 +5,43 @@
   align-items: center;
   flex-wrap: wrap;
   background: url(../images/background/bg3.png);
+
+  &.dark-bg {
+    background: linear-gradient(rgb(0 0 0 / 50%), rgb(0 0 0 / 80%)),
+      url(../images/background/webb-dark.png);
+  }
   // on dark theme
-    // background: #161616;
+  // background: #161616;
 
   // background-image: linear-gradient(
   // to top,
   // #16161610 85%,
   // $secondary-text-color );
-//   background-image: radial-gradient(
-//     circle at bottom left,
-//     $secondary-text-color 10%,
-//     #fff 30%,
- 
+  //   background-image: radial-gradient(
+  //     circle at bottom left,
+  //     $secondary-text-color 10%,
+  //     #fff 30%,
 
-// );
+  // );
   &__container {
-      height: 100vh;
-    }
-    &::before {
-      content: '';
-      position: absolute;
-      top: 0;
-      left: 0;
-      width: 100%;
-      height: 100%;
+    height: 100vh;
+  }
+  &::before {
+    content: '';
+    position: absolute;
+    top: 0;
+    left: 0;
+    width: 100%;
+    height: 100%;
   }
   &::after {
-      content: '';
-      position: absolute;
-      top: 0;
-      left: 0;
-      width: 100%;
-      height: 100%;
-    }
+    content: '';
+    position: absolute;
+    top: 0;
+    left: 0;
+    width: 100%;
+    height: 100%;
+  }
 }
 .cards-container {
   position: relative;
@@ -83,8 +86,8 @@
   text-shadow: 2px 2px 2px #000;
 }
 .team-title-accent {
-    color: $secondary-text-color;
-    text-shadow: 1px 1px 1px #000;
+  color: $secondary-text-color;
+  text-shadow: 1px 1px 1px #000;
 }
 .card__content {
   display: flex;
@@ -94,10 +97,10 @@
   opacity: 0.8;
   transition: 0.4s;
   .cards-container .card:hover & {
-      opacity: 1;
-      transform: translateY(-20px);
-    }  
-}  
+    opacity: 1;
+    transform: translateY(-20px);
+  }
+}
 .imgBox {
   position: relative;
   width: 190px;
@@ -105,22 +108,21 @@
   border-radius: 50%;
   overflow: hidden;
   border: 2px solid rgba(15, 15, 15, 0.705);
-    // on dark theme
-    // border: 5px solid rgba(255, 255, 255, 0.05);
+  // on dark theme
+  // border: 5px solid rgba(255, 255, 255, 0.05);
 
-
-&__img {
-  position: absolute;
-  top: 0;
-  left: 0;
-  width: 100%;
-  height: 100%;
-  object-fit: cover;
-}
-.card:hover &,
-.card:active & {
-  border: 5px solid $secondary-text-color;
-}
+  &__img {
+    position: absolute;
+    top: 0;
+    left: 0;
+    width: 100%;
+    height: 100%;
+    object-fit: cover;
+  }
+  .card:hover &,
+  .card:active & {
+    border: 5px solid $secondary-text-color;
+  }
 }
 
 .contentBox {
@@ -145,18 +147,18 @@
     max-width: 650px;
   }
   .card__content {
-      opacity: 1;
-      transition: 0.5s;
+    opacity: 1;
+    transition: 0.5s;
 
-        // on dark theme
-      // opacity: 0.75;
-      // transition: 0.5s;
-  
-      .cards-container .card:hover & {
-        opacity: 1;
-        transform: translateY(-20px);
-      }
+    // on dark theme
+    // opacity: 0.75;
+    // transition: 0.5s;
+
+    .cards-container .card:hover & {
+      opacity: 1;
+      transform: translateY(-20px);
     }
+  }
 }
 @media screen and (min-width: 1032px) {
   .team-section {

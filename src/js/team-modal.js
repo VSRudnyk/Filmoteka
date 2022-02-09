@@ -18,6 +18,10 @@ function onTeamModalShow() {
     e.target.classList.value === 'basicLightbox'
       ? teamModal.close()
       : teamModal.show();
+
+    if (localStorage.getItem('theme') === 'dark') {
+      document.querySelector('.team-section').classList.add('dark-bg');
+    }
   }
 
   function onCloseEsc(e) {
@@ -37,6 +41,3 @@ function onTeamModalShow() {
 
   teamModal.show();
 }
-
-
-
