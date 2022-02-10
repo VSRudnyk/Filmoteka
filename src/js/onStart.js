@@ -7,6 +7,7 @@ import forModalTrailerRender from './modal-trailer';
 import * as basicLightbox from 'basiclightbox';
 import createPagination from './pagination';
 import axios from 'axios';
+import { translateItems } from './localization';
 
 const movies = new MoviesApi();
 const refs = getRefs();
@@ -37,7 +38,9 @@ export default function onStart() {
 
 function onSearchMovieById() {
   movies.getMoviesById().then(response => {
-    movieDetailMarkUp(response.data); // Модалка полной информации о фильме
+    // Модалка полной информации о фильме
+    movieDetailMarkUp(response.data);
+    translateItems('.modal-card [data-key]');
   });
 }
 

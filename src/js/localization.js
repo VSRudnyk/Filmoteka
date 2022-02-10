@@ -5,37 +5,10 @@ import getRefs from './get-refs';
 
 const movies = new MoviesApi();
 const refs = getRefs();
-const signInBtn = document.querySelector('.signin-btn');
-const teamLink = document.querySelector('.js-team-link');
 
-teamLink.addEventListener('click', onTeamLinkClick);
-signInBtn.addEventListener('click', onSignInBtnClick);
-refs.gallery.addEventListener('click', onMovieCardClick);
-
-function onTeamLinkClick() {
+function translateItems(str) {
   setTimeout(() => {
-    const team = document.querySelectorAll('.team-section__container [data-key]');
-    console.log(team);
-    // team.forEach(translateElement);
-  }, 150);
-}
-function onMovieCardClick(e) {
-  setTimeout(() => {
-    const modalItems = document.querySelectorAll('.modal-card [data-key]');
-    modalItems.forEach(translateElement);
-  }, 150);
-}
-function onSignInBtnClick() {
-  const signUpBtn = document.querySelector('.sign-up-btn');
-  signUpBtn.addEventListener('click', () => {
-    setTimeout(() => {
-      const signInWindowItems = document.querySelectorAll('.modal-auth-container [data-key]');
-      signInWindowItems.forEach(translateElement);
-    }, 150);
-  });
-  setTimeout(() => {
-    const signInWindowItems = document.querySelectorAll('.modal-auth-container [data-key]');
-    signInWindowItems.forEach(translateElement);
+    document.querySelectorAll(str).forEach(translateElement);
   }, 150);
 }
 
@@ -77,17 +50,6 @@ i18next.init(
           'add-queue': 'add to queue',
           our: 'Our',
           team: 'Team',
-          'dev-name': [
-            'Vladimir Rudnyk',
-            'Maxim Steblyna',
-            'Maxim Samsonenko',
-            'Olha Mashtaler',
-            'Anastasiia Tyshkevych',
-            'Ihor Khomenko',
-            'Liudmyla Nedosheva',
-            'Ihor Kozlov',
-            'Yevgenii Vashchenko',
-          ],
           'dev-pos': 'Developer',
         },
       },
@@ -123,17 +85,6 @@ i18next.init(
           'add-queue': 'додати до обраного',
           our: 'Наша',
           team: 'Команда',
-          'dev-name': [
-            'Володимир Рудник',
-            'Максим Стеблина',
-            'Максим Самсоненко',
-            'Ольга Машталер',
-            'Анастасія Тишкевич',
-            'Ігор Хоменко',
-            'Людмила Недьошева',
-            'Ігор Козлов',
-            'Євгеній Ващенко',
-          ],
           'dev-pos': 'Розробник',
         },
       },
@@ -169,17 +120,6 @@ i18next.init(
           'add-queue': 'добавить в избранное',
           our: 'Наша',
           team: 'Команда',
-          'dev-name': {
-            'ru-Ru': 'Владимир Рудник',
-            'ru-RU': 'Максим Стеблина',
-            'ru-RU': 'Максим Самсоненко',
-            'ru-RU': 'Ольга Машталер',
-            'ru-RU': 'Анастасия Тышкевич',
-            'ru-RU': 'Игорь Хоменко',
-            'ru-RU': 'Людмила Недёшева',
-            'ru-RU': 'Игорь Козлов',
-            'ru-RU': 'Евгений Ващенко',
-          },
           'dev-pos': 'Разработчик',
         },
       },
@@ -199,11 +139,7 @@ function updateContent() {
 }
 function translateElement(element) {
   const key = element.getAttribute('data-key');
-  const teamMates = [];
-  // if (element.tagName === 'H3') {
-  //   console.log(i18next.t(key));
-  //   element.innerText = i18next.t(key);
-  // }
+
   if (element.tagName === 'INPUT') {
     element.placeholder = i18next.t(key);
   }
@@ -239,10 +175,11 @@ function bindLocaleSwitcher() {
   };
 }
 function changeLng(lng) {
-  i18next.changeLanguage(lng);
   localStorage.setItem('lang', lng);
+  i18next.changeLanguage(lng);
 }
 
 i18next.on('languageChanged', () => {
   updateContent();
 });
+export { translateItems };
