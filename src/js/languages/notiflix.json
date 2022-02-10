@@ -31,11 +31,6 @@
     }
   },
   "auth": {
-    "networks": {
-      "google": "Google",
-      "facebook": "Facebook",
-      "github": "Github"
-    },
     "failure": {
       "en": "Oops, something went wrong!",
       "ua": "Щось пішло не так",
@@ -62,9 +57,21 @@
       "ru": "Пользователь вышел"
     },
     "logwith": {
-      "en": "User logged in with ",
-      "ua": "Користувач авторизувався через ",
-      "ru": "Пользователь авторизировался через "
+      "google": {
+        "en": "User logged in with Google",
+        "ua": "Користувач авторизувався через Google",
+        "ru": "Пользователь авторизировался через Google"
+      },
+      "facebook": {
+        "en": "User logged in with Facebook",
+        "ua": "Користувач авторизувався через Facebook",
+        "ru": "Пользователь авторизировался через Facebook"
+      },
+      "github": {
+        "en": "User logged in with Github",
+        "ua": "Користувач авторизувався через Github",
+        "ru": "Пользователь авторизировался через Github"
+      }
     }
   }
 }
