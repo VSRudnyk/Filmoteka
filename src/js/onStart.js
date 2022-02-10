@@ -20,6 +20,10 @@ window.addEventListener('scroll', function () {
   arrowTop.hidden = pageYOffset < document.documentElement.clientHeight;
 });
 
+movies.getUpcomingMovies().then(response => {
+  buildSlider(response.data.results);
+});
+
 export default function onStart() {
   refs.gallery.innerHTML = '';
 
@@ -28,9 +32,6 @@ export default function onStart() {
     createPagination(response.data.total_results);
     moviesMarkUp(response.data.results);
     getIdFromCards();
-  });
-  movies.getUpcomingMovies().then(response => {
-    buildSlider(response.data.results);
   });
 }
 

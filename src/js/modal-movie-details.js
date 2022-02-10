@@ -125,8 +125,8 @@ export default function movieDetailMarkUp(data) {
   const btnAddWatched = document.querySelector('.wathed');
   const btnAddQueue = document.querySelector('.queue');
 
-  onModalBtnWatchedLocalStorage(btnAddWatched, data, watched);
-  onModalBtnQueueLocalStorage(btnAddQueue, data, queue);
+  onModalBtnWatchedLocalStorage(btnAddWatched, data, watched, queue);
+  onModalBtnQueueLocalStorage(btnAddQueue, data, queue, watched);
 
   function setPosters(poster) {
     if (poster === null) {
