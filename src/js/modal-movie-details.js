@@ -1,11 +1,7 @@
-import getRefs from '../js/get-refs';
 import {
   onModalBtnWatchedLocalStorage,
   onModalBtnQueueLocalStorage,
 } from './modal-btns-loca-storage';
-// import i18next from './localization';
-
-// console.log(i18next.json());
 
 import * as basicLightbox from 'basiclightbox';
 import '../../node_modules/basiclightbox/src/styles/main.scss';
@@ -18,7 +14,7 @@ import '../../node_modules/basiclightbox/src/styles/main.scss';
 //     </div>
 // `);
 // instance.show();
-const refs = getRefs();
+
 let watched = localStorage.getItem('watched')
   ? [...JSON.parse(localStorage.getItem('watched'))]
   : [];
