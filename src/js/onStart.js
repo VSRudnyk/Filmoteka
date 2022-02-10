@@ -4,9 +4,7 @@ import moviesMarkUp from '../js/movies-grid';
 import movieDetailMarkUp from '../js/modal-movie-details';
 import buildSlider from '../js/slider';
 import forModalTrailerRender from './modal-trailer';
-import * as basicLightbox from 'basiclightbox';
 import createPagination from './pagination';
-import axios from 'axios';
 import { translateItems } from './localization';
 
 const movies = new MoviesApi();

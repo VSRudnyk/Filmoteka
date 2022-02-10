@@ -14,11 +14,31 @@ export default function moviesMarkUp(data) {
             <span class="movie-rating-wrapper">            
               <div class="movie-rating">${rating}</div>
             </span>
-            <img src="${setPoster(poster_path)}" 
+            <picture>
+                <source srcset="
+                ${setPoster(poster_path, 'original')} 1x,
+                ${setPoster(poster_path, 'original')} 2x
+                " 
+                media="(min-width: 1024px)"
+                >
+                <source srcset="
+                ${setPoster(poster_path, 'w500')} 1x,
+                ${setPoster(poster_path, 'w500')} 2x
+                " 
+                media="(min-width: 768px)"
+                >
+              <source srcset="
+                ${setPoster(poster_path, 'w300')} 1x,
+                ${setPoster(poster_path, 'w300')} 2x
+                " 
+                >
+
+              <img src="${setPoster(poster_path, 'w300')}" 
               alt=""
               class="movie-card-img movie-poster"
               data-id="${id}" 
               loading="lazy"/>
+            </picture>
           </div>
           <div class="movie-info">
             <p class="movie-title">${trimStr(title.toUpperCase())}</p>
@@ -38,12 +58,12 @@ export default function moviesMarkUp(data) {
   // refs.goUpBtn.style = 'display: block';
 }
 
-function setPoster(poster) {
+function setPoster(poster, imgSize) {
   if (poster === null) {
     return 'https://wipfilms.net/wp-content/data/posters/tt0338683.jpg';
   }
 
-  return `https://image.tmdb.org/t/p/original${poster}`;
+  return `https://image.tmdb.org/t/p/${imgSize}${poster}`;
 }
 
 function setReleaseDate(year) {
