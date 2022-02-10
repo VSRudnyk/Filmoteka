@@ -1,0 +1,70 @@
+{
+  "apifilms": {
+    "failure": {
+      "en": "Ooops, nothing was found",
+      "ua": "Йой, нічого не знайдено",
+      "ru": "не-а, давай ещё раз"
+    }
+  },
+  "watched": {
+    "failure": {
+      "en": "Film removed from watched",
+      "ua": "Фільм видалено з переглянутих",
+      "ru": "Фильм удалён из просмотренных"
+    },
+    "success": {
+      "en": "Film added to watched",
+      "ua": "Фільм додано до переглянутих",
+      "ru": "Фильм добавлен к просмотренным"
+    }
+  },
+  "queue": {
+    "failure": {
+      "en": "Film removed from queue",
+      "ua": "Фільм видалено з обраних",
+      "ru": "Фильм удалён из избранных"
+    },
+    "success": {
+      "en": "Film added to queue",
+      "ua": "Фільм додано до обраних",
+      "ru": "Фильм добавлен к избранным"
+    }
+  },
+  "auth": {
+    "networks": {
+      "google": "Google",
+      "facebook": "Facebook",
+      "github": "Github"
+    },
+    "failure": {
+      "en": "Oops, something went wrong!",
+      "ua": "Щось пішло не так",
+      "ru": "Не сработало"
+    },
+    "created": {
+      "en": "User created",
+      "ua": "Користувача створено",
+      "ru": "Пользователь создан"
+    },
+    "login": {
+      "en": "User logged",
+      "ua": "Користувача авторизовано",
+      "ru": "Пользователь авторизирован"
+    },
+    "loginFail": {
+      "en": "Wrong username or password",
+      "ua": "Невірне ім'я або пароль",
+      "ru": "Неправильное имя или пароль"
+    },
+    "logout": {
+      "en": "User logged out",
+      "ua": "Користувач вийшов",
+      "ru": "Пользователь вышел"
+    },
+    "logwith": {
+      "en": "User logged in with ",
+      "ua": "Користувач авторизувався через ",
+      "ru": "Пользователь авторизировался через "
+    }
+  }
+}
