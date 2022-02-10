@@ -24,8 +24,9 @@ const userCreatedMsg = messages.auth.created;
 const failureMsg = messages.auth.failure;
 const loginMsg = messages.auth.login;
 const loginFailMsg = messages.auth.loginFail;
-const logInWith = messages.auth.logwith;
-const network = messages.auth.networks;
+const logWithGoogle = messages.auth.logwith.google;
+const logWithFacebook = messages.auth.logwith.facebook;
+const logWithGithub = messages.auth.logwith.github;
 const logoutMsg = messages.auth.logout;
 
 const firebaseConfig = {
@@ -197,7 +198,7 @@ function loginWithGoogle() {
     .then(result => {
       showUserDetails(result.user);
       instance.close();
-      Notify.success(translateMsg(`${logInWith}${network.google}`), { position: 'center-top' });
+      Notify.success(translateMsg(logWithGoogle), { position: 'center-top' });
     })
     .catch(error => {
       Notify.failure(translateMsg(failureMsg), { position: 'center-top' });
@@ -210,7 +211,7 @@ function loginWithFacebook() {
     .then(result => {
       showUserDetails(result.user);
       instance.close();
-      Notify.success(translateMsg(`${logInWith}${network.facebook}`), { position: 'center-top' });
+      Notify.success(translateMsg(logWithFacebook), { position: 'center-top' });
     })
     .catch(error => {
       Notify.failure(translateMsg(failureMsg), { position: 'center-top' });
@@ -223,7 +224,7 @@ function loginWithGithub() {
     .then(result => {
       showUserDetails(result.user);
       instance.close();
-      Notify.success(translateMsg(`${logInWith}${network.github}`), { position: 'center-top' });
+      Notify.success(translateMsg(logWithGithub), { position: 'center-top' });
     })
     .catch(error => {
       Notify.failure(translateMsg(failureMsg), { position: 'center-top' });
