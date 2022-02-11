@@ -143,20 +143,6 @@ function translateElement(element) {
   if (element.tagName === 'INPUT') {
     element.placeholder = i18next.t(key);
   }
-  if (element.classList.contains('wathed')) {
-    element.addEventListener('click', () => {
-      element.classList.contains('pressed')
-        ? (element.innerText = i18next.t('remove-watched'))
-        : (element.innerText = i18next.t('add-watched'));
-    });
-  }
-  if (element.classList.contains('queue')) {
-    element.addEventListener('click', () => {
-      element.classList.contains('pressed')
-        ? (element.innerText = i18next.t('remove-queue'))
-        : (element.innerText = i18next.t('add-queue'));
-    });
-  }
   element.innerText = i18next.t(key);
 }
 function bindLocaleSwitcher() {

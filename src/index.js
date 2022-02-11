@@ -27,6 +27,7 @@ function onFormSubmit(e) {
     moviesMarkUp(response.data.results);
     createPagination(response.data.total_results, searchQuery);
   });
+  searchQuery.value = '';
 }
 
 onLoadPage();
@@ -54,4 +55,3 @@ function addDarkClassToHTML() {
 }
 
 addDarkClassToHTML();
-

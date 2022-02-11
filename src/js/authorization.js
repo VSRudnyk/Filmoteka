@@ -17,7 +17,7 @@ import '../../node_modules/basiclightbox/src/styles/main.scss';
 import getRefs from './get-refs';
 import { watched, queue } from './modal-movie-details';
 import { translateItems } from './localization';
-import { translateMsg } from './notiflix-translate';
+import { translateMsg } from './translate';
 import messages from './languages/notiflix.json';
 
 const userCreatedMsg = messages.auth.created;

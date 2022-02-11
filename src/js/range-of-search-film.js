@@ -6,7 +6,7 @@ import moviesMarkUp from '../js/movies-grid';
 import onLoadPage from '../js/onStart';
 import '../sass/layout/_pagination.scss';
 import createPagination from './pagination-searchQuery';
-import { translateMsg } from './notiflix-translate';
+import { translateMsg } from './translate';
 import messages from './languages/notiflix.json';
 
 const noMovieFound = messages.apifilms.failure;
