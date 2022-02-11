@@ -151,6 +151,9 @@
   &::placeholder {
     color: $white-text-color;
   }
+  &:focus::placeholder {
+    color: transparent;
+  }
 
   &:hover,
   &:focus {
