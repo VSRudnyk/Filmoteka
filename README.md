@@ -77,10 +77,11 @@ Filmoteka is a dynamic and user-friendly web application built using a combinati
   
   ### Built With
   
-  - ![React](https://img.shields.io/badge/React-20232A?style=for-the-badge&logo=React&logoColor=61DAFB&style=plastic)
-  - ![Node.js](https://img.shields.io/badge/NODE.JS-91c63d?style=for-the-badge&logo=node.js&logoColor=white&style=plastic)
-  - ![MongoDB](https://img.shields.io/badge/MongoDB-001e2b?style=for-the-badge&logo=mongodb&logoColor=00ed64&style=plastic)
-  - ![Styled-components] (https://img.shields.io/badge/styled%20components-001e2b?style=for-the-badge&logo=styledcomponents&logoColor=ffffff&style=plastic)
+  - ![HTML5](https://img.shields.io/badge/HTML5-e13403?style=for-the-badge&logo=html5&logoColor=ffffff&style=plastic)
+  - ![SASS](https://img.shields.io/badge/SASS-e187b1?style=for-the-badge&logo=sass&logoColor=ffffff&style=plastic)
+  - ![JavaScript](https://img.shields.io/badge/JavaScript-e6d211?style=for-the-badge&logo=javascript&logoColor=ffffff&style=plastic)
+  - ![GitHub](https://img.shields.io/badge/GitHub-black?style=for-the-badge&logo=github&logoColor=ffffff&style=plastic)
+  - ![Figma](https://img.shields.io/badge/Figma-474747?style=for-the-badge&logo=figma&logoColor=ffffff&style=plastic)
 
   <p align="right"><a href="#readme-top">back to top</a></p>
   
