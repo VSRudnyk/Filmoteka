@@ -18,12 +18,9 @@ const queueRemoveTxt = btnTxt.queue.remove;
 
 function onModalBtnWatchedLocalStorage(btnAddWatched, data, watched, queue) {
   btnAddWatched.addEventListener('click', e => {
-    if (
-      e.path[1].children[1].classList.contains('pressed') &&
-      !e.target.classList.contains('pressed')
-    ) {
-      e.path[1].children[1].classList.remove('pressed');
-      e.path[1].children[1].textContent = translateMsg(queueAddTxt);
+    if (!e.target.classList.contains('pressed')) {
+      e.target.classList.remove('pressed');
+      e.target.textContent = translateMsg(queueAddTxt);
       queue.splice(
         queue.findIndex(obj => obj.id === data.id),
         1,
@@ -38,9 +35,10 @@ function onModalBtnWatchedLocalStorage(btnAddWatched, data, watched, queue) {
         1,
       );
       localStorage.setItem('watched', JSON.stringify(watched));
+
       setTimeout(() => Notify.failure(translateMsg(watchedFailureMsg)), 250);
       onModalBtnsRenderingPageFromPageSwitcher();
-      // setTimeout(() => Notify.failure('Film removed on watched'), 250);
+      // setTimeout(() => Notify.failure('Film removed on queue'), 250);
     } else {
       e.target.classList.add('pressed');
       e.target.textContent = translateMsg(watchRemoveTxt);
@@ -54,12 +52,9 @@ function onModalBtnWatchedLocalStorage(btnAddWatched, data, watched, queue) {
 
 function onModalBtnQueueLocalStorage(btnAddQueue, data, queue, watched) {
   btnAddQueue.addEventListener('click', e => {
-    if (
-      e.path[1].children[0].classList.contains('pressed') &&
-      !e.target.classList.contains('pressed')
-    ) {
-      e.path[1].children[0].classList.remove('pressed');
-      e.path[1].children[0].textContent = translateMsg(queueAddTxt);
+    if (!e.target.classList.contains('pressed')) {
+      e.target.classList.remove('pressed');
+      e.target.textContent = translateMsg(queueAddTxt);
       watched.splice(
         watched.findIndex(obj => obj.id === data.id),
         1,
